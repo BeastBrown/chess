@@ -57,7 +57,6 @@
     "JUnit.passoff.chess in shared.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/bryan/OneDrive/Desktop/codekrap/coursework/cs240/chess",
     "node.js.detected.package.eslint": "true",
@@ -69,7 +68,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -179,7 +178,7 @@
       <option name="presentableId" value="Default" />
       <updated>1736919502181</updated>
       <workItem from="1736919504533" duration="716000" />
-      <workItem from="1736987209995" duration="12363000" />
+      <workItem from="1736987209995" duration="13804000" />
     </task>
     <servers />
   </component>
