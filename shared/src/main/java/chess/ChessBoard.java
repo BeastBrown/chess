@@ -41,4 +41,6 @@ public class ChessBoard {
     public void resetBoard() {
         chessMatrix = new ChessPiece[8][8];
     }
+
+    public boolean[][] getOccupancyMatrix()
 }
