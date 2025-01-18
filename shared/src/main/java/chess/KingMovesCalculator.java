@@ -11,17 +11,16 @@ public class KingMovesCalculator implements PieceMovesCalculator {
         Collection<ChessMove> moves = new HashSet<ChessMove>();
 
         for (ChessPosition scenario : scenarios) {
-            if (isValid(scenario, board)) {
+            if (isValid(scenario, board, color)) {
                 moves.add(new ChessMove(position, scenario, null));
             }
         }
         return moves;
     }
 
-    private boolean isValid(ChessPosition scenario, ChessBoard board) {
-        return scenario.getRow() <= 8 && scenario.getRow() > 0 &&
-                scenario.getColumn() <= 8 && scenario.getColumn() > 0 &&
-                !board.isOccupied(scenario);
+    private boolean isValid(ChessPosition scenario, ChessBoard board, ChessGame.TeamColor color) {
+        return scenario.inBounds() &&
+                ((!board.isOccupied(scenario)) || board.getPiece(scenario).getTeamColor() != color);
     }
 
     private ArrayList<ChessPosition> getScenarios(ChessPosition position) {

@@ -13,7 +13,6 @@ public class ChessBoard {
 
     public ChessBoard() {
         chessMatrix = new ChessPiece[8][8];
-        initializeBoard();
     }
 
     /**

@@ -32,6 +32,11 @@ public class ChessPosition {
         return this.col;
     }
 
+    public boolean inBounds() {
+        return this.getRow() <= 8 && this.getRow() > 0 &&
+                this.getColumn() <= 8 && this.getColumn() > 0;
+    }
+
     @Override
     public boolean equals(Object obj) {
         ChessPosition objAsChessPosition = (ChessPosition) obj;
