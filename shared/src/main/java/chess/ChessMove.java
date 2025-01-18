@@ -45,10 +45,21 @@ public class ChessMove {
         return this.promotionPiece;
     }
 
+    /**
+     * returns whether the ChessMove is equal to another.
+     * This has a lengthy compound proposition using XOR at the end to prevent
+     * a NullPointerException
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         ChessMove move = (ChessMove) obj;
-        return this.startPosition.equals(move.startPosition) && this.endPosition.equals(move.endPosition) && this.promotionPiece.equals(move.promotionPiece);
+        return this.startPosition.equals(move.startPosition) &&
+                this.endPosition.equals(move.endPosition) &&
+                ((!(this.promotionPiece == null ^ move.promotionPiece == null)) &&
+                        ((this.promotionPiece == null && move.promotionPiece == null) ||
+                                this.promotionPiece.equals(move.promotionPiece)));
     }
 
     @Override

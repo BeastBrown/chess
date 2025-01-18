@@ -61,6 +61,7 @@ public class ChessPiece {
     @Override
     public boolean equals(Object obj) {
         ChessPiece piece = (ChessPiece) obj;
+        if (piece == null) {return false;}
         return this.pieceType == piece.pieceType && this.teamColor == piece.teamColor;
     }
 
