@@ -61,6 +61,8 @@ public class ChessPiece {
                 return new BishopMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
             case ROOK:
                 return new RookMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
+            case QUEEN:
+                return new QueenMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
         }
         throw new RuntimeException("Not implemented");
     }
