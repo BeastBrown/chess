@@ -55,6 +55,8 @@ public class ChessPiece {
         switch (this.pieceType) {
             case KING:
                 return new KingMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
+            case PAWN:
+                return new PawnMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
         }
         throw new RuntimeException("Not implemented");
     }
