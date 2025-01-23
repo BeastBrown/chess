@@ -52,19 +52,16 @@ public class ChessPiece {
      * @return Collection of valid moves
      */
     public Collection<ChessMove> pieceMoves(ChessBoard board, ChessPosition myPosition) {
-        switch (this.pieceType) {
-            case KING:
-                return new KingMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
-            case PAWN:
-                return new PawnMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
-            case BISHOP:
-                return new BishopMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
-            case ROOK:
-                return new RookMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
-            case QUEEN:
-                return new QueenMovesCalculator().calculateMoves(board, this.teamColor, myPosition);
-        }
-        throw new RuntimeException("Not implemented");
+
+        PieceMovesCalculator calculator = switch(this.pieceType) {
+            case KING -> new KingMovesCalculator();
+            case PAWN -> new PawnMovesCalculator();
+            case BISHOP -> new BishopMovesCalculator();
+            case ROOK -> new RookMovesCalculator();
+            case QUEEN -> new QueenMovesCalculator();
+            case KNIGHT -> new KnightMovesCalculator();
+        };
+        return calculator.calculateMoves(board, this.teamColor, myPosition);
     }
 
     @Override
