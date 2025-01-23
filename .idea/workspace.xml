@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/KingMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/KingMovesCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/PawnMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/PawnMovesCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/PieceMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/PieceMovesCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
     "JUnit.KingMoveTests.kingMiddleOfBoard.executor": "Debug",
     "JUnit.PawnMoveTests.captureAndPromoteBlack.executor": "Run",
     "JUnit.PawnMoveTests.executor": "Run",
-    "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack.executor": "Debug",
+    "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack.executor": "Run",
     "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveWhite.executor": "Run",
     "JUnit.passoff.chess in shared.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -82,7 +83,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.KingMoveTests">
+  <component name="RunManager" selected="JUnit.PawnMoveTests">
     <configuration name="KingMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
@@ -163,8 +164,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.KingMoveTests" />
         <item itemvalue="JUnit.PawnMoveTests" />
+        <item itemvalue="JUnit.KingMoveTests" />
         <item itemvalue="JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack" />
         <item itemvalue="JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveWhite" />
         <item itemvalue="JUnit.PawnMoveTests.captureAndPromoteBlack" />
@@ -194,7 +195,7 @@
       <workItem from="1737157925264" duration="20435000" />
       <workItem from="1737504569127" duration="362000" />
       <workItem from="1737505022212" duration="26000" />
-      <workItem from="1737585566951" duration="5139000" />
+      <workItem from="1737585566951" duration="6777000" />
     </task>
     <servers />
   </component>
@@ -228,17 +229,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shared/src/main/java/chess/PawnMovesCalculator.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

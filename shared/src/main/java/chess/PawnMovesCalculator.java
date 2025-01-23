@@ -6,17 +6,6 @@ import java.util.HashSet;
 import java.lang.Math;
 
 public class PawnMovesCalculator implements PieceMovesCalculator {
-    public Collection<ChessMove> calculateMoves(ChessBoard board, ChessGame.TeamColor color, ChessPosition position) {
-        HashSet<ChessMove> moves = new HashSet<ChessMove>();
-        ArrayList<ChessPosition> scenarios = getScenarios(position, color);
-        ArrayList<ChessPiece.PieceType> promotionTypes = getPromotionTypes(color, position);
-        for (ChessPosition scenario : scenarios) {
-            for (ChessPiece.PieceType promotionType : promotionTypes) {
-                if (isValid(position, scenario, board, color)) {moves.add(new ChessMove(position, scenario, promotionType));}
-            }
-        }
-        return moves;
-    }
 
     public boolean isValid(ChessPosition position, ChessPosition scenario, ChessBoard board, ChessGame.TeamColor color) {
         if (color == ChessGame.TeamColor.WHITE) {
@@ -52,6 +41,7 @@ public class PawnMovesCalculator implements PieceMovesCalculator {
         return scenarios;
     }
 
+    @Override
     public ArrayList<ChessPiece.PieceType> getPromotionTypes(ChessGame.TeamColor color, ChessPosition position) {
         ArrayList<ChessPiece.PieceType> promotionTypes = new ArrayList<ChessPiece.PieceType>();
         if ((ChessGame.TeamColor.WHITE == color && position.getRow() == 7) ||
