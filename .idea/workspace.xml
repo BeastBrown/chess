@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/chess/BishopMovesCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/KingMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/KingMovesCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/PawnMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/PawnMovesCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/PieceMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/PieceMovesCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +48,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Debug",
+    "JUnit.BishopMoveTests.executor": "Run",
     "JUnit.ChessBoardTests.defaultGameBoard.executor": "Run",
     "JUnit.ChessBoardTests.executor": "Run",
     "JUnit.ChessBoardTests.getAddPiece.executor": "Run",
@@ -58,7 +59,7 @@
     "JUnit.ChessPositionTests.executor": "Run",
     "JUnit.ChessPositionTests.hashSetTest.executor": "Run",
     "JUnit.ChessPositionTests.hashTest.executor": "Run",
-    "JUnit.KingMoveTests.executor": "Run",
+    "JUnit.KingMoveTests.executor": "Debug",
     "JUnit.KingMoveTests.kingMiddleOfBoard.executor": "Debug",
     "JUnit.PawnMoveTests.captureAndPromoteBlack.executor": "Run",
     "JUnit.PawnMoveTests.executor": "Run",
@@ -83,12 +84,48 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="chess" />
+    </key>
+  </component>
   <component name="RunManager" selected="JUnit.PawnMoveTests">
-    <configuration name="KingMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BishopMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.chess.piece" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.piece.BishopMoveTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BishopMoveTests.bishopMoveUntilEdge" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="passoff.chess.piece.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.chess.piece" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.piece.BishopMoveTests" />
+      <option name="METHOD_NAME" value="bishopMoveUntilEdge" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KingMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chess.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,7 +140,7 @@
       <module name="shared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoff.chess.piece.*" />
+          <option name="PATTERN" value="chess.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -114,27 +151,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PawnMoveTests.captureAndPromoteBlack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.chess.piece.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess.piece" />
-      <option name="MAIN_CLASS_NAME" value="passoff.chess.piece.PawnMoveTests" />
-      <option name="METHOD_NAME" value="captureAndPromoteBlack" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoff.chess.piece.*" />
+          <option name="PATTERN" value="chess.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,29 +167,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PawnMoveTests.pawnAdvanceBlockedDoubleMoveWhite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.chess.piece.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess.piece" />
-      <option name="MAIN_CLASS_NAME" value="passoff.chess.piece.PawnMoveTests" />
-      <option name="METHOD_NAME" value="pawnAdvanceBlockedDoubleMoveWhite" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.PawnMoveTests" />
         <item itemvalue="JUnit.KingMoveTests" />
+        <item itemvalue="JUnit.BishopMoveTests" />
+        <item itemvalue="JUnit.BishopMoveTests.bishopMoveUntilEdge" />
         <item itemvalue="JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack" />
-        <item itemvalue="JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveWhite" />
-        <item itemvalue="JUnit.PawnMoveTests.captureAndPromoteBlack" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +200,7 @@
       <workItem from="1737157925264" duration="20435000" />
       <workItem from="1737504569127" duration="362000" />
       <workItem from="1737505022212" duration="26000" />
-      <workItem from="1737585566951" duration="6777000" />
+      <workItem from="1737585566951" duration="11865000" />
     </task>
     <servers />
   </component>
@@ -229,6 +234,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/shared/src/main/java/chess/PieceMovesCalculator.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
