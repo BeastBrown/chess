@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/KnightMovesCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/KnightMovesCalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +202,14 @@
       <workItem from="1737504569127" duration="362000" />
       <workItem from="1737505022212" duration="26000" />
       <workItem from="1737585566951" duration="24157000" />
-      <workItem from="1737654582115" duration="1910000" />
+      <workItem from="1737654582115" duration="2915000" />
+      <workItem from="1738037965073" duration="19000" />
+      <workItem from="1738039679995" duration="963000" />
+      <workItem from="1738082481233" duration="43000" />
+      <workItem from="1738082808755" duration="11000" />
+      <workItem from="1738082840099" duration="36000" />
+      <workItem from="1738082907430" duration="6000" />
+      <workItem from="1738262756808" duration="841000" />
     </task>
     <servers />
   </component>
