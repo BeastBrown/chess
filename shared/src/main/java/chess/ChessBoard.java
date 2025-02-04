@@ -97,7 +97,7 @@ public class ChessBoard {
         throw new RuntimeException("GOD SAVE THE KING");
     }
 
-    public Collection<ChessPosition> getOpposingPositions(ChessGame.TeamColor color) {
+    public Collection<ChessPosition> getOpposingThreatPositions(ChessGame.TeamColor color) {
         HashSet<ChessPosition> opposingPositions = new HashSet<ChessPosition>();
         for (int i = 1; i < 9; i++) {
             for (int j = 1; j < 9; j++) {
@@ -112,9 +112,16 @@ public class ChessBoard {
     }
 
     public Collection<ChessPosition> getFriendlyPositions(ChessGame.TeamColor color) {
-        if (color == ChessGame.TeamColor.WHITE) {return getOpposingPositions(ChessGame.TeamColor.BLACK);} else {
-            return getOpposingPositions(ChessGame.TeamColor.WHITE);
+        HashSet<ChessPosition> friendlyPositions = new HashSet<ChessPosition>();
+        for (int i = 1; i < 9; i++) {
+            for (int j = 1; j < 9; j++) {
+                ChessPiece piece = getPiece(new ChessPosition(i, j));
+                if (piece != null && piece.getTeamColor() == color) {
+                    friendlyPositions.add(new ChessPosition(i, j));
+                }
+            }
         }
+        return friendlyPositions;
     }
 
     private Collection<ChessPosition> getEndPositions(Collection<ChessMove> moves) {

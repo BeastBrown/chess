@@ -81,4 +81,9 @@ public class ChessPiece implements Cloneable{
         ChessPiece clonedPiece = new ChessPiece(this.teamColor, this.pieceType);
         return clonedPiece;
     }
+
+    @Override
+    public String toString() {
+        return this.teamColor.toString() + this.pieceType.toString();
+    }
 }

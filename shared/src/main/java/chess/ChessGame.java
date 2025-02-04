@@ -54,12 +54,14 @@ public class ChessGame {
      */
     public Collection<ChessMove> validMoves(ChessPosition startPosition) {
         Collection<ChessMove> validatedMoves = new HashSet<ChessMove>();
-        Collection<ChessMove> moves = this.board.getPiece(startPosition).pieceMoves(this.board, startPosition);
+        ChessPiece piece = this.board.getPiece(startPosition);
+        Collection<ChessMove> moves = piece.pieceMoves(this.board, startPosition);
+        ChessGame.TeamColor color = piece.getTeamColor();
         for (ChessMove move : moves) {
             try {
                 ChessGame newGame = (ChessGame) this.clone();
                 newGame.board.executeMove(move);
-                if (!newGame.isInCheck(this.teamTurn)) {validatedMoves.add(move);}
+                if (!newGame.isInCheck(color)) {validatedMoves.add(move);}
             } catch (CloneNotSupportedException e) {
                 throw new RuntimeException(e);
             }
@@ -90,7 +92,7 @@ public class ChessGame {
      */
     public boolean isInCheck(TeamColor teamColor) {
         ChessPosition kingPos = this.board.getKingPos(teamColor);
-        Collection<ChessPosition> opposingPositions = this.board.getOpposingPositions(teamColor);
+        Collection<ChessPosition> opposingPositions = this.board.getOpposingThreatPositions(teamColor);
         return opposingPositions.contains(kingPos);
     }
 
