@@ -111,6 +111,12 @@ public class ChessBoard {
         return opposingPositions;
     }
 
+    public Collection<ChessPosition> getFriendlyPositions(ChessGame.TeamColor color) {
+        if (color == ChessGame.TeamColor.WHITE) {return getOpposingPositions(ChessGame.TeamColor.BLACK);} else {
+            return getOpposingPositions(ChessGame.TeamColor.WHITE);
+        }
+    }
+
     private Collection<ChessPosition> getEndPositions(Collection<ChessMove> moves) {
         HashSet<ChessPosition> endPositions = new HashSet<ChessPosition>();
         for (ChessMove move : moves) {
