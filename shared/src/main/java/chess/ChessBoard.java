@@ -1,6 +1,8 @@
 package chess;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 
 /**
  * A chessboard that can hold and rearrange chess pieces.
@@ -81,6 +83,40 @@ public class ChessBoard {
         this.addPiece(new ChessPosition(7,6), new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.PAWN));
         this.addPiece(new ChessPosition(7,7), new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.PAWN));
         this.addPiece(new ChessPosition(7,8), new ChessPiece(ChessGame.TeamColor.BLACK, ChessPiece.PieceType.PAWN));
+    }
+
+    public ChessPosition getKingPos(ChessGame.TeamColor color) {
+        for (int i = 1; i < 9; i++) {
+            for (int j = 1; j < 9; j++) {
+                ChessPiece piece = getPiece(new ChessPosition(i, j));
+                if (piece != null &&
+                piece.getPieceType() == ChessPiece.PieceType.KING &&
+                piece.getTeamColor() == color) {return new ChessPosition(i,j);}
+            }
+        }
+        throw new RuntimeException("GOD SAVE THE KING");
+    }
+
+    public Collection<ChessPosition> getOpposingPositions(ChessGame.TeamColor color) {
+        HashSet<ChessPosition> opposingPositions = new HashSet<ChessPosition>();
+        for (int i = 1; i < 9; i++) {
+            for (int j = 1; j < 9; j++) {
+                ChessPiece piece = getPiece(new ChessPosition(i, j));
+                if (piece != null && piece.getTeamColor() != color) {
+                    Collection<ChessMove> moves = piece.pieceMoves(this, new ChessPosition(i,j));
+                    opposingPositions.addAll(getEndPositions(moves));
+                }
+            }
+        }
+        return opposingPositions;
+    }
+
+    private Collection<ChessPosition> getEndPositions(Collection<ChessMove> moves) {
+        HashSet<ChessPosition> endPositions = new HashSet<ChessPosition>();
+        for (ChessMove move : moves) {
+            endPositions.add(move.getEndPosition());
+        }
+        return endPositions;
     }
 
     public boolean[][] getOccupancyMatrix() {

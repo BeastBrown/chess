@@ -72,7 +72,9 @@ public class ChessGame {
      * @return True if the specified team is in check
      */
     public boolean isInCheck(TeamColor teamColor) {
-        throw new RuntimeException("Not implemented");
+        ChessPosition kingPos = this.board.getKingPos(teamColor);
+        Collection<ChessPosition> opposingPositions = this.board.getOpposingPositions(teamColor);
+        return opposingPositions.contains(kingPos);
     }
 
     /**
