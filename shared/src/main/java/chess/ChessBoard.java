@@ -119,6 +119,16 @@ public class ChessBoard {
         return endPositions;
     }
 
+    /**
+     * Actually Facilitates a given ChessMove
+     * @param move
+     */
+    public void executeMove(ChessMove move) {
+        ChessPiece piece = getPiece(move.getStartPosition());
+        addPiece(move.getStartPosition(), (ChessPiece) null);
+        addPiece(move.getEndPosition(), piece);
+    }
+
     public boolean[][] getOccupancyMatrix() {
         boolean[][] boolMatrix = new boolean[8][8];
         for (int i = 0; i < 8; i++) {
@@ -145,5 +155,17 @@ public class ChessBoard {
     public boolean equals(Object obj) {
         ChessBoard other = (ChessBoard) obj;
         return Arrays.deepEquals(chessMatrix, other.chessMatrix);
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        ChessBoard clonedBoard = new ChessBoard();
+        for (int i = 1; i < 9; i++) {
+            for (int j = 1; j < 9; j++) {
+                ChessPiece piece = getPiece(new ChessPosition(i, j));
+                clonedBoard.addPiece(new ChessPosition(i,j), piece);
+            }
+        }
+        return clonedBoard;
     }
 }
