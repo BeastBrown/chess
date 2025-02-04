@@ -8,7 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessPiece.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +60,14 @@
     "JUnit.ChessPositionTests.hashSetTest.executor": "Run",
     "JUnit.ChessPositionTests.hashTest.executor": "Run",
     "JUnit.FullGameTest.scholarsMate.executor": "Run",
+    "JUnit.GameStatusTests.escapeCheckByCapturingThreateningPiece.executor": "Run",
     "JUnit.KingMoveTests.executor": "Run",
     "JUnit.KingMoveTests.kingMiddleOfBoard.executor": "Debug",
     "JUnit.KnightMoveTests.executor": "Run",
+    "JUnit.MakeMoveTests.invalidMakeMoveNoPiece.executor": "Run",
+    "JUnit.MakeMoveTests.invalidMakeMoveOutOfTurn.executor": "Run",
+    "JUnit.MakeMoveTests.makeMoveChangesTurn.executor": "Run",
+    "JUnit.MakeMoveTests.promotionMoves.executor": "Run",
     "JUnit.PawnMoveTests.captureAndPromoteBlack.executor": "Run",
     "JUnit.PawnMoveTests.executor": "Run",
     "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack.executor": "Run",
@@ -99,8 +103,8 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.FullGameTest.scholarsMate">
-    <configuration name="FullGameTest.scholarsMate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.passoff.chess in shared">
+    <configuration name="MakeMoveTests.invalidMakeMoveOutOfTurn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
         <pattern>
@@ -109,24 +113,41 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="passoff.chess.game" />
-      <option name="MAIN_CLASS_NAME" value="passoff.chess.game.FullGameTest" />
-      <option name="METHOD_NAME" value="scholarsMate" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.game.MakeMoveTests" />
+      <option name="METHOD_NAME" value="invalidMakeMoveOutOfTurn" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="KnightMoveTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MakeMoveTests.makeMoveChangesTurn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="passoff.chess.piece.*" />
+          <option name="PATTERN" value="passoff.chess.game.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess.piece" />
-      <option name="MAIN_CLASS_NAME" value="passoff.chess.piece.KnightMoveTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="passoff.chess.game" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.game.MakeMoveTests" />
+      <option name="METHOD_NAME" value="makeMoveChangesTurn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MakeMoveTests.promotionMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.chess.game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.chess.game" />
+      <option name="MAIN_CLASS_NAME" value="passoff.chess.game.MakeMoveTests" />
+      <option name="METHOD_NAME" value="promotionMoves(chess.ChessPiece$PieceType)" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -159,27 +180,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="passoff.chess.piece in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="shared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.chess.piece.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.chess.piece" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.FullGameTest.scholarsMate" />
-        <item itemvalue="JUnit.passoff.chess.game in shared" />
         <item itemvalue="JUnit.passoff.chess in shared" />
-        <item itemvalue="JUnit.KnightMoveTests" />
-        <item itemvalue="JUnit.passoff.chess.piece in shared" />
+        <item itemvalue="JUnit.passoff.chess.game in shared" />
+        <item itemvalue="JUnit.MakeMoveTests.promotionMoves" />
+        <item itemvalue="JUnit.MakeMoveTests.invalidMakeMoveOutOfTurn" />
+        <item itemvalue="JUnit.MakeMoveTests.makeMoveChangesTurn" />
       </list>
     </recent_temporary>
   </component>
@@ -219,7 +226,7 @@
       <workItem from="1738640517037" duration="7699000" />
       <workItem from="1738690862582" duration="4553000" />
       <workItem from="1738696526896" duration="594000" />
-      <workItem from="1738702914932" duration="5514000" />
+      <workItem from="1738702914932" duration="7514000" />
     </task>
     <servers />
   </component>
@@ -271,6 +278,11 @@
           <url>file://$PROJECT_DIR$/shared/src/test/java/passoff/chess/game/FullGameTest.java</url>
           <line>96</line>
           <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

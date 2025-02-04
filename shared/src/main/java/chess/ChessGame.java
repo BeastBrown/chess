@@ -76,12 +76,25 @@ public class ChessGame {
      * @throws InvalidMoveException if move is invalid
      */
     public void makeMove(ChessMove move) throws InvalidMoveException {
+        if (this.board.getPiece(move.getStartPosition()) == null) {
+            throw new InvalidMoveException("The Moving Piece does not Exist");
+        } else if (this.board.getPiece(move.getStartPosition()).getTeamColor() != this.teamTurn) {
+            throw new InvalidMoveException("It is not your turn");
+        }
         Collection<ChessMove> legitimateMoves = validMoves(move.getStartPosition());
         if (legitimateMoves.contains(move)) {
             this.board.executeMove(move);
+            changeTurn();
         } else {
             throw new InvalidMoveException("Move is not Valid");
         }
+    }
+
+    private void changeTurn() {
+        this.teamTurn = switch(this.teamTurn) {
+            case TeamColor.BLACK -> TeamColor.WHITE;
+            case TeamColor.WHITE -> TeamColor.BLACK;
+        };
     }
 
     /**
@@ -103,9 +116,13 @@ public class ChessGame {
      * @return True if the specified team is in checkmate
      */
     public boolean isInCheckmate(TeamColor teamColor) {
-        ChessPosition kingPos = this.board.getKingPos(teamColor);
+        HashSet<ChessMove> allValidMoves = new HashSet<ChessMove>();
+        Collection<ChessPosition> friendlyPositions = this.board.getFriendlyPositions(teamColor);
+        for (ChessPosition position : friendlyPositions) {
+            allValidMoves.addAll(validMoves(position));
+        }
         return isInCheck(teamColor) &&
-                validMoves(kingPos).isEmpty();
+                allValidMoves.isEmpty();
     }
 
     /**

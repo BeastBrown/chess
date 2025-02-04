@@ -138,8 +138,12 @@ public class ChessBoard {
      */
     public void executeMove(ChessMove move) {
         ChessPiece piece = getPiece(move.getStartPosition());
+        ChessPiece newPiece = switch(move.getPromotionPiece()) {
+            case null -> piece;
+            default -> new ChessPiece(piece.getTeamColor(), move.getPromotionPiece());
+        };
         addPiece(move.getStartPosition(), (ChessPiece) null);
-        addPiece(move.getEndPosition(), piece);
+        addPiece(move.getEndPosition(), newPiece);
     }
 
     public boolean[][] getOccupancyMatrix() {
