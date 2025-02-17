@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/chess/ChessGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,59 +44,66 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
-    "JUnit.BishopMoveTests.executor": "Run",
-    "JUnit.ChessBoardTests.defaultGameBoard.executor": "Run",
-    "JUnit.ChessBoardTests.executor": "Run",
-    "JUnit.ChessBoardTests.getAddPiece.executor": "Run",
-    "JUnit.ChessMoveTests.equalsTest.executor": "Run",
-    "JUnit.ChessMoveTests.executor": "Run",
-    "JUnit.ChessPositionTests.equalsTest.executor": "Debug",
-    "JUnit.ChessPositionTests.executor": "Run",
-    "JUnit.ChessPositionTests.hashSetTest.executor": "Run",
-    "JUnit.ChessPositionTests.hashTest.executor": "Run",
-    "JUnit.FullGameTest.scholarsMate.executor": "Run",
-    "JUnit.GameStatusTests.escapeCheckByCapturingThreateningPiece.executor": "Run",
-    "JUnit.KingMoveTests.executor": "Run",
-    "JUnit.KingMoveTests.kingMiddleOfBoard.executor": "Debug",
-    "JUnit.KnightMoveTests.executor": "Run",
-    "JUnit.MakeMoveTests.invalidMakeMoveNoPiece.executor": "Run",
-    "JUnit.MakeMoveTests.invalidMakeMoveOutOfTurn.executor": "Run",
-    "JUnit.MakeMoveTests.makeMoveChangesTurn.executor": "Run",
-    "JUnit.MakeMoveTests.promotionMoves.executor": "Run",
-    "JUnit.PawnMoveTests.captureAndPromoteBlack.executor": "Run",
-    "JUnit.PawnMoveTests.executor": "Run",
-    "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack.executor": "Run",
-    "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveWhite.executor": "Run",
-    "JUnit.QueenMoveTests.executor": "Run",
-    "JUnit.QueenMoveTests.queenCaptureEnemy.executor": "Run",
-    "JUnit.RookMoveTests.executor": "Run",
-    "JUnit.RookMoveTests.rookCaptureEnemy.executor": "Run",
-    "JUnit.RookMoveTests.rookMoveUntilEdge.executor": "Run",
-    "JUnit.passoff.chess in shared.executor": "Run",
-    "JUnit.passoff.chess.game in shared.executor": "Run",
-    "JUnit.passoff.chess.piece in shared.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/bryan/OneDrive/Desktop/codekrap/coursework/cs240/chess",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.inline.completion",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.BishopMoveTests.bishopMoveUntilEdge.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BishopMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessBoardTests.defaultGameBoard.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessBoardTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessBoardTests.getAddPiece.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessMoveTests.equalsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessPositionTests.equalsTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.ChessPositionTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessPositionTests.hashSetTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessPositionTests.hashTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FullGameTest.scholarsMate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameStatusTests.escapeCheckByCapturingThreateningPiece.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KingMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KingMoveTests.kingMiddleOfBoard.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.KnightMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MakeMoveTests.invalidMakeMoveNoPiece.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MakeMoveTests.invalidMakeMoveOutOfTurn.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MakeMoveTests.makeMoveChangesTurn.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MakeMoveTests.promotionMoves.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PawnMoveTests.captureAndPromoteBlack.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PawnMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveWhite.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.QueenMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.QueenMoveTests.queenCaptureEnemy.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RookMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RookMoveTests.rookCaptureEnemy.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RookMoveTests.rookMoveUntilEdge.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.passoff.chess in shared.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.passoff.chess.game in shared.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.passoff.chess.piece in shared.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bryan/OneDrive/Desktop/codekrap/coursework/cs240/chess&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.inline.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bryan\OneDrive\Desktop\codekrap\coursework\cs240\chess\server\src" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="chess" />
     </key>
@@ -226,7 +231,13 @@
       <workItem from="1738640517037" duration="7699000" />
       <workItem from="1738690862582" duration="4553000" />
       <workItem from="1738696526896" duration="594000" />
-      <workItem from="1738702914932" duration="7514000" />
+      <workItem from="1738702914932" duration="7840000" />
+      <workItem from="1738721841928" duration="20000" />
+      <workItem from="1738861805117" duration="760000" />
+      <workItem from="1739303920815" duration="124000" />
+      <workItem from="1739337498923" duration="471000" />
+      <workItem from="1739407929212" duration="1014000" />
+      <workItem from="1739834330333" duration="1782000" />
     </task>
     <servers />
   </component>
@@ -274,16 +285,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="59" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shared/src/test/java/passoff/chess/game/FullGameTest.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shared/src/main/java/chess/ChessBoard.java</url>
-          <line>143</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
