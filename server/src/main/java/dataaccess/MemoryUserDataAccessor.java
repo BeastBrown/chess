@@ -22,11 +22,7 @@ public class MemoryUserDataAccessor implements UserDataAccessor {
     }
 
     @Override
-    public UserData getUser(String username) throws DataAccessException {
-        UserData userData = userMap.get(username);
-        if (userData == null) {
-            throw new DataAccessException("username is invalid");
-        }
-        return userData;
+    public UserData getUser(String username) {
+        return userMap.get(username);
     }
 }

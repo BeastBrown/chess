@@ -8,5 +8,5 @@ public interface UserDataAccessor {
 
     public void createUser(UserData userdata);
 
-    public UserData getUser(String username) throws DataAccessException;
+    public UserData getUser(String username);
 }

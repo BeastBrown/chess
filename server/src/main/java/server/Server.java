@@ -39,9 +39,21 @@ public class Server {
     private String RegisterHandler(Request req, Response res) {
         Gson gson = new Gson();
         RegisterRequest registerRequest = gson.fromJson(req.body(), RegisterRequest.class);
-        RegisterResult result = UserService.registerService(registerRequest,
-                userAccessor, authAccessor);
-        res.body(gson.toJson(result, RegisterResult.class));
+        try {
+            RegisterResult result = UserService.registerService(registerRequest,
+                    userAccessor, authAccessor);
+
+            res.body(gson.toJson(result, RegisterResult.class));
+        } catch (InsufficientParametersException e) {
+            ErrorResult errorResult400 = new ErrorResult("Error: bad request");
+            res.status(400);
+            res.body(gson.toJson(errorResult400));
+        } catch (InvalidParametersException e) {
+            ErrorResult errorResult403 = new ErrorResult("Error: already taken");
+            res.status(403);
+            res.body(gson.toJson(errorResult403));
+        }
+
         return res.body();
     }
 }
