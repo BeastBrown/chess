@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/chess/data/AuthData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/chess/data/GameData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/chess/data/UserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/AuthDataAccessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryAuthDataAccessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDataAccessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDataAccessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/request/RegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/result/LoginResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/result/RegisterResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Record" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -110,6 +117,7 @@
       <recent name="C:\Users\bryan\OneDrive\Desktop\codekrap\coursework\cs240\chess\server\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="service" />
       <recent name="chess" />
     </key>
   </component>
@@ -234,7 +242,7 @@
       <workItem from="1739337498923" duration="471000" />
       <workItem from="1739407929212" duration="1014000" />
       <workItem from="1739834330333" duration="4418000" />
-      <workItem from="1740431481381" duration="387000" />
+      <workItem from="1740431481381" duration="10396000" />
     </task>
     <servers />
   </component>
