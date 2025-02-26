@@ -12,10 +12,16 @@ public class Server {
 
     private UserDataAccessor userAccessor;
     private AuthDataAccessor authAccessor;
+    private UserService userService;
+    private Gson gson;
 
     public Server() {
         userAccessor = new MemoryUserDataAccessor();
         authAccessor = new MemoryAuthDataAccessor();
+
+        userService = new UserService(userAccessor, authAccessor);
+
+        gson = new Gson();
     }
 
     public int run(int desiredPort) {
@@ -24,25 +30,25 @@ public class Server {
         Spark.staticFiles.location("web");
 
         // Register your endpoints and handle exceptions here.
-        Spark.post("/user", this::RegisterHandler);
+        Spark.post("/user", this::registerHandler);
+        Spark.post("/session", this::loginHandler);
+//        Spark.delete("/session", this::logoutHandler);
         //This line initializes the server and can be removed once you have a functioning endpoint 
         Spark.init();
         Spark.awaitInitialization();
         return Spark.port();
     }
 
+
     public void stop() {
         Spark.stop();
         Spark.awaitStop();
     }
 
-    private String RegisterHandler(Request req, Response res) {
-        Gson gson = new Gson();
+    private String registerHandler(Request req, Response res) {
         RegisterRequest registerRequest = gson.fromJson(req.body(), RegisterRequest.class);
         try {
-            RegisterResult result = UserService.registerService(registerRequest,
-                    userAccessor, authAccessor);
-
+            RegisterResult result = userService.registerService(registerRequest);
             res.body(gson.toJson(result, RegisterResult.class));
         } catch (InsufficientParametersException e) {
             ErrorResult errorResult400 = new ErrorResult("Error: bad request");
@@ -54,6 +60,17 @@ public class Server {
             res.body(gson.toJson(errorResult403));
         }
 
+        return res.body();
+    }
+
+    private Object loginHandler(Request req, Response res) {
+        LoginRequest loginRequest = gson.fromJson(req.body(), LoginRequest.class);
+        try {
+            LoginResult loginResult = userService.loginService(loginRequest);
+            res.body(gson.toJson(loginResult));
+        } catch (InvalidParametersException e) {
+            res.body(gson.toJson(new ErrorResult("Error: unauthorized")));
+        }
         return res.body();
     }
 }
