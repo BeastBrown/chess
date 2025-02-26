@@ -19,12 +19,7 @@ public class UserService {
             InsufficientParametersException,
             InvalidParametersException {
 
-        if (necessaryFieldsEmpty(registerRequest)) {
-            throw new InsufficientParametersException("username and password cannot be empty");
-        }
-        if (usernameTaken(registerRequest, userAccessor)) {
-            throw new InvalidParametersException("username is taken");
-        }
+        validateRegisterFields(registerRequest, userAccessor);
         UserData userData = new UserData(registerRequest.username(),
                 registerRequest.password(), registerRequest.email());
         userAccessor.createUser(userData);
@@ -33,6 +28,15 @@ public class UserService {
         AuthData authData = new AuthData(authToken, registerRequest.username());
         authAccessor.createAuth(authData);
         return new RegisterResult(authData.username(), authData.authToken());
+    }
+
+    private static void validateRegisterFields(RegisterRequest registerRequest, UserDataAccessor userAccessor) throws InsufficientParametersException, InvalidParametersException {
+        if (necessaryFieldsEmpty(registerRequest)) {
+            throw new InsufficientParametersException("username and password cannot be empty");
+        }
+        if (usernameTaken(registerRequest, userAccessor)) {
+            throw new InvalidParametersException("username is taken");
+        }
     }
 
     private static boolean usernameTaken(RegisterRequest registerRequest,

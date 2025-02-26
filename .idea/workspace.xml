@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/InsufficientParametersException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/InvalidParametersException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/result/ErrorResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryUserDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/UserDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -243,7 +237,8 @@
       <workItem from="1739834330333" duration="4418000" />
       <workItem from="1740431481381" duration="10465000" />
       <workItem from="1740448658016" duration="1833000" />
-      <workItem from="1740455990360" duration="2785000" />
+      <workItem from="1740455990360" duration="2842000" />
+      <workItem from="1740534753087" duration="157000" />
     </task>
     <servers />
   </component>
