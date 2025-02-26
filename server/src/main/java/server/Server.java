@@ -32,7 +32,7 @@ public class Server {
         // Register your endpoints and handle exceptions here.
         Spark.post("/user", this::registerHandler);
         Spark.post("/session", this::loginHandler);
-//        Spark.delete("/session", this::logoutHandler);
+        Spark.delete("/session", this::logoutHandler);
         //This line initializes the server and can be removed once you have a functioning endpoint 
         Spark.init();
         Spark.awaitInitialization();
@@ -63,13 +63,26 @@ public class Server {
         return res.body();
     }
 
-    private Object loginHandler(Request req, Response res) {
+    private String loginHandler(Request req, Response res) {
         LoginRequest loginRequest = gson.fromJson(req.body(), LoginRequest.class);
         try {
             LoginResult loginResult = userService.loginService(loginRequest);
             res.body(gson.toJson(loginResult));
         } catch (InvalidParametersException e) {
             res.body(gson.toJson(new ErrorResult("Error: unauthorized")));
+            res.status(401);
+        }
+        return res.body();
+    }
+
+    private String logoutHandler(Request req, Response res) {
+        LogoutRequest logoutRequest = new LogoutRequest(req.headers("authorization"));
+        try {
+            LogoutResult logoutResult = userService.logoutService(logoutRequest);
+            res.body(gson.toJson(logoutResult));
+        } catch (InvalidParametersException e) {
+            res.body(gson.toJson(new ErrorResult("Error: unauthorized")));
+            res.status(401);
         }
         return res.body();
     }
