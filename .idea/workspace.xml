@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDataAccessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDataAccessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
     </list>
@@ -16,10 +18,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Exception" />
-        <option value="Class" />
         <option value="Record" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -252,7 +254,7 @@
       <workItem from="1740448658016" duration="1833000" />
       <workItem from="1740455990360" duration="2842000" />
       <workItem from="1740534753087" duration="9260000" />
-      <workItem from="1740606540778" duration="5061000" />
+      <workItem from="1740606540778" duration="7331000" />
     </task>
     <servers />
   </component>

@@ -12,12 +12,15 @@ public class Server {
 
     private UserDataAccessor userAccessor;
     private AuthDataAccessor authAccessor;
+    private GameDataAccessor gameAccessor;
+
     private UserService userService;
     private Gson gson;
 
     public Server() {
         userAccessor = new MemoryUserDataAccessor();
         authAccessor = new MemoryAuthDataAccessor();
+        gameAccessor = new MemoryGameDataAccessor();
 
         userService = new UserService(userAccessor, authAccessor);
 
@@ -33,6 +36,8 @@ public class Server {
         Spark.post("/user", this::registerHandler);
         Spark.post("/session", this::loginHandler);
         Spark.delete("/session", this::logoutHandler);
+
+
         //This line initializes the server and can be removed once you have a functioning endpoint 
         Spark.init();
         Spark.awaitInitialization();
