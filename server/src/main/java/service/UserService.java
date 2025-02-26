@@ -6,8 +6,10 @@ import dataaccess.AuthDataAccessor;
 import dataaccess.InsufficientParametersException;
 import dataaccess.InvalidParametersException;
 import dataaccess.UserDataAccessor;
+import service.request.LoginRequest;
 import service.request.RegisterRequest;
 import service.result.RegisterResult;
+import service.result.LoginResult;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -24,10 +26,15 @@ public class UserService {
                 registerRequest.password(), registerRequest.email());
         userAccessor.createUser(userData);
 
+        AuthData authData = executeLogin(registerRequest, authAccessor);
+        return new RegisterResult(authData.username(), authData.authToken());
+    }
+
+    private static AuthData executeLogin(RegisterRequest registerRequest, AuthDataAccessor authAccessor) {
         String authToken = UUID.randomUUID().toString();
         AuthData authData = new AuthData(authToken, registerRequest.username());
         authAccessor.createAuth(authData);
-        return new RegisterResult(authData.username(), authData.authToken());
+        return authData;
     }
 
     private static void validateRegisterFields(RegisterRequest registerRequest, UserDataAccessor userAccessor) throws InsufficientParametersException, InvalidParametersException {
@@ -48,5 +55,15 @@ public class UserService {
         return Objects.equals(registerRequest.username(), "") ||
                 Objects.equals(registerRequest.password(), "") ||
                 Objects.equals(registerRequest.email(), "");
+    }
+
+    public static LoginResult loginService(LoginRequest loginRequest,
+                               UserDataAccessor userAccessor, AuthDataAccessor authAccessor) throws
+            InvalidParametersException {
+        UserData user = userAccessor.getUser(loginRequest.username());
+        if (user == null || !user.password().equals(loginRequest.password())) {
+            throw new InvalidParametersException("Username doesn't exist, or passoword is invalid");
+        }
+        return null;
     }
 }
