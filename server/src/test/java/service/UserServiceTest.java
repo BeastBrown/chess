@@ -58,7 +58,7 @@ public class UserServiceTest {
     @DisplayName("Login Unauthorized")
     public void login401() {
         initializeRegistry();
-        LoginRequest loginRequest = new LoginRequest("Bob", "shizbuckets");
+        LoginRequest loginRequest = new LoginRequest("Bob", "wrong password");
         Assertions.assertThrows(InvalidParametersException.class, () -> UserService.loginService(loginRequest, userDataAccessor, authDataAccessor));
     }
 

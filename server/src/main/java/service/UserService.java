@@ -26,13 +26,14 @@ public class UserService {
                 registerRequest.password(), registerRequest.email());
         userAccessor.createUser(userData);
 
-        AuthData authData = executeLogin(registerRequest, authAccessor);
+        LoginRequest loginRequest = new LoginRequest(registerRequest.username(), registerRequest.password());
+        AuthData authData = executeLogin(loginRequest, authAccessor);
         return new RegisterResult(authData.username(), authData.authToken());
     }
 
-    private static AuthData executeLogin(RegisterRequest registerRequest, AuthDataAccessor authAccessor) {
+    private static AuthData executeLogin(LoginRequest loginRequest, AuthDataAccessor authAccessor) {
         String authToken = UUID.randomUUID().toString();
-        AuthData authData = new AuthData(authToken, registerRequest.username());
+        AuthData authData = new AuthData(authToken, loginRequest.username());
         authAccessor.createAuth(authData);
         return authData;
     }
@@ -62,8 +63,9 @@ public class UserService {
             InvalidParametersException {
         UserData user = userAccessor.getUser(loginRequest.username());
         if (user == null || !user.password().equals(loginRequest.password())) {
-            throw new InvalidParametersException("Username doesn't exist, or passoword is invalid");
+            throw new InvalidParametersException("Username doesn't exist, or password is invalid");
         }
-        return null;
+        AuthData authData = executeLogin(loginRequest, authAccessor);
+        return new LoginResult(authData.username(), authData.authToken());
     }
 }
