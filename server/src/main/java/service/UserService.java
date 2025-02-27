@@ -61,9 +61,9 @@ public class UserService {
     }
 
     private static boolean necessaryFieldsEmpty(RegisterRequest registerRequest) {
-        return Objects.equals(registerRequest.username(), "") ||
-                Objects.equals(registerRequest.password(), "") ||
-                Objects.equals(registerRequest.email(), "");
+        return Objects.isNull(registerRequest.username()) || registerRequest.username().isEmpty() ||
+                Objects.isNull(registerRequest.password()) || registerRequest.password().isEmpty() ||
+                Objects.isNull(registerRequest.email()) || registerRequest.email().isEmpty();
     }
 
     public LoginResult loginService(LoginRequest loginRequest) throws

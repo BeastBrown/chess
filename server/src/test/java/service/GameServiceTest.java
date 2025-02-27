@@ -128,8 +128,8 @@ public class GameServiceTest {
 
         ListGameResult observed = gameService.listGameService(listRequest);
         ArrayList<GameData> expectedList = new ArrayList<GameData>();
-        expectedList.add(new GameData(1, "Bob", "", "Best Game", null));
-        expectedList.add(new GameData(2, "", "", "Worst Game", null));
+        expectedList.add(new GameData(1, "Bob", null, "Best Game", null));
+        expectedList.add(new GameData(2, null, null, "Worst Game", null));
         ListGameResult expected = new ListGameResult(expectedList);
         Assertions.assertEquals(observed, expected);
     }

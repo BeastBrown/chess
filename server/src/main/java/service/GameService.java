@@ -35,12 +35,12 @@ public class GameService {
         if (!userService.isAuthenticated(createRequest.authToken())) {
             throw new InvalidParametersException("Auth token is not valid");
         }
-        if (createRequest.gameName().isEmpty()) {
+        if (createRequest.gameName() == null || createRequest.gameName().isEmpty()) {
             throw new InsufficientParametersException("the game name cannot be empty");
         }
 
         Integer newGameID = gameAccessor.getCounterID();
-        GameData newGame = new GameData(newGameID, "", "",
+        GameData newGame = new GameData(newGameID, null, null,
                 createRequest.gameName(), new ChessGame());
         gameAccessor.createGame(newGame);
         return new CreateGameResult(newGameID);
@@ -54,7 +54,7 @@ public class GameService {
         GameData newGame = switch(joinRequest.playerColor()) {
             case "WHITE" -> new GameData(joinRequest.gameID(), username, gameData.blackUsername(),
                     gameData.gameName(), gameData.game());
-            default -> new GameData(joinRequest.gameID(), gameData.blackUsername(), username,
+            default -> new GameData(joinRequest.gameID(), gameData.whiteUsername(), username,
                     gameData.gameName(), gameData.game());
         };
         gameAccessor.updateGameData(newGame);
@@ -72,7 +72,7 @@ public class GameService {
         GameData gameData = gameAccessor.getGame(joinRequest.gameID());
         String desiredColorOccupant = joinRequest.playerColor().equals("WHITE")
                 ? gameData.whiteUsername() : gameData.blackUsername();
-        if (!desiredColorOccupant.isEmpty()) {
+        if (desiredColorOccupant != null) {
             throw new InvalidParametersException("Error: already taken");
         }
     }
