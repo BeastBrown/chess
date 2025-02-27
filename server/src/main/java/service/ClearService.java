@@ -17,7 +17,7 @@ public class ClearService {
         gameAccessor = game;
     }
 
-    ClearResult clear() {
+    public ClearResult clear() {
         userAccessor.clear();
         authAccessor.clear();
         gameAccessor.clear();

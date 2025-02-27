@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/result/ClearResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/AuthDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/AuthDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/GameDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryAuthDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryAuthDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MemoryGameDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GameService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +64,7 @@
     "JUnit.ChessPositionTests.executor": "Run",
     "JUnit.ChessPositionTests.hashSetTest.executor": "Run",
     "JUnit.ChessPositionTests.hashTest.executor": "Run",
-    "JUnit.ClearServiceTest.executor": "Debug",
+    "JUnit.ClearServiceTest.executor": "Run",
     "JUnit.FullGameTest.scholarsMate.executor": "Run",
     "JUnit.GameServiceTest.clear200.executor": "Run",
     "JUnit.GameServiceTest.executor": "Run",
@@ -137,7 +130,14 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.service in server">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClearServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -184,22 +184,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameServiceTest.listGame200" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
-      <option name="METHOD_NAME" value="listGame200" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="service in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -216,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.service in server" />
         <item itemvalue="JUnit.ClearServiceTest" />
         <item itemvalue="JUnit.GameServiceTest.clear200" />
         <item itemvalue="JUnit.GameServiceTest" />
-        <item itemvalue="JUnit.GameServiceTest.listGame200" />
       </list>
     </recent_temporary>
   </component>
@@ -272,7 +256,7 @@
       <workItem from="1740455990360" duration="2842000" />
       <workItem from="1740534753087" duration="9260000" />
       <workItem from="1740606540778" duration="28378000" />
-      <workItem from="1740677486920" duration="4249000" />
+      <workItem from="1740677486920" duration="4928000" />
     </task>
     <servers />
   </component>
@@ -320,11 +304,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="59" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -14,6 +14,7 @@ public class Server {
     private AuthDataAccessor authAccessor;
     private GameDataAccessor gameAccessor;
 
+    private ClearService clearService;
     private UserService userService;
     private Gson gson;
 
@@ -23,6 +24,8 @@ public class Server {
         gameAccessor = new MemoryGameDataAccessor();
 
         userService = new UserService(userAccessor, authAccessor);
+
+        clearService = new ClearService(userAccessor, authAccessor, gameAccessor);
 
         gson = new Gson();
     }
@@ -37,6 +40,9 @@ public class Server {
         Spark.post("/session", this::loginHandler);
         Spark.delete("/session", this::logoutHandler);
 
+        Spark.delete("/db", this::clearHandler);
+
+        Spark.post("/game", this::createGameHandler)
 
         //This line initializes the server and can be removed once you have a functioning endpoint 
         Spark.init();
@@ -48,6 +54,16 @@ public class Server {
     public void stop() {
         Spark.stop();
         Spark.awaitStop();
+    }
+
+    private Object createGameHandler(Request req, Response res) {
+        return null;
+    }
+
+    private Object clearHandler(Request req, Response res) {
+        ClearResult clearResult = clearService.clear();
+        res.body(gson.toJson(clearResult));
+        return res.body();
     }
 
     private String registerHandler(Request req, Response res) {
