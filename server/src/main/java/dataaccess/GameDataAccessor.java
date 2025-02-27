@@ -12,4 +12,5 @@ public interface GameDataAccessor {
     public void updateGame(Integer gameID, ChessGame chessGame);
     public Integer getCounterID();
     public void updateGameData(GameData gameData);
+    public void clear();
 }

@@ -9,6 +9,7 @@ import dataaccess.InvalidParametersException;
 import service.request.CreateGameRequest;
 import service.request.JoinGameRequest;
 import service.request.ListGameRequest;
+import service.result.ClearResult;
 import service.result.CreateGameResult;
 import service.result.JoinGameResult;
 import service.result.ListGameResult;

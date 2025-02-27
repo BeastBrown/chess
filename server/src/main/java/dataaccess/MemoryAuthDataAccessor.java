@@ -25,4 +25,9 @@ public class MemoryAuthDataAccessor implements AuthDataAccessor {
     public void deleteAuth(String authToken) {
         authMap.remove(authToken);
     }
+
+    @Override
+    public void clear() {
+        authMap.clear();
+    }
 }

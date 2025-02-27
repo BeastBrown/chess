@@ -50,4 +50,10 @@ public class MemoryGameDataAccessor implements GameDataAccessor {
     public void updateGameData(GameData gameData) {
         gameDataMap.put(gameData.gameID(), gameData);
     }
+
+    @Override
+    public void clear() {
+        gameDataMap.clear();
+        counterID = 1;
+    }
 }

@@ -8,6 +8,7 @@ import service.request.CreateGameRequest;
 import service.request.JoinGameRequest;
 import service.request.ListGameRequest;
 import service.request.RegisterRequest;
+import service.result.ClearResult;
 import service.result.CreateGameResult;
 import service.result.JoinGameResult;
 import service.result.ListGameResult;
@@ -149,4 +150,6 @@ public class GameServiceTest {
 
         Assertions.assertThrows(InvalidParametersException.class, () -> gameService.listGameService(listRequest));
     }
+
+
 }
