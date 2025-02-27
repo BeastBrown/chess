@@ -146,20 +146,6 @@ public class ChessBoard {
         addPiece(move.getEndPosition(), newPiece);
     }
 
-    public boolean[][] getOccupancyMatrix() {
-        boolean[][] boolMatrix = new boolean[8][8];
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-                if (chessMatrix[i][j] != null) {
-                    boolMatrix[i][j] = true;
-                } else {
-                    boolMatrix[i][j] = false;
-                }
-            }
-        }
-        return boolMatrix;
-    }
-
     public boolean isOccupied(ChessPosition position) {
         if (chessMatrix[position.getRow()-1][position.getColumn()-1] == null) {
             return false;

@@ -34,14 +34,6 @@ public class MemoryGameDataAccessor implements GameDataAccessor {
     }
 
     @Override
-    public void updateGame(Integer gameID, ChessGame newChessGame) {
-        GameData originalData = gameDataMap.get(gameID);
-        GameData newData = new GameData(gameID, originalData.whiteUsername(), originalData.blackUsername(),
-                originalData.gameName(), newChessGame);
-        gameDataMap.put(gameID, newData);
-    }
-
-    @Override
     public Integer getCounterID() {
         return counterID;
     }
