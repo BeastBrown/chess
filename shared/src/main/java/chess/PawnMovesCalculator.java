@@ -9,14 +9,17 @@ public class PawnMovesCalculator implements PieceMovesCalculator {
 
     public boolean isValid(ChessPosition position, ChessPosition scenario, ChessBoard board, ChessGame.TeamColor color) {
         if (color == ChessGame.TeamColor.WHITE) {
-            return ((position.getRow() - scenario.getRow() == -1) || (position.getRow() == 2 && board.getPiece(new ChessPosition(position.getRow()+1, position.getColumn())) == null)) &&
+            return ((position.getRow() - scenario.getRow() == -1) || (position.getRow() == 2 &&
+                    board.getPiece(new ChessPosition(position.getRow()+1, position.getColumn())) == null)) &&
                     scenario.inBounds() &&
                     ((board.getPiece(scenario) == null && position.getColumn() - scenario.getColumn() == 0) ||
                             (board.getPiece(scenario) != null &&
                                     board.getPiece(scenario).getTeamColor() == ChessGame.TeamColor.BLACK &&
                                     Math.abs(position.getColumn() - scenario.getColumn()) == 1));
         } else {
-            return ((position.getRow() - scenario.getRow() == 1) || (position.getRow() == 7 && board.getPiece(new ChessPosition(position.getRow()-1, position.getColumn())) == null)) &&
+            return ((position.getRow() - scenario.getRow() == 1) ||
+                    (position.getRow() == 7 &&
+                            board.getPiece(new ChessPosition(position.getRow()-1, position.getColumn())) == null)) &&
                     scenario.inBounds() &&
                     ((board.getPiece(scenario) == null && position.getColumn() - scenario.getColumn() == 0) ||
                             (board.getPiece(scenario) != null &&

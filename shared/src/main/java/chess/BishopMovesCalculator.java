@@ -16,7 +16,8 @@ public class BishopMovesCalculator implements PieceMovesCalculator {
     }
 
     public static boolean isClear(ChessPosition startPosition, ChessPosition endPosition, ChessBoard board) {
-        for (int i = startPosition.getRow(), j = startPosition.getColumn(); i != endPosition.getRow() || j != endPosition.getColumn(); i = iterate(i, endPosition.getRow()), j = iterate(j, endPosition.getColumn())) {
+        for (int i = startPosition.getRow(), j = startPosition.getColumn(); i != endPosition.getRow() || j != endPosition.getColumn();
+             i = iterate(i, endPosition.getRow()), j = iterate(j, endPosition.getColumn())) {
             if (board.isOccupied(new ChessPosition(i, j)) && i!= startPosition.getRow() && j != startPosition.getColumn()) {
                 return false;
             }
