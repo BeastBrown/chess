@@ -171,4 +171,11 @@ public class ChessGame {
         clonedGame.board = (ChessBoard) this.board.clone();
         return clonedGame;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        ChessGame other = (ChessGame) obj;
+        return this.teamTurn == other.teamTurn &&
+                this.board.equals(other.board);
+    }
 }

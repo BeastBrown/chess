@@ -8,9 +8,13 @@ import dataaccess.InsufficientParametersException;
 import dataaccess.InvalidParametersException;
 import service.request.CreateGameRequest;
 import service.request.JoinGameRequest;
+import service.request.ListGameRequest;
 import service.result.CreateGameResult;
 import service.result.JoinGameResult;
+import service.result.ListGameResult;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
 
 public class GameService {
@@ -76,5 +80,23 @@ public class GameService {
         return gameAccessor.getGame(joinRequest.gameID()) == null ||
                 !(Objects.equals(joinRequest.playerColor(), "WHITE") ||
                         Objects.equals(joinRequest.playerColor(), "BLACK"));
+    }
+
+    public ListGameResult listGameService(ListGameRequest listRequest)
+            throws InvalidParametersException {
+        if (!userService.isAuthenticated(listRequest.authToken())) {
+            throw new InvalidParametersException("Not authorized");
+        }
+        return new ListGameResult(getGameCollection());
+    }
+
+    private ArrayList<GameData> getGameCollection() {
+        ArrayList<GameData> gameList= new ArrayList<GameData>(gameAccessor.listGames());
+        for (int i = 0; i < gameList.size(); i++) {
+            GameData ogGame = gameList.get(i);
+            GameData gameEmpty = new GameData(ogGame.gameID(), ogGame.whiteUsername(), ogGame.blackUsername(), ogGame.gameName(), null);
+            gameList.set(i, gameEmpty);
+        }
+        return gameList;
     }
 }

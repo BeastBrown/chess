@@ -1,12 +1,21 @@
 package service;
 
+import chess.ChessGame;
+import chess.data.GameData;
 import dataaccess.*;
 import org.junit.jupiter.api.*;
 import service.request.CreateGameRequest;
 import service.request.JoinGameRequest;
+import service.request.ListGameRequest;
 import service.request.RegisterRequest;
 import service.result.CreateGameResult;
 import service.result.JoinGameResult;
+import service.result.ListGameResult;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 
 public class GameServiceTest {
 
@@ -100,5 +109,44 @@ public class GameServiceTest {
 
         JoinGameRequest joinRequest2 = new JoinGameRequest(testAuth, "WHITE", 1);
         Assertions.assertThrowsExactly(InvalidParametersException.class, () -> gameService.joinGameService(joinRequest2), "Error: already taken");
+    }
+
+    @Test
+    @DisplayName("List Games Successful")
+    public void listGame200() throws InvalidParametersException, InsufficientParametersException {
+        CreateGameRequest createRequest = new CreateGameRequest(testAuth, "Best Game");
+        CreateGameResult createResult = gameService.createGameService(createRequest);
+
+        CreateGameRequest createRequest2 = new CreateGameRequest(testAuth, "Worst Game");
+        CreateGameResult createResult2 = gameService.createGameService(createRequest2);
+
+        JoinGameRequest joinRequest = new JoinGameRequest(testAuth, "WHITE", 1);
+        gameService.joinGameService(joinRequest);
+
+        ListGameRequest listRequest = new ListGameRequest(testAuth);
+
+        ListGameResult observed = gameService.listGameService(listRequest);
+        ArrayList<GameData> expectedList = new ArrayList<GameData>();
+        expectedList.add(new GameData(1, "Bob", "", "Best Game", null));
+        expectedList.add(new GameData(2, "", "", "Worst Game", null));
+        ListGameResult expected = new ListGameResult(expectedList);
+        Assertions.assertEquals(observed, expected);
+    }
+
+    @Test
+    @DisplayName("List Games Unauthorized")
+    public void listGame401() throws InvalidParametersException, InsufficientParametersException {
+        CreateGameRequest createRequest = new CreateGameRequest(testAuth, "Best Game");
+        CreateGameResult createResult = gameService.createGameService(createRequest);
+
+        CreateGameRequest createRequest2 = new CreateGameRequest(testAuth, "Worst Game");
+        CreateGameResult createResult2 = gameService.createGameService(createRequest2);
+
+        JoinGameRequest joinRequest = new JoinGameRequest(testAuth, "WHITE", 1);
+        gameService.joinGameService(joinRequest);
+
+        ListGameRequest listRequest = new ListGameRequest("This is not a good auth");
+
+        Assertions.assertThrows(InvalidParametersException.class, () -> gameService.listGameService(listRequest));
     }
 }
