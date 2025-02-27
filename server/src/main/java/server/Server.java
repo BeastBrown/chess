@@ -13,7 +13,7 @@ public class Server {
     private UserDataAccessor userAccessor;
     private AuthDataAccessor authAccessor;
     private GameDataAccessor gameAccessor;
-
+    private GameService gameService;
     private ClearService clearService;
     private UserService userService;
     private Gson gson;
@@ -24,7 +24,7 @@ public class Server {
         gameAccessor = new MemoryGameDataAccessor();
 
         userService = new UserService(userAccessor, authAccessor);
-
+        gameService = new GameService(userService, gameAccessor, authAccessor);
         clearService = new ClearService(userAccessor, authAccessor, gameAccessor);
 
         gson = new Gson();
@@ -42,7 +42,7 @@ public class Server {
 
         Spark.delete("/db", this::clearHandler);
 
-        Spark.post("/game", this::createGameHandler)
+        Spark.post("/game", this::createGameHandler);
 
         //This line initializes the server and can be removed once you have a functioning endpoint 
         Spark.init();
@@ -57,7 +57,19 @@ public class Server {
     }
 
     private Object createGameHandler(Request req, Response res) {
-        return null;
+        String name = gson.fromJson(req.body(), GameName.class).gameName();
+        CreateGameRequest createRequest = new CreateGameRequest(req.headers("authorization"), name);
+        try {
+            CreateGameResult createResult = gameService.createGameService(createRequest);
+            res.body(gson.toJson(createResult));
+        } catch (InvalidParametersException e) {
+            res.body(gson.toJson(new ErrorResult("Error: unauthorized")));
+            res.status(401);
+        } catch (InsufficientParametersException e) {
+            res.body(gson.toJson(new ErrorResult("Error: bad request")));
+            res.status(400);
+        }
+        return res.body();
     }
 
     private Object clearHandler(Request req, Response res) {
