@@ -10,4 +10,6 @@ public interface GameDataAccessor {
     public Collection<GameData> listGames();
     public void createGame(GameData gameData);
     public void updateGame(Integer gameID, ChessGame chessGame);
+    public Integer getCounterID();
+    public void updateGameData(GameData gameData);
 }

@@ -84,4 +84,8 @@ public class UserService {
         authAccessor.deleteAuth(authData.authToken());
         return new LogoutResult();
     }
+
+    public boolean isAuthenticated(String authToken) {
+        return authAccessor.getAuth(authToken) != null;
+    }
 }
