@@ -44,6 +44,7 @@ public class Server {
 
         Spark.post("/game", this::createGameHandler);
         Spark.put("/game", this::joinGameHandler);
+        Spark.get("/game", this::listGameHandler);
 
         //This line initializes the server and can be removed once you have a functioning endpoint 
         Spark.init();
@@ -55,6 +56,18 @@ public class Server {
     public void stop() {
         Spark.stop();
         Spark.awaitStop();
+    }
+
+    private Object listGameHandler(Request req, Response res) {
+        ListGameRequest listRequest = new ListGameRequest(req.headers("authorization"));
+        try {
+            ListGameResult listResult = gameService.listGameService(listRequest);
+            res.body(gson.toJson(listResult));
+        } catch (InvalidParametersException e) {
+            res.body(gson.toJson(new ErrorResult("Error: unauthorized")));
+            res.status(401);
+        }
+        return res.body();
     }
 
     private Object joinGameHandler(Request req, Response res) {
