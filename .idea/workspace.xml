@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/4-database/dataaccess/DatabaseManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/4-database/passoff/server/DatabaseTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/starter-code/4-database/resources/db.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +250,7 @@
       <workItem from="1740677486920" duration="6759000" />
       <workItem from="1740688946165" duration="6869000" />
       <workItem from="1741106268489" duration="1243000" />
-      <workItem from="1741124163416" duration="457000" />
+      <workItem from="1741124163416" duration="1518000" />
     </task>
     <servers />
   </component>
