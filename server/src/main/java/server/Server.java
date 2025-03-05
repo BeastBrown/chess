@@ -19,6 +19,7 @@ public class Server {
     private Gson gson;
 
     public Server() {
+
         userAccessor = new MemoryUserDataAccessor();
         authAccessor = new MemoryAuthDataAccessor();
         gameAccessor = new MemoryGameDataAccessor();
