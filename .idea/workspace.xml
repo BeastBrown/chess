@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlDataAccessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDataAccessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlDataAccessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDataAccessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,86 +49,86 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DatabaseManager.executor": "Debug",
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.All in server (1).executor": "Run",
-    "JUnit.All in server.executor": "Run",
-    "JUnit.All in shared.executor": "Run",
-    "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
-    "JUnit.BishopMoveTests.executor": "Run",
-    "JUnit.ChessBoardTests.defaultGameBoard.executor": "Run",
-    "JUnit.ChessBoardTests.executor": "Run",
-    "JUnit.ChessBoardTests.getAddPiece.executor": "Run",
-    "JUnit.ChessMoveTests.equalsTest.executor": "Run",
-    "JUnit.ChessMoveTests.executor": "Run",
-    "JUnit.ChessPositionTests.equalsTest.executor": "Debug",
-    "JUnit.ChessPositionTests.executor": "Run",
-    "JUnit.ChessPositionTests.hashSetTest.executor": "Run",
-    "JUnit.ChessPositionTests.hashTest.executor": "Run",
-    "JUnit.ClearServiceTest.executor": "Run",
-    "JUnit.FullGameTest.scholarsMate.executor": "Run",
-    "JUnit.GameServiceTest.clear200.executor": "Run",
-    "JUnit.GameServiceTest.executor": "Run",
-    "JUnit.GameServiceTest.listGame200.executor": "Run",
-    "JUnit.GameStatusTests.escapeCheckByCapturingThreateningPiece.executor": "Run",
-    "JUnit.KingMoveTests.executor": "Run",
-    "JUnit.KingMoveTests.kingMiddleOfBoard.executor": "Debug",
-    "JUnit.KnightMoveTests.executor": "Run",
-    "JUnit.MakeMoveTests.invalidMakeMoveNoPiece.executor": "Run",
-    "JUnit.MakeMoveTests.invalidMakeMoveOutOfTurn.executor": "Run",
-    "JUnit.MakeMoveTests.makeMoveChangesTurn.executor": "Run",
-    "JUnit.MakeMoveTests.promotionMoves.executor": "Run",
-    "JUnit.PawnMoveTests.captureAndPromoteBlack.executor": "Run",
-    "JUnit.PawnMoveTests.executor": "Run",
-    "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack.executor": "Run",
-    "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveWhite.executor": "Run",
-    "JUnit.QueenMoveTests.executor": "Run",
-    "JUnit.QueenMoveTests.queenCaptureEnemy.executor": "Run",
-    "JUnit.RookMoveTests.executor": "Run",
-    "JUnit.RookMoveTests.rookCaptureEnemy.executor": "Run",
-    "JUnit.RookMoveTests.rookMoveUntilEdge.executor": "Run",
-    "JUnit.StandardAPITests.executor": "Run",
-    "JUnit.StandardAPITests.failRegister.executor": "Run",
-    "JUnit.StandardAPITests.gamesList.executor": "Run",
-    "JUnit.StandardAPITests.goodCreate.executor": "Run",
-    "JUnit.StandardAPITests.goodJoin.executor": "Run",
-    "JUnit.StandardAPITests.successRegister.executor": "Debug",
-    "JUnit.UserServiceTest.executor": "Run",
-    "JUnit.UserServiceTest.login401.executor": "Run",
-    "JUnit.UserServiceTest.loginSuccessful.executor": "Run",
-    "JUnit.UserServiceTest.logout401.executor": "Run",
-    "JUnit.UserServiceTest.logoutSuccessful.executor": "Run",
-    "JUnit.UserServiceTest.register400.executor": "Run",
-    "JUnit.UserServiceTest.register403.executor": "Run",
-    "JUnit.passoff.chess in shared.executor": "Run",
-    "JUnit.passoff.chess.game in shared.executor": "Debug",
-    "JUnit.passoff.chess.piece in shared.executor": "Run",
-    "JUnit.passoff.server in server.executor": "Run",
-    "JUnit.service in server.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/bryan/OneDrive/Desktop/codekrap/coursework/cs240/chess",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DatabaseManager.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;JUnit.All in server (1).executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in server.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in shared.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BishopMoveTests.bishopMoveUntilEdge.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BishopMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessBoardTests.defaultGameBoard.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessBoardTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessBoardTests.getAddPiece.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessMoveTests.equalsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessPositionTests.equalsTest.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.ChessPositionTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessPositionTests.hashSetTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ChessPositionTests.hashTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClearServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FullGameTest.scholarsMate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.clear200.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameServiceTest.listGame200.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameStatusTests.escapeCheckByCapturingThreateningPiece.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KingMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KingMoveTests.kingMiddleOfBoard.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.KnightMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MakeMoveTests.invalidMakeMoveNoPiece.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MakeMoveTests.invalidMakeMoveOutOfTurn.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MakeMoveTests.makeMoveChangesTurn.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MakeMoveTests.promotionMoves.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PawnMoveTests.captureAndPromoteBlack.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PawnMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveWhite.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.QueenMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.QueenMoveTests.queenCaptureEnemy.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RookMoveTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RookMoveTests.rookCaptureEnemy.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RookMoveTests.rookMoveUntilEdge.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.failRegister.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.gamesList.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.goodCreate.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.goodJoin.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.StandardAPITests.successRegister.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.login401.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.loginSuccessful.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.logout401.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.logoutSuccessful.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.register400.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.register403.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.passoff.chess in shared.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.passoff.chess.game in shared.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.passoff.chess.piece in shared.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.passoff.server in server.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.service in server.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bryan/OneDrive/Desktop/codekrap/coursework/cs240/chess&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\bryan\OneDrive\Desktop\codekrap\coursework\cs240\chess\server\src" />
@@ -244,7 +242,9 @@
       <workItem from="1741129529483" duration="2894000" />
       <workItem from="1741132455240" duration="1473000" />
       <workItem from="1741134527913" duration="464000" />
-      <workItem from="1741135006394" duration="6109000" />
+      <workItem from="1741135006394" duration="9446000" />
+      <workItem from="1741323508901" duration="2561000" />
+      <workItem from="1741386642204" duration="1628000" />
     </task>
     <servers />
   </component>
