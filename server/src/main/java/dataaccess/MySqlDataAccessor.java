@@ -12,7 +12,6 @@ public class MySqlDataAccessor {
         if (!isDbInitialized) {
             DatabaseManager.createDatabase();
             DatabaseManager.initializeTables();
-
         }
         isDbInitialized = true;
     }

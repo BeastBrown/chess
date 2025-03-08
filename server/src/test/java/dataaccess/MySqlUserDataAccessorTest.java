@@ -3,14 +3,12 @@ package dataaccess;
 import chess.data.UserData;
 import org.junit.jupiter.api.*;
 
-public class MySqlDataAccessorTest {
+public class MySqlUserDataAccessorTest {
 
     private UserDataAccessor userAccessor;
 
     @BeforeEach
     public void initializeServer() throws DataAccessException {
-        DatabaseManager.createDatabase();
-        DatabaseManager.initializeTables();
         userAccessor = new MySqlUserDataAccessor();
         userAccessor.clear();
     }
@@ -32,5 +30,18 @@ public class MySqlDataAccessorTest {
         userAccessor.createUser(toInsert);
         UserData observed = userAccessor.getUser("bob");
         Assertions.assertEquals(toInsert, observed);
+    }
+
+    @Test
+    @DisplayName("get user negative")
+    public void getUserNull() {
+        UserData observed = userAccessor.getUser("bob");
+        Assertions.assertNull(observed);
+    }
+
+    @Test
+    @DisplayName("insert user negative")
+    public void insertNullUserThrows() {
+        Assertions.assertThrows(NullPointerException.class, () -> userAccessor.createUser(null));
     }
 }
