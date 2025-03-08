@@ -31,8 +31,9 @@ public class MySqlAuthDataAccessor extends MySqlDataAccessor implements AuthData
     @Override
     public void createAuth(AuthData authData) {
         String authCreate = """
-                INSERT INTO auths (authToken, username) VALUES (?, ?)
+                INSERT INTO auths (authToken, username) VALUES (?, ?);
                 """;
+//        ON DUPLICATE KEY UPDATE authToken = VALUES(authToken)
         String[] arguments = new String[2];
         arguments[0] = authData.authToken();
         arguments[1] = authData.username();

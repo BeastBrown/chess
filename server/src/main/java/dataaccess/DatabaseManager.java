@@ -69,7 +69,7 @@ public class DatabaseManager {
                 CREATE TABLE IF NOT EXISTS auths (
                 authToken varchar(255),
                 username varchar(255),
-                PRIMARY KEY(username));
+                PRIMARY KEY(authToken));
                 """;
         try(Connection conn = DatabaseManager.getConnection()) {
             PreparedStatement users = conn.prepareStatement(createUsers);

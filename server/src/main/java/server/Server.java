@@ -20,9 +20,17 @@ public class Server {
 
     public Server() {
 
-        userAccessor = new MemoryUserDataAccessor();
-        authAccessor = new MemoryAuthDataAccessor();
-        gameAccessor = new MemoryGameDataAccessor();
+        try {
+            userAccessor = new MySqlUserDataAccessor();
+            authAccessor = new MySqlAuthDataAccessor();
+            gameAccessor = new MySqlGameDataAccessor();
+        } catch (DataAccessException e) {
+            throw new RuntimeException(e);
+        }
+
+//        userAccessor = new MemoryUserDataAccessor();
+//        authAccessor = new MemoryAuthDataAccessor();
+//        gameAccessor = new MemoryGameDataAccessor();
 
         userService = new UserService(userAccessor, authAccessor);
         gameService = new GameService(userService, gameAccessor, authAccessor);
