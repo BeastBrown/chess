@@ -90,9 +90,9 @@ public class MySqlGameDataAccessorTest {
 
     @Test
     @DisplayName("Display Game Negative")
-    public void displayGameNull() {
+    public void displayGameNoContent() {
         Collection<GameData> observed = gameAccessor.listGames();
-        Assertions.assertNull(observed);
+        Assertions.assertTrue(observed.isEmpty());
     }
 
     @Test

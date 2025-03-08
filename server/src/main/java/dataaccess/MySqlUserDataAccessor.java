@@ -17,11 +17,11 @@ public class MySqlUserDataAccessor extends MySqlDataAccessor implements UserData
 
     @Override
     public void clear() {
-        String clearAuths = """
+        String clearUsers = """
                 TRUNCATE TABLE users;
                 """;
         try {
-            executeParameterizedUpdate(clearAuths, new String[0]);
+            executeParameterizedUpdate(clearUsers, new String[0]);
         } catch (DataAccessException e) {
             throw new RuntimeException("Clearing the users failed");
         }

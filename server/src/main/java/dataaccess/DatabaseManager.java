@@ -62,7 +62,7 @@ public class DatabaseManager {
                 whiteUsername varchar(255),
                 blackUsername varchar(255),
                 gameName varchar(255),
-                game varchar(255),
+                game TEXT,
                 PRIMARY KEY(id));
                 """;
         String createAuths = """

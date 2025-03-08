@@ -45,7 +45,7 @@ public class MySqlDataAccessor {
             HashMap<String, Object> rowMap = new HashMap<String, Object>();
             for (int i = 1; i < columnCount+1; i++) {
                 String cName = metaData.getColumnName(i);
-                rowMap.put(cName, rs.getString(cName));
+                rowMap.put(cName, rs.getObject(cName));
             }
             resultList.add(rowMap);
         }
