@@ -53,7 +53,8 @@ public class MySqlAuthDataAccessorTest {
     @Test
     @DisplayName("Get Auth Negative")
     public void getAuthNullFailure() {
-        Assertions.assertThrows(NullPointerException.class, () -> authAccessor.getAuth(null));
+        AuthData observed = authAccessor.getAuth("not this auth");
+        Assertions.assertNull(observed);
     }
 
     @Test
@@ -68,10 +69,12 @@ public class MySqlAuthDataAccessorTest {
 
     @Test
     @DisplayName("Delete Auth Negative")
-    public void deleteAuthNullFailure() {
+    public void deleteAuthFailureNothingHappens() {
         AuthData toAdd = new AuthData("cool auth", "bob");
         authAccessor.createAuth(toAdd);
-        Assertions.assertThrows(NullPointerException.class, () -> authAccessor.deleteAuth(null));
+        authAccessor.deleteAuth("fake auth");
+        AuthData observed = authAccessor.getAuth("cool auth");
+        Assertions.assertEquals(toAdd, observed);
     }
 
 }

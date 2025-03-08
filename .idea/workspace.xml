@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlAuthDataAccessorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlDataAccessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlUserDataAccessorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDataAccessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlAuthDataAccessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlAuthDataAccessorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,14 +82,18 @@
     "JUnit.MakeMoveTests.invalidMakeMoveOutOfTurn.executor": "Run",
     "JUnit.MakeMoveTests.makeMoveChangesTurn.executor": "Run",
     "JUnit.MakeMoveTests.promotionMoves.executor": "Run",
+    "JUnit.MySqlAuthDataAccessorTest.createAuthSuccessful.executor": "Run",
+    "JUnit.MySqlAuthDataAccessorTest.deleteAuthFailureNothingHappens.executor": "Run",
+    "JUnit.MySqlAuthDataAccessorTest.deleteAuthNullFailure.executor": "Run",
     "JUnit.MySqlAuthDataAccessorTest.executor": "Run",
+    "JUnit.MySqlAuthDataAccessorTest.getAuthNullFailure.executor": "Run",
     "JUnit.MySqlDataAccessorTest.clearSuccess.executor": "Run",
     "JUnit.MySqlDataAccessorTest.executor": "Run",
     "JUnit.MySqlDataAccessorTest.getUserNull.executor": "Run",
     "JUnit.MySqlDataAccessorTest.insertGetSuccess.executor": "Run",
     "JUnit.MySqlDataAccessorTest.insertNullUserThrows.executor": "Run",
     "JUnit.MySqlDataAccessorTest.insertSuccess.executor": "Run",
-    "JUnit.MySqlUserDataAccessorTest.executor": "Debug",
+    "JUnit.MySqlUserDataAccessorTest.executor": "Run",
     "JUnit.PawnMoveTests.captureAndPromoteBlack.executor": "Run",
     "JUnit.PawnMoveTests.executor": "Run",
     "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack.executor": "Run",
@@ -148,7 +151,7 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MySqlAuthDataAccessorTest">
+  <component name="RunManager" selected="JUnit.dataaccess in server">
     <configuration name="MySqlAuthDataAccessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -164,7 +167,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySqlUserDataAccessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MySqlAuthDataAccessorTest.createAuthSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -173,29 +176,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlUserDataAccessorTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MySqlUserDataAccessorTest.clearSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataaccess.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlUserDataAccessorTest" />
-      <option name="METHOD_NAME" value="clearSuccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlAuthDataAccessorTest" />
+      <option name="METHOD_NAME" value="createAuthSuccessful" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySqlUserDataAccessorTest.getUserNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MySqlAuthDataAccessorTest.deleteAuthFailureNothingHappens" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -204,14 +192,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlUserDataAccessorTest" />
-      <option name="METHOD_NAME" value="getUserNull" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlAuthDataAccessorTest" />
+      <option name="METHOD_NAME" value="deleteAuthFailureNothingHappens" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySqlUserDataAccessorTest.insertNullUserThrows" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MySqlAuthDataAccessorTest.getAuthNullFailure" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -220,20 +208,34 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlUserDataAccessorTest" />
-      <option name="METHOD_NAME" value="insertNullUserThrows" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlAuthDataAccessorTest" />
+      <option name="METHOD_NAME" value="getAuthNullFailure" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dataaccess in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.dataaccess in server" />
         <item itemvalue="JUnit.MySqlAuthDataAccessorTest" />
-        <item itemvalue="JUnit.MySqlUserDataAccessorTest" />
-        <item itemvalue="JUnit.MySqlUserDataAccessorTest.insertNullUserThrows" />
-        <item itemvalue="JUnit.MySqlUserDataAccessorTest.getUserNull" />
-        <item itemvalue="JUnit.MySqlUserDataAccessorTest.clearSuccess" />
+        <item itemvalue="JUnit.MySqlAuthDataAccessorTest.deleteAuthFailureNothingHappens" />
+        <item itemvalue="JUnit.MySqlAuthDataAccessorTest.getAuthNullFailure" />
+        <item itemvalue="JUnit.MySqlAuthDataAccessorTest.createAuthSuccessful" />
       </list>
     </recent_temporary>
   </component>
@@ -295,7 +297,7 @@
       <workItem from="1741134527913" duration="464000" />
       <workItem from="1741135006394" duration="9446000" />
       <workItem from="1741323508901" duration="2561000" />
-      <workItem from="1741386642204" duration="18444000" />
+      <workItem from="1741386642204" duration="23461000" />
     </task>
     <servers />
   </component>
@@ -343,6 +345,16 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="59" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlAuthDataAccessorTest.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

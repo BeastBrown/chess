@@ -32,14 +32,14 @@ public class MySqlUserDataAccessor extends MySqlDataAccessor implements UserData
         String insertAuth = """
                 INSERT INTO users (username, password, email) VALUES (?, ?, ?);
                 """;
-        try (Connection conn = DatabaseManager.getConnection()) {
-            PreparedStatement insertStatement = conn.prepareStatement(insertAuth);
-            insertStatement.setString(1, userdata.username());
-            insertStatement.setString(2, userdata.password());
-            insertStatement.setString(3, userdata.email());
-            insertStatement.executeUpdate();
-        } catch (SQLException | DataAccessException e) {
-            throw new RuntimeException("Create user statement failed");
+        String[] userArguments = new String[3];
+        userArguments[0] = userdata.username();
+        userArguments[1] = userdata.password();
+        userArguments[2] = userdata.email();
+        try {
+            executeParameterizedUpdate(insertAuth, userArguments);
+        } catch (DataAccessException e) {
+            throw new RuntimeException(e);
         }
     }
 
