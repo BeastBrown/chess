@@ -1,9 +1,9 @@
 package dataaccess;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MySqlDataAccessor {
 
@@ -27,13 +27,31 @@ public class MySqlDataAccessor {
         }
     }
 
-    protected ResultSet executeParameterizedQuery(String statement, String[] values) throws DataAccessException {
-        try (Connection conn = DatabaseManager.getConnection()) {;
+    protected ArrayList<HashMap<String, String>> executeParameterizedQuery(String statement, String[] values) throws DataAccessException {
+        try (Connection conn = DatabaseManager.getConnection()) {
             PreparedStatement pStatement = setArguments(statement, values, conn);
-            return pStatement.executeQuery();
+            ResultSet rs =  pStatement.executeQuery();
+
+            return getRsInMemory(rs);
         } catch (SQLException e) {
             throw new DataAccessException(e.getMessage());
         }
+    }
+
+    private static ArrayList<HashMap<String, String>> getRsInMemory(ResultSet rs) throws SQLException {
+        ArrayList<HashMap<String, String>> resultList = new ArrayList<HashMap<String, String>>();
+        ResultSetMetaData metaData =  rs.getMetaData();
+        int columnCount = metaData.getColumnCount();
+
+        while(rs.next()) {
+            HashMap<String, String> rowMap = new HashMap<String, String>();
+            for (int i = 1; i < columnCount+1; i++) {
+                String cName = metaData.getColumnName(i);
+                rowMap.put(cName, rs.getString(cName));
+            }
+            resultList.add(rowMap);
+        }
+        return resultList;
     }
 
     private static PreparedStatement setArguments(String statement, String[] values, Connection conn) throws SQLException {

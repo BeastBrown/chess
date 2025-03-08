@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MySqlUserDataAccessor extends MySqlDataAccessor implements UserDataAccessor {
 
@@ -48,14 +50,15 @@ public class MySqlUserDataAccessor extends MySqlDataAccessor implements UserData
                 """;
         String[] queryArguments = new String[1];
         queryArguments[0] = username;
-        try (ResultSet rs = executeParameterizedQuery(accessUser, queryArguments)) {
-            rs.next();
-            return new UserData(rs.getString("username"),
-                    rs.getString("password"), rs.getString("email"));
+        try {
+            ArrayList<HashMap<String, String>> resultList =
+                    executeParameterizedQuery(accessUser, queryArguments);
+            HashMap<String, String> userRow = resultList.isEmpty() ? null : resultList.getFirst();
+            return userRow == null ? null :
+                    new UserData(userRow.get("username"), userRow.get("password"), userRow.get("email"));
+
         } catch (DataAccessException e) {
             throw new RuntimeException(e);
-        } catch (SQLException e) {
-            return null;
         }
     }
 }

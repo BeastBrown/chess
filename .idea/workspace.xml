@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlDataAccessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlDataAccessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlDataAccessorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,7 @@
     "JUnit.MakeMoveTests.promotionMoves.executor": "Run",
     "JUnit.MySqlDataAccessorTest.clearSuccess.executor": "Run",
     "JUnit.MySqlDataAccessorTest.executor": "Run",
-    "JUnit.MySqlDataAccessorTest.insertGetSuccess.executor": "Debug",
+    "JUnit.MySqlDataAccessorTest.insertGetSuccess.executor": "Run",
     "JUnit.MySqlDataAccessorTest.insertSuccess.executor": "Run",
     "JUnit.PawnMoveTests.captureAndPromoteBlack.executor": "Run",
     "JUnit.PawnMoveTests.executor": "Run",
@@ -144,7 +142,7 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MySqlDataAccessorTest.insertGetSuccess">
+  <component name="RunManager" selected="JUnit.MySqlDataAccessorTest">
     <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <option name="PACKAGE_NAME" value="" />
@@ -218,10 +216,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MySqlDataAccessorTest.insertGetSuccess" />
-        <item itemvalue="JUnit.MySqlDataAccessorTest.insertSuccess" />
         <item itemvalue="JUnit.MySqlDataAccessorTest" />
         <item itemvalue="JUnit.MySqlDataAccessorTest.clearSuccess" />
+        <item itemvalue="JUnit.MySqlDataAccessorTest.insertGetSuccess" />
+        <item itemvalue="JUnit.MySqlDataAccessorTest.insertSuccess" />
         <item itemvalue="JUnit.All in shared" />
       </list>
     </recent_temporary>
@@ -284,7 +282,7 @@
       <workItem from="1741134527913" duration="464000" />
       <workItem from="1741135006394" duration="9446000" />
       <workItem from="1741323508901" duration="2561000" />
-      <workItem from="1741386642204" duration="10011000" />
+      <workItem from="1741386642204" duration="15639000" />
     </task>
     <servers />
   </component>
@@ -333,9 +331,9 @@
           <option name="timeStamp" value="59" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlDataAccessor.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="67" />
+          <url>file://$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlDataAccessorTest.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
