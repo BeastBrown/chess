@@ -18,9 +18,13 @@ public class UserServiceTest {
     private UserService userService;
 
     @BeforeEach
-    public void initializeTests() {
-        userDataAccessor = new MemoryUserDataAccessor();
-        authDataAccessor = new MemoryAuthDataAccessor();
+    public void initializeTests() throws DataAccessException {
+        userDataAccessor = new MySqlUserDataAccessor();
+        authDataAccessor = new MySqlAuthDataAccessor();
+
+        userDataAccessor.clear();
+        authDataAccessor.clear();
+
         userService = new UserService(userDataAccessor, authDataAccessor);
     }
 
