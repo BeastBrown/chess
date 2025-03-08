@@ -2,6 +2,7 @@ package dataaccess;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MySqlDataAccessor {
@@ -11,52 +12,35 @@ public class MySqlDataAccessor {
     public MySqlDataAccessor() throws DataAccessException {
         if (!isDbInitialized) {
             DatabaseManager.createDatabase();
-            initializeTables();
+            DatabaseManager.initializeTables();
 
         }
         isDbInitialized = true;
     }
 
-    private void initializeTables() throws DataAccessException {
-        String createUsers = """
-                CREATE TABLE IF NOT EXISTS users (
-                username varchar(255) NOT NULL,
-                password varchar(255) NOT NULL,
-                email varchar(255) NOT NULL ,
-                PRIMARY KEY(username));
-                """;
-        String createGames = """
-                CREATE TABLE IF NOT EXISTS games (
-                id int AUTO INCREMENT,
-                whiteUsername varchar(255),
-                blackUsername varchar(255),
-                gameName varchar(255),
-                game varchar(255),
-                PRIMARY KEY(id));
-                """;
-        String createAuths = """
-                CREATE TABLE IF NOT EXISTS auths (
-                authToken varchar(255),
-                username varchar(255),
-                PRIMARY KEY(username));
-                """;
+    protected void executeParameterizedUpdate(String statement, String[] values) throws DataAccessException {
         try(Connection conn = DatabaseManager.getConnection()) {
-            executeModification(createUsers);
-            executeModification(createGames);
-            executeModification(createAuths);
+            PreparedStatement prepStatement = setArguments(statement, values, conn);
+            prepStatement.executeUpdate();
         } catch (SQLException e) {
             throw new DataAccessException(e.getMessage());
         }
     }
 
-    protected void executeModification(String statement) throws DataAccessException {
-        Connection conn = null;
-        try(Connection c = DatabaseManager.getConnection()) {
-            conn = c;
-            PreparedStatement prepStatement = conn.prepareStatement(statement);
-            prepStatement.executeUpdate();
+    protected ResultSet executeParameterizedQuery(String statement, String[] values) throws DataAccessException {
+        try (Connection conn = DatabaseManager.getConnection()) {;
+            PreparedStatement pStatement = setArguments(statement, values, conn);
+            return pStatement.executeQuery();
         } catch (SQLException e) {
             throw new DataAccessException(e.getMessage());
         }
+    }
+
+    private static PreparedStatement setArguments(String statement, String[] values, Connection conn) throws SQLException {
+        PreparedStatement pStatement = conn.prepareStatement(statement);
+        for(int i = 1; i < values.length+1 ; i++) {
+            pStatement.setString(i, values[i-1]);
+        }
+        return pStatement;
     }
 }

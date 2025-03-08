@@ -48,6 +48,41 @@ public class DatabaseManager {
         }
     }
 
+    static void initializeTables() throws DataAccessException {
+        String createUsers = """
+                CREATE TABLE IF NOT EXISTS users (
+                username varchar(255) NOT NULL,
+                password varchar(255) NOT NULL,
+                email varchar(255) NOT NULL ,
+                PRIMARY KEY(username));
+                """;
+        String createGames = """
+                CREATE TABLE IF NOT EXISTS games (
+                id int AUTO_INCREMENT,
+                whiteUsername varchar(255),
+                blackUsername varchar(255),
+                gameName varchar(255),
+                game varchar(255),
+                PRIMARY KEY(id));
+                """;
+        String createAuths = """
+                CREATE TABLE IF NOT EXISTS auths (
+                authToken varchar(255),
+                username varchar(255),
+                PRIMARY KEY(username));
+                """;
+        try(Connection conn = DatabaseManager.getConnection()) {
+            PreparedStatement users = conn.prepareStatement(createUsers);
+            PreparedStatement games = conn.prepareStatement(createGames);
+            PreparedStatement auths = conn.prepareStatement(createAuths);
+            users.executeUpdate();
+            games.executeUpdate();
+            auths.executeUpdate();
+        } catch (SQLException | DataAccessException e) {
+            throw new DataAccessException(e.getMessage());
+        }
+    }
+
     /**
      * Create a connection to the database and sets the catalog based upon the
      * properties specified in db.properties. Connections to the database should

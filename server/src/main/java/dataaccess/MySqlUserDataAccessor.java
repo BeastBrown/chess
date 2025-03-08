@@ -16,12 +16,12 @@ public class MySqlUserDataAccessor extends MySqlDataAccessor implements UserData
     @Override
     public void clear() {
         String clearAuths = """
-                DELETE FROM auths;
+                TRUNCATE TABLE users;
                 """;
         try {
-            executeModification(clearAuths);
+            executeParameterizedUpdate(clearAuths, new String[0]);
         } catch (DataAccessException e) {
-            throw new RuntimeException("Clearing the auths failed");
+            throw new RuntimeException("Clearing the users failed");
         }
     }
 
@@ -35,6 +35,7 @@ public class MySqlUserDataAccessor extends MySqlDataAccessor implements UserData
             insertStatement.setString(1, userdata.username());
             insertStatement.setString(2, userdata.password());
             insertStatement.setString(3, userdata.email());
+            insertStatement.executeUpdate();
         } catch (SQLException | DataAccessException e) {
             throw new RuntimeException("Create user statement failed");
         }
@@ -45,16 +46,16 @@ public class MySqlUserDataAccessor extends MySqlDataAccessor implements UserData
         String accessUser = """
                 SELECT username, password, email FROM users WHERE username = ?;
                 """;
-        try (Connection conn = DatabaseManager.getConnection()) {
-            PreparedStatement grabUser = conn.prepareStatement(accessUser);
-            grabUser.setString(1, username);
-            ResultSet rs =  grabUser.executeQuery();
+        String[] queryArguments = new String[1];
+        queryArguments[0] = username;
+        try (ResultSet rs = executeParameterizedQuery(accessUser, queryArguments)) {
             rs.next();
-            UserData userData = new UserData(rs.getString("username"),
+            return new UserData(rs.getString("username"),
                     rs.getString("password"), rs.getString("email"));
-            return userData;
-        } catch (SQLException | DataAccessException e) {
-            throw new RuntimeException("Get user statement failed");
+        } catch (DataAccessException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            return null;
         }
     }
 }
