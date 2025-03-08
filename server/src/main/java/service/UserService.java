@@ -32,9 +32,7 @@ public class UserService {
             InvalidParametersException {
 
         validateRegisterFields(registerRequest);
-
         String hashedPassword = BCrypt.hashpw(registerRequest.password(), BCrypt.gensalt());
-
         UserData userData = new UserData(registerRequest.username(),
                 hashedPassword, registerRequest.email());
         userAccessor.createUser(userData);

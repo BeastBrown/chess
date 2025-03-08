@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +117,7 @@
     "JUnit.StandardAPITests.uniqueAuthorizationTokens.executor": "Run",
     "JUnit.UserServiceTest.executor": "Run",
     "JUnit.UserServiceTest.login401.executor": "Run",
-    "JUnit.UserServiceTest.loginSuccessful.executor": "Debug",
+    "JUnit.UserServiceTest.loginSuccessful.executor": "Run",
     "JUnit.UserServiceTest.logout401.executor": "Run",
     "JUnit.UserServiceTest.logoutSuccessful.executor": "Run",
     "JUnit.UserServiceTest.register400.executor": "Run",
@@ -296,7 +297,7 @@
       <workItem from="1741135006394" duration="9446000" />
       <workItem from="1741323508901" duration="2561000" />
       <workItem from="1741386642204" duration="28676000" />
-      <workItem from="1741450695261" duration="14359000" />
+      <workItem from="1741450695261" duration="14751000" />
     </task>
     <servers />
   </component>
@@ -373,11 +374,6 @@
           <url>file://$PROJECT_DIR$/server/src/main/java/server/Server.java</url>
           <line>142</line>
           <option name="timeStamp" value="115" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/service/UserService.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="119" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
