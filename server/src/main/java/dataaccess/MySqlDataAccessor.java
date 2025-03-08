@@ -17,7 +17,7 @@ public class MySqlDataAccessor {
         isDbInitialized = true;
     }
 
-    protected void executeParameterizedUpdate(String statement, String[] values) throws DataAccessException {
+    protected void executeParameterizedUpdate(String statement, Object[] values) throws DataAccessException {
         try(Connection conn = DatabaseManager.getConnection()) {
             PreparedStatement prepStatement = setArguments(statement, values, conn);
             prepStatement.executeUpdate();
