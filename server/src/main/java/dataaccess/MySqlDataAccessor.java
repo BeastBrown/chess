@@ -26,7 +26,7 @@ public class MySqlDataAccessor {
         }
     }
 
-    protected ArrayList<HashMap<String, String>> executeParameterizedQuery(String statement, Object[] values) throws DataAccessException {
+    protected ArrayList<HashMap<String, Object>> executeParameterizedQuery(String statement, Object[] values) throws DataAccessException {
         try (Connection conn = DatabaseManager.getConnection()) {
             PreparedStatement pStatement = setArguments(statement, values, conn);
             ResultSet rs =  pStatement.executeQuery();
@@ -37,13 +37,13 @@ public class MySqlDataAccessor {
         }
     }
 
-    private static ArrayList<HashMap<String, String>> getRsInMemory(ResultSet rs) throws SQLException {
-        ArrayList<HashMap<String, String>> resultList = new ArrayList<HashMap<String, String>>();
+    private static ArrayList<HashMap<String, Object>> getRsInMemory(ResultSet rs) throws SQLException {
+        ArrayList<HashMap<String, Object>> resultList = new ArrayList<HashMap<String, Object>>();
         ResultSetMetaData metaData =  rs.getMetaData();
         int columnCount = metaData.getColumnCount();
 
         while(rs.next()) {
-            HashMap<String, String> rowMap = new HashMap<String, String>();
+            HashMap<String, Object> rowMap = new HashMap<String, Object>();
             for (int i = 1; i < columnCount+1; i++) {
                 String cName = metaData.getColumnName(i);
                 rowMap.put(cName, rs.getString(cName));

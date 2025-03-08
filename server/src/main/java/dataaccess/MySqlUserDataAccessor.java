@@ -51,11 +51,12 @@ public class MySqlUserDataAccessor extends MySqlDataAccessor implements UserData
         String[] queryArguments = new String[1];
         queryArguments[0] = username;
         try {
-            ArrayList<HashMap<String, String>> resultList =
+            ArrayList<HashMap<String, Object>> resultList =
                     executeParameterizedQuery(accessUser, queryArguments);
-            HashMap<String, String> userRow = resultList.isEmpty() ? null : resultList.getFirst();
+            HashMap<String, Object> userRow = resultList.isEmpty() ? null : resultList.getFirst();
             return userRow == null ? null :
-                    new UserData(userRow.get("username"), userRow.get("password"), userRow.get("email"));
+                    new UserData((String) userRow.get("username"),
+                            (String) userRow.get("password"), (String) userRow.get("email"));
 
         } catch (DataAccessException e) {
             throw new RuntimeException(e);
