@@ -21,7 +21,7 @@ public class MySqlGameDataAccessorTest {
     }
 
     @Test
-    @DisplayName("Get Game Positive")
+    @DisplayName("Get and Create Game Positive")
     public void getGameSuccessful() {
         GameData toAdd = new GameData(1, null, null, "Best Game", new ChessGame());
         gameAccessor.createGame(toAdd);
@@ -55,15 +55,6 @@ public class MySqlGameDataAccessorTest {
         gameAccessor.clear();
         GameData observed = gameAccessor.getGame(1);
         Assertions.assertNull(observed);
-    }
-
-    @Test
-    @DisplayName("Create Game Positive")
-    public void createGameSuccessful() {
-        GameData toAdd = new GameData(1, null, null, "Best Game", new ChessGame());
-        gameAccessor.createGame(toAdd);
-        GameData observed = gameAccessor.getGame(1);
-        Assertions.assertEquals(toAdd, observed);
     }
 
     @Test

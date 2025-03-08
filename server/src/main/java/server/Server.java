@@ -28,11 +28,6 @@ public class Server {
             throw new RuntimeException(e);
         }
 
-//        Use this instantiation if you want a memory version instead of SQL
-//        userAccessor = new MemoryUserDataAccessor();
-//        authAccessor = new MemoryAuthDataAccessor();
-//        gameAccessor = new MemoryGameDataAccessor();
-
         userService = new UserService(userAccessor, authAccessor);
         gameService = new GameService(userService, gameAccessor, authAccessor);
         clearService = new ClearService(userAccessor, authAccessor, gameAccessor);
