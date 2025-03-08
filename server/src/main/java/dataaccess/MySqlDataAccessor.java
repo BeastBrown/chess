@@ -3,7 +3,6 @@ package dataaccess;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class MySqlDataAccessor {
 
@@ -27,7 +26,7 @@ public class MySqlDataAccessor {
         }
     }
 
-    protected ArrayList<HashMap<String, String>> executeParameterizedQuery(String statement, String[] values) throws DataAccessException {
+    protected ArrayList<HashMap<String, String>> executeParameterizedQuery(String statement, Object[] values) throws DataAccessException {
         try (Connection conn = DatabaseManager.getConnection()) {
             PreparedStatement pStatement = setArguments(statement, values, conn);
             ResultSet rs =  pStatement.executeQuery();
@@ -54,10 +53,10 @@ public class MySqlDataAccessor {
         return resultList;
     }
 
-    private static PreparedStatement setArguments(String statement, String[] values, Connection conn) throws SQLException {
+    private static PreparedStatement setArguments(String statement, Object[] values, Connection conn) throws SQLException {
         PreparedStatement pStatement = conn.prepareStatement(statement);
         for(int i = 1; i < values.length+1 ; i++) {
-            pStatement.setString(i, values[i-1]);
+            pStatement.setObject(i, values[i-1]);
         }
         return pStatement;
     }
