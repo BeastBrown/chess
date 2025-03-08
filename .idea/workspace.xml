@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDataAccessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlGameDataAccessorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlUserDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlAuthDataAccessorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlAuthDataAccessorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +92,7 @@
     "JUnit.MySqlDataAccessorTest.insertGetSuccess.executor": "Run",
     "JUnit.MySqlDataAccessorTest.insertNullUserThrows.executor": "Run",
     "JUnit.MySqlDataAccessorTest.insertSuccess.executor": "Run",
+    "JUnit.MySqlGameDataAccessorTest.executor": "Run",
     "JUnit.MySqlUserDataAccessorTest.executor": "Run",
     "JUnit.PawnMoveTests.captureAndPromoteBlack.executor": "Run",
     "JUnit.PawnMoveTests.executor": "Run",
@@ -116,6 +116,7 @@
     "JUnit.UserServiceTest.logoutSuccessful.executor": "Run",
     "JUnit.UserServiceTest.register400.executor": "Run",
     "JUnit.UserServiceTest.register403.executor": "Run",
+    "JUnit.dataaccess in server.executor": "Run",
     "JUnit.passoff.chess in shared.executor": "Run",
     "JUnit.passoff.chess.game in shared.executor": "Debug",
     "JUnit.passoff.chess.piece in shared.executor": "Run",
@@ -151,7 +152,7 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.dataaccess in server">
+  <component name="RunManager" selected="JUnit.MySqlGameDataAccessorTest">
     <configuration name="MySqlAuthDataAccessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -163,22 +164,6 @@
       <option name="PACKAGE_NAME" value="dataaccess" />
       <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlAuthDataAccessorTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MySqlAuthDataAccessorTest.createAuthSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataaccess.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlAuthDataAccessorTest" />
-      <option name="METHOD_NAME" value="createAuthSuccessful" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -215,6 +200,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MySqlGameDataAccessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataaccess.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataaccess" />
+      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlGameDataAccessorTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="dataaccess in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -231,11 +231,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MySqlGameDataAccessorTest" />
         <item itemvalue="JUnit.dataaccess in server" />
         <item itemvalue="JUnit.MySqlAuthDataAccessorTest" />
         <item itemvalue="JUnit.MySqlAuthDataAccessorTest.deleteAuthFailureNothingHappens" />
         <item itemvalue="JUnit.MySqlAuthDataAccessorTest.getAuthNullFailure" />
-        <item itemvalue="JUnit.MySqlAuthDataAccessorTest.createAuthSuccessful" />
       </list>
     </recent_temporary>
   </component>
@@ -297,7 +297,7 @@
       <workItem from="1741134527913" duration="464000" />
       <workItem from="1741135006394" duration="9446000" />
       <workItem from="1741323508901" duration="2561000" />
-      <workItem from="1741386642204" duration="23461000" />
+      <workItem from="1741386642204" duration="28612000" />
     </task>
     <servers />
   </component>
@@ -349,11 +349,6 @@
           <url>file://$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlAuthDataAccessorTest.java</url>
           <line>33</line>
           <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
