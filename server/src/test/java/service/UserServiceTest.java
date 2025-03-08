@@ -54,7 +54,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("Login Success")
-    public void loginSuccessful() throws InvalidParametersException {
+    public void loginSuccessful() throws InvalidParametersException, InsufficientParametersException {
         initializeRegistry();
         LoginRequest loginRequest = new LoginRequest("Bob", "shizbuckets");
         LoginResult observed = userService.loginService(loginRequest);
@@ -64,19 +64,20 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("Login Unauthorized")
-    public void login401() {
+    public void login401() throws InvalidParametersException, InsufficientParametersException {
         initializeRegistry();
         LoginRequest loginRequest = new LoginRequest("Bob", "wrong password");
         Assertions.assertThrows(InvalidParametersException.class, () -> userService.loginService(loginRequest));
     }
 
-    private void initializeRegistry() {
-        userDataAccessor.createUser(new UserData("Bob", "shizbuckets", "derp@loler.com"));
+    private void initializeRegistry() throws InvalidParametersException, InsufficientParametersException {
+        RegisterRequest request = new RegisterRequest("Bob", "shizbuckets", "derp@loler.com");
+        userService.registerService(request);
     }
 
     @Test
     @DisplayName("Logout Successful")
-    public void logoutSuccessful() throws InvalidParametersException {
+    public void logoutSuccessful() throws InvalidParametersException, InsufficientParametersException {
         initializeRegistry();
         LoginRequest loginRequest = new LoginRequest("Bob", "shizbuckets");
         LoginResult loginResult = userService.loginService(loginRequest);
@@ -88,7 +89,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("Logout Unauthorized")
-    public void logout401() throws InvalidParametersException {
+    public void logout401() throws InvalidParametersException, InsufficientParametersException {
         initializeRegistry();
         LoginRequest loginRequest = new LoginRequest("Bob", "shizbuckets");
         LoginResult loginResult = userService.loginService(loginRequest);

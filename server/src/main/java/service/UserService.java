@@ -6,6 +6,7 @@ import dataaccess.AuthDataAccessor;
 import dataaccess.InsufficientParametersException;
 import dataaccess.InvalidParametersException;
 import dataaccess.UserDataAccessor;
+import org.mindrot.jbcrypt.BCrypt;
 import service.request.LoginRequest;
 import service.request.LogoutRequest;
 import service.request.RegisterRequest;
@@ -31,8 +32,11 @@ public class UserService {
             InvalidParametersException {
 
         validateRegisterFields(registerRequest);
+
+        String hashedPassword = BCrypt.hashpw(registerRequest.password(), BCrypt.gensalt());
+
         UserData userData = new UserData(registerRequest.username(),
-                registerRequest.password(), registerRequest.email());
+                hashedPassword, registerRequest.email());
         userAccessor.createUser(userData);
 
         LoginRequest loginRequest = new LoginRequest(registerRequest.username(), registerRequest.password());
@@ -69,7 +73,7 @@ public class UserService {
     public LoginResult loginService(LoginRequest loginRequest) throws
             InvalidParametersException {
         UserData user = userAccessor.getUser(loginRequest.username());
-        if (user == null || !user.password().equals(loginRequest.password())) {
+        if (user == null || !BCrypt.checkpw(loginRequest.password(), user.password())) {
             throw new InvalidParametersException("Username doesn't exist, or password is invalid");
         }
         AuthData authData = executeLogin(loginRequest);

@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +68,8 @@
     "JUnit.ChessPositionTests.hashSetTest.executor": "Run",
     "JUnit.ChessPositionTests.hashTest.executor": "Run",
     "JUnit.ClearServiceTest.executor": "Run",
+    "JUnit.DatabaseTests.bcrypt.executor": "Run",
+    "JUnit.DatabaseTests.executor": "Run",
     "JUnit.FullGameTest.scholarsMate.executor": "Run",
     "JUnit.GameServiceTest.clear200.executor": "Run",
     "JUnit.GameServiceTest.executor": "Run",
@@ -116,7 +116,7 @@
     "JUnit.StandardAPITests.uniqueAuthorizationTokens.executor": "Run",
     "JUnit.UserServiceTest.executor": "Run",
     "JUnit.UserServiceTest.login401.executor": "Run",
-    "JUnit.UserServiceTest.loginSuccessful.executor": "Run",
+    "JUnit.UserServiceTest.loginSuccessful.executor": "Debug",
     "JUnit.UserServiceTest.logout401.executor": "Run",
     "JUnit.UserServiceTest.logoutSuccessful.executor": "Run",
     "JUnit.UserServiceTest.register400.executor": "Run",
@@ -157,7 +157,7 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DatabaseTests.bcrypt">
+  <component name="RunManager" selected="JUnit.All in server">
     <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <option name="PACKAGE_NAME" value="" />
@@ -197,6 +197,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserServiceTest.loginSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.UserServiceTest" />
+      <option name="METHOD_NAME" value="loginSuccessful" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="dataaccess in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -211,27 +227,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="service in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in server" />
+        <item itemvalue="JUnit.UserServiceTest.loginSuccessful" />
         <item itemvalue="JUnit.DatabaseTests.bcrypt" />
         <item itemvalue="JUnit.DatabaseTests" />
-        <item itemvalue="JUnit.All in server" />
         <item itemvalue="JUnit.dataaccess in server" />
-        <item itemvalue="JUnit.service in server" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +296,7 @@
       <workItem from="1741135006394" duration="9446000" />
       <workItem from="1741323508901" duration="2561000" />
       <workItem from="1741386642204" duration="28676000" />
-      <workItem from="1741450695261" duration="13325000" />
+      <workItem from="1741450695261" duration="14359000" />
     </task>
     <servers />
   </component>
@@ -371,6 +373,11 @@
           <url>file://$PROJECT_DIR$/server/src/main/java/server/Server.java</url>
           <line>142</line>
           <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/service/UserService.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="119" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
