@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/GameServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +152,7 @@
       <recent name="chess" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ClearServiceTest">
+  <component name="RunManager" selected="JUnit.GameServiceTest">
     <configuration name="ClearServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -169,16 +168,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MySqlAuthDataAccessorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dataaccess.*" />
+          <option name="PATTERN" value="service.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dataaccess" />
-      <option name="MAIN_CLASS_NAME" value="dataaccess.MySqlAuthDataAccessorTest" />
+      <option name="PACKAGE_NAME" value="service" />
+      <option name="MAIN_CLASS_NAME" value="service.GameServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -231,11 +230,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GameServiceTest" />
         <item itemvalue="JUnit.ClearServiceTest" />
         <item itemvalue="JUnit.dataaccess in server" />
         <item itemvalue="JUnit.MySqlGameDataAccessorTest" />
         <item itemvalue="JUnit.MySqlGameDataAccessorTest.createGameSuccessful" />
-        <item itemvalue="JUnit.MySqlAuthDataAccessorTest" />
       </list>
     </recent_temporary>
   </component>
@@ -298,7 +297,7 @@
       <workItem from="1741135006394" duration="9446000" />
       <workItem from="1741323508901" duration="2561000" />
       <workItem from="1741386642204" duration="28676000" />
-      <workItem from="1741450695261" duration="7206000" />
+      <workItem from="1741450695261" duration="7380000" />
     </task>
     <servers />
   </component>

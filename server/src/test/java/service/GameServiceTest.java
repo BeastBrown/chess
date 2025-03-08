@@ -28,10 +28,15 @@ public class GameServiceTest {
     private String testAuth;
 
     @BeforeEach
-    public void initializeTests() throws InvalidParametersException, InsufficientParametersException {
-        this.userAccessor = new MemoryUserDataAccessor();
-        this.authAccessor = new MemoryAuthDataAccessor();
-        this.gameAccessor = new MemoryGameDataAccessor();
+    public void initializeTests() throws DataAccessException {
+        this.userAccessor = new MySqlUserDataAccessor();
+        this.authAccessor = new MySqlAuthDataAccessor();
+        this.gameAccessor = new MySqlGameDataAccessor();
+
+        userAccessor.clear();
+        authAccessor.clear();
+        gameAccessor.clear();
+
         userService = new UserService(userAccessor, authAccessor);
         gameService = new GameService(userService, gameAccessor, authAccessor);
         RegisterRequest registerRequest = new RegisterRequest("Bob", "shizbuckets", "derp@loler.com");
