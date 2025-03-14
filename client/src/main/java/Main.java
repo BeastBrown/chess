@@ -8,6 +8,6 @@ public class Main {
 
         ChessBoard toShow = new ChessBoard();
         toShow.resetBoard();
-        new BoardDisplay(toShow).showBoard();
+        new BoardDisplay(toShow, ChessGame.TeamColor.WHITE).showBoard();
     }
 }
