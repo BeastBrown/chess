@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/BoardDisplay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,6 +151,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\bryan\OneDrive\Desktop\codekrap\coursework\cs240\chess\client\src\test\java\client" />
       <recent name="C:\Users\bryan\OneDrive\Desktop\codekrap\coursework\cs240\chess\server\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -297,7 +300,7 @@
       <workItem from="1741386642204" duration="28676000" />
       <workItem from="1741450695261" duration="16130000" />
       <workItem from="1741708780859" duration="1366000" />
-      <workItem from="1741984730059" duration="1787000" />
+      <workItem from="1741984730059" duration="2861000" />
     </task>
     <servers />
   </component>
