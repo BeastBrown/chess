@@ -37,16 +37,28 @@ public class BoardDisplay {
     }
 
     private void drawBody() {
-        List<String> rows = List.of(" 1 ", " 2 ", " 3 ", " 4 "," 5 "," 6 "," 7 "," 8 ").reversed();
-        for (int i = 1; i < 9; i++) {
-            output.print(borderColor);
-            output.print(rows.get(i-1));
-            drawRow(i);
-            output.print(borderColor);
-            output.print(rows.get(i-1));
-            output.print(RESET_BG_COLOR);
-            output.print("\n");
+        List<String> rows = List.of(" 1 ", " 2 ", " 3 ", " 4 "," 5 "," 6 "," 7 "," 8 ");
+        if (allegiance == WHITE) {
+            for (int i = 8; i > 0; i--) {
+                drawCompleteRow(rows, i);
+            }
+        } else {
+            for (int i = 1; i < 9; i++) {
+                drawCompleteRow(rows, i);
+            }
         }
+    }
+
+    private void drawCompleteRow(List<String> rows, int i) {
+        output.print(borderColor);
+        output.print(borderTextColor);
+        output.print(rows.get(i -1));
+        drawRow(i);
+        output.print(borderColor);
+        output.print(borderTextColor);
+        output.print(rows.get(i -1));
+        output.print(RESET_BG_COLOR);
+        output.print("\n");
     }
 
     private void drawRow(int row) {
@@ -61,7 +73,7 @@ public class BoardDisplay {
 
     private String getSquareString(ChessPosition pos) {
         ChessPiece piece = board.getPiece(pos);
-        return piece == null ? EMPTY : getPieceString(piece);
+        return piece == null ? "   " : getPieceString(piece);
     }
 
     private String getPieceString(ChessPiece piece) {
@@ -69,26 +81,27 @@ public class BoardDisplay {
         boolean isWht = teamColor == WHITE;
         String teamColorString = isWht ? whiteColor : blackColor;
         String pieceClassString = switch(piece.getPieceType()) {
-            case KING -> isWht ? WHITE_KING : BLACK_KING;
-            case QUEEN -> isWht ? WHITE_QUEEN : BLACK_QUEEN;
-            case BISHOP -> isWht ? WHITE_BISHOP : BLACK_BISHOP;
-            case ROOK -> isWht ? WHITE_ROOK : BLACK_ROOK;
-            case KNIGHT -> isWht ? WHITE_KNIGHT : BLACK_KNIGHT;
-            case PAWN -> isWht ? WHITE_PAWN : BLACK_PAWN;
+            case KING -> " K ";
+            case QUEEN -> " Q ";
+            case BISHOP -> " B ";
+            case ROOK -> " R ";
+            case KNIGHT -> " N ";
+            case PAWN -> " P ";
         };
         return teamColorString + pieceClassString;
     }
 
     private void drawBorder() {
         List<String> border = List.of(" A "," B ", " C "," D "," E "," F "," G "," H ");
+        border = allegiance == WHITE ? border : border.reversed();
         output.print(ERASE_SCREEN);
         output.print(borderColor);
         output.print(borderTextColor);
-        output.print(EMPTY);
+        output.print("   ");
         for (String let : border) {
             output.print(let);
         }
-        output.print(EMPTY);
+        output.print("   ");
         output.print(RESET_BG_COLOR);
         output.print("\n");
     }
