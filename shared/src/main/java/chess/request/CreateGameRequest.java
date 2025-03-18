@@ -1,4 +1,4 @@
-package service.request;
+package chess.request;
 
 public record CreateGameRequest(String authToken, String gameName) {
 }

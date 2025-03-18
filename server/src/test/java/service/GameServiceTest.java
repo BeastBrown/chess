@@ -1,22 +1,17 @@
 package service;
 
-import chess.ChessGame;
 import chess.data.GameData;
 import dataaccess.*;
 import org.junit.jupiter.api.*;
-import service.request.CreateGameRequest;
-import service.request.JoinGameRequest;
-import service.request.ListGameRequest;
-import service.request.RegisterRequest;
-import service.result.ClearResult;
-import service.result.CreateGameResult;
-import service.result.JoinGameResult;
-import service.result.ListGameResult;
+import chess.request.CreateGameRequest;
+import chess.request.JoinGameRequest;
+import chess.request.ListGameRequest;
+import chess.request.RegisterRequest;
+import chess.result.CreateGameResult;
+import chess.result.JoinGameResult;
+import chess.result.ListGameResult;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
 
 public class GameServiceTest {
 

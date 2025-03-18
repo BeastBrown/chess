@@ -1,4 +1,4 @@
-package service.result;
+package chess.result;
 
 public record ErrorResult(String message) {
 }

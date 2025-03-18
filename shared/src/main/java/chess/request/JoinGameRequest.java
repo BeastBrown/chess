@@ -1,4 +1,4 @@
-package service.request;
+package chess.request;
 
 public record JoinGameRequest(String authToken, String playerColor, Integer gameID) {
 }

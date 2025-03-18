@@ -3,12 +3,12 @@ package service;
 import chess.data.UserData;
 import org.junit.jupiter.api.*;
 import dataaccess.*;
-import service.request.LoginRequest;
-import service.request.LogoutRequest;
-import service.request.RegisterRequest;
-import service.result.LoginResult;
-import service.result.LogoutResult;
-import service.result.RegisterResult;
+import chess.request.LoginRequest;
+import chess.request.LogoutRequest;
+import chess.request.RegisterRequest;
+import chess.result.LoginResult;
+import chess.result.LogoutResult;
+import chess.result.RegisterResult;
 
 
 public class UserServiceTest {

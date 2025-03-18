@@ -1,4 +1,4 @@
-package service.request;
+package chess.request;
 
 public record LogoutRequest(String authToken) {
 }

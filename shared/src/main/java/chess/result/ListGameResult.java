@@ -1,4 +1,4 @@
-package service.result;
+package chess.result;
 
 import chess.data.GameData;
 

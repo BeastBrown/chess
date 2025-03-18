@@ -7,12 +7,12 @@ import dataaccess.InsufficientParametersException;
 import dataaccess.InvalidParametersException;
 import dataaccess.UserDataAccessor;
 import org.mindrot.jbcrypt.BCrypt;
-import service.request.LoginRequest;
-import service.request.LogoutRequest;
-import service.request.RegisterRequest;
-import service.result.LogoutResult;
-import service.result.RegisterResult;
-import service.result.LoginResult;
+import chess.request.LoginRequest;
+import chess.request.LogoutRequest;
+import chess.request.RegisterRequest;
+import chess.result.LogoutResult;
+import chess.result.RegisterResult;
+import chess.result.LoginResult;
 
 import java.util.Objects;
 import java.util.UUID;

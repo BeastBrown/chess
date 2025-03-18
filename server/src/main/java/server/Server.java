@@ -1,12 +1,12 @@
 package server;
 
+import chess.request.*;
+import chess.result.*;
 import spark.*;
 import com.google.gson.Gson;
 
 import dataaccess.*;
 import service.*;
-import service.request.*;
-import service.result.*;
 
 public class Server {
 

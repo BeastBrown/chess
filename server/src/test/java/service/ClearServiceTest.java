@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import service.request.CreateGameRequest;
-import service.request.JoinGameRequest;
-import service.request.RegisterRequest;
-import service.result.ClearResult;
-import service.result.CreateGameResult;
+import chess.request.CreateGameRequest;
+import chess.request.JoinGameRequest;
+import chess.request.RegisterRequest;
+import chess.result.ClearResult;
+import chess.result.CreateGameResult;
 
 import java.util.ArrayList;
 import java.util.Collection;

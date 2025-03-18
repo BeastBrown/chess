@@ -3,7 +3,7 @@ package service;
 import dataaccess.AuthDataAccessor;
 import dataaccess.GameDataAccessor;
 import dataaccess.UserDataAccessor;
-import service.result.ClearResult;
+import chess.result.ClearResult;
 
 public class ClearService {
 
