@@ -1,16 +1,20 @@
 package ui;
 
-import javax.sound.midi.SysexMessage;
+import chess.request.RegisterRequest;
+import chess.result.RegisterResult;
+
 import java.util.Scanner;
 
 public class Client {
 
-    private String serverUrl;
     private Scanner scanner;
+    private String authToken;
+    private ServerFacade facade;
 
     public Client(String url) {
-        serverUrl = url;
         scanner = new Scanner(System.in);
+        authToken = null;
+        facade = new ServerFacade(url);
     }
 
     public void run() {
@@ -27,18 +31,29 @@ public class Client {
         if (input.equals("help")) {
             printPreLoginHelp();
         } else if (input.startsWith("register")) {
-            registerUser();
+            registerUser(input);
         } else if (input.startsWith("login")) {
-            loginUser();
+            loginUser(input);
         } else if (!input.equals("quit")) {
             printPreLoginHelp();
         }
     }
 
-    private void loginUser() {
+    private void loginUser(String input) {
     }
 
-    private void registerUser() {
+    private void registerUser(String input) {
+        String[] args = input.split(" ");
+        if (args.length < 4) {
+            throw new IllegalArgumentException("usage: login <username> <password>");
+        }
+        RegisterRequest req = new RegisterRequest(args[1], args[2], args[3]);
+        RegisterResult res = facade.registerUser(req);
+        this.authToken = res.authToken();
+        postLoginRepl();
+    }
+
+    private void postLoginRepl() {
     }
 
     private void printPreLoginHelp() {
