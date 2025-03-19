@@ -4,213 +4,85 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="" />
+    <list default="true" id="d2fda490-3702-46a0-8e91-8a4e24c56a9b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mindrot_jbcrypt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/slf4j_simple.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/sparkjava_spark_core.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Exception" />
-        <option value="Interface" />
-        <option value="Record" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;BeastBrown&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "BeastBrown"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/BeastBrown/chess.git&quot;,
-    &quot;accountId&quot;: &quot;b45a06dc-0cb9-4c7b-887c-a09c1aeed743&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/BeastBrown/chess.git",
+    "accountId": "b45a06dc-0cb9-4c7b-887c-a09c1aeed743"
   }
-}</component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2reVOxdmU1NuPHehkFx92aUPWCh" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2uVqVgJmlm8k73ZZDvzPJotreUK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.DatabaseManager.executor": "Debug",
-    "Application.Main (1).executor": "Run",
     "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "JUnit.All in server (1).executor": "Run",
-    "JUnit.All in server.executor": "Run",
-    "JUnit.All in shared.executor": "Run",
-    "JUnit.BishopMoveTests.bishopMoveUntilEdge.executor": "Run",
-    "JUnit.BishopMoveTests.executor": "Run",
-    "JUnit.ChessBoardTests.defaultGameBoard.executor": "Run",
-    "JUnit.ChessBoardTests.executor": "Run",
-    "JUnit.ChessBoardTests.getAddPiece.executor": "Run",
-    "JUnit.ChessMoveTests.equalsTest.executor": "Run",
-    "JUnit.ChessMoveTests.executor": "Run",
-    "JUnit.ChessPositionTests.equalsTest.executor": "Debug",
-    "JUnit.ChessPositionTests.executor": "Run",
-    "JUnit.ChessPositionTests.hashSetTest.executor": "Run",
-    "JUnit.ChessPositionTests.hashTest.executor": "Run",
-    "JUnit.ClearServiceTest.executor": "Run",
-    "JUnit.DatabaseTests.bcrypt.executor": "Run",
-    "JUnit.DatabaseTests.executor": "Run",
-    "JUnit.FullGameTest.scholarsMate.executor": "Run",
-    "JUnit.GameServiceTest.clear200.executor": "Run",
-    "JUnit.GameServiceTest.executor": "Run",
-    "JUnit.GameServiceTest.listGame200.executor": "Run",
-    "JUnit.GameStatusTests.escapeCheckByCapturingThreateningPiece.executor": "Run",
-    "JUnit.KingMoveTests.executor": "Run",
-    "JUnit.KingMoveTests.kingMiddleOfBoard.executor": "Debug",
-    "JUnit.KnightMoveTests.executor": "Run",
-    "JUnit.MakeMoveTests.invalidMakeMoveNoPiece.executor": "Run",
-    "JUnit.MakeMoveTests.invalidMakeMoveOutOfTurn.executor": "Run",
-    "JUnit.MakeMoveTests.makeMoveChangesTurn.executor": "Run",
-    "JUnit.MakeMoveTests.promotionMoves.executor": "Run",
-    "JUnit.MySqlAuthDataAccessorTest.createAuthSuccessful.executor": "Run",
-    "JUnit.MySqlAuthDataAccessorTest.deleteAuthFailureNothingHappens.executor": "Run",
-    "JUnit.MySqlAuthDataAccessorTest.deleteAuthNullFailure.executor": "Run",
-    "JUnit.MySqlAuthDataAccessorTest.executor": "Run",
-    "JUnit.MySqlAuthDataAccessorTest.getAuthNullFailure.executor": "Run",
-    "JUnit.MySqlDataAccessorTest.clearSuccess.executor": "Run",
-    "JUnit.MySqlDataAccessorTest.executor": "Run",
-    "JUnit.MySqlDataAccessorTest.getUserNull.executor": "Run",
-    "JUnit.MySqlDataAccessorTest.insertGetSuccess.executor": "Run",
-    "JUnit.MySqlDataAccessorTest.insertNullUserThrows.executor": "Run",
-    "JUnit.MySqlDataAccessorTest.insertSuccess.executor": "Run",
-    "JUnit.MySqlGameDataAccessorTest.clearSuccessful.executor": "Debug",
-    "JUnit.MySqlGameDataAccessorTest.createGameSuccessful.executor": "Run",
-    "JUnit.MySqlGameDataAccessorTest.executor": "Run",
-    "JUnit.MySqlUserDataAccessorTest.executor": "Run",
-    "JUnit.PawnMoveTests.captureAndPromoteBlack.executor": "Run",
-    "JUnit.PawnMoveTests.executor": "Run",
-    "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveBlack.executor": "Run",
-    "JUnit.PawnMoveTests.pawnAdvanceBlockedDoubleMoveWhite.executor": "Run",
-    "JUnit.QueenMoveTests.executor": "Run",
-    "JUnit.QueenMoveTests.queenCaptureEnemy.executor": "Run",
-    "JUnit.RookMoveTests.executor": "Run",
-    "JUnit.RookMoveTests.rookCaptureEnemy.executor": "Run",
-    "JUnit.RookMoveTests.rookMoveUntilEdge.executor": "Run",
-    "JUnit.StandardAPITests.executor": "Run",
-    "JUnit.StandardAPITests.failRegister.executor": "Run",
-    "JUnit.StandardAPITests.gamesList.executor": "Run",
-    "JUnit.StandardAPITests.goodCreate.executor": "Run",
-    "JUnit.StandardAPITests.goodJoin.executor": "Run",
-    "JUnit.StandardAPITests.successLogin.executor": "Run",
-    "JUnit.StandardAPITests.successRegister.executor": "Debug",
-    "JUnit.StandardAPITests.uniqueAuthorizationTokens.executor": "Run",
-    "JUnit.UserServiceTest.executor": "Run",
-    "JUnit.UserServiceTest.login401.executor": "Run",
-    "JUnit.UserServiceTest.loginSuccessful.executor": "Run",
-    "JUnit.UserServiceTest.logout401.executor": "Run",
-    "JUnit.UserServiceTest.logoutSuccessful.executor": "Run",
-    "JUnit.UserServiceTest.register400.executor": "Run",
-    "JUnit.UserServiceTest.register403.executor": "Run",
-    "JUnit.dataaccess in server.executor": "Run",
-    "JUnit.passoff.chess in shared.executor": "Run",
-    "JUnit.passoff.chess.game in shared.executor": "Debug",
-    "JUnit.passoff.chess.piece in shared.executor": "Run",
-    "JUnit.passoff.server in server.executor": "Run",
-    "JUnit.service in server.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/bryan/OneDrive/Desktop/codekrap/coursework/cs240/chess",
+    "last_opened_file_path": "C:/Users/bryan/OneDrive/Desktop/codekrap/coursework/cs240",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "advanced.settings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bryan\OneDrive\Desktop\codekrap\coursework\cs240\chess\client\src\test\java\client" />
-      <recent name="C:\Users\bryan\OneDrive\Desktop\codekrap\coursework\cs240\chess\server\src" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-      <recent name="service" />
-      <recent name="chess" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.All in server (1)">
-    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="server" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="client" />
+      <module name="server" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in server (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="chess" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserServiceTest.loginSuccessful" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="service" />
-      <option name="MAIN_CLASS_NAME" value="service.UserServiceTest" />
-      <option name="METHOD_NAME" value="loginSuccessful" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="chess" />
+      <option name="filePath" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in server (1)" />
-        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.All in server" />
-        <item itemvalue="JUnit.UserServiceTest.loginSuccessful" />
       </list>
     </recent_temporary>
   </component>
@@ -225,65 +97,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b59b9b54-9f43-434d-a8b1-3326296f73a5" name="Changes" comment="" />
-      <created>1736919502181</created>
+      <changelist id="d2fda490-3702-46a0-8e91-8a4e24c56a9b" name="Changes" comment="" />
+      <created>1742344116532</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1736919502181</updated>
-      <workItem from="1736919504533" duration="716000" />
-      <workItem from="1736987209995" duration="14677000" />
-      <workItem from="1737045918801" duration="2928000" />
-      <workItem from="1737076726817" duration="6389000" />
-      <workItem from="1737157925264" duration="20435000" />
-      <workItem from="1737504569127" duration="362000" />
-      <workItem from="1737505022212" duration="26000" />
-      <workItem from="1737585566951" duration="24157000" />
-      <workItem from="1737654582115" duration="2915000" />
-      <workItem from="1738037965073" duration="19000" />
-      <workItem from="1738039679995" duration="963000" />
-      <workItem from="1738082481233" duration="43000" />
-      <workItem from="1738082808755" duration="11000" />
-      <workItem from="1738082840099" duration="36000" />
-      <workItem from="1738082907430" duration="6000" />
-      <workItem from="1738262756808" duration="841000" />
-      <workItem from="1738293673504" duration="98000" />
-      <workItem from="1738640517037" duration="7699000" />
-      <workItem from="1738690862582" duration="4553000" />
-      <workItem from="1738696526896" duration="594000" />
-      <workItem from="1738702914932" duration="7840000" />
-      <workItem from="1738721841928" duration="20000" />
-      <workItem from="1738861805117" duration="760000" />
-      <workItem from="1739303920815" duration="124000" />
-      <workItem from="1739337498923" duration="471000" />
-      <workItem from="1739407929212" duration="1014000" />
-      <workItem from="1739834330333" duration="4418000" />
-      <workItem from="1740431481381" duration="10465000" />
-      <workItem from="1740448658016" duration="1833000" />
-      <workItem from="1740455990360" duration="2842000" />
-      <workItem from="1740534753087" duration="9260000" />
-      <workItem from="1740606540778" duration="28378000" />
-      <workItem from="1740677486920" duration="6759000" />
-      <workItem from="1740688946165" duration="6869000" />
-      <workItem from="1741106268489" duration="1243000" />
-      <workItem from="1741124163416" duration="1518000" />
-      <workItem from="1741129362641" duration="155000" />
-      <workItem from="1741129529483" duration="2894000" />
-      <workItem from="1741132455240" duration="1473000" />
-      <workItem from="1741134527913" duration="464000" />
-      <workItem from="1741135006394" duration="9446000" />
-      <workItem from="1741323508901" duration="2561000" />
-      <workItem from="1741386642204" duration="28676000" />
-      <workItem from="1741450695261" duration="16130000" />
-      <workItem from="1741708780859" duration="1366000" />
-      <workItem from="1741984730059" duration="3321000" />
-      <workItem from="1741988470387" duration="3170000" />
-      <workItem from="1741992580315" duration="719000" />
-      <workItem from="1741993322555" duration="2674000" />
-      <workItem from="1741996135346" duration="6348000" />
-      <workItem from="1742002892793" duration="48000" />
-      <workItem from="1742006095906" duration="1586000" />
-      <workItem from="1742007777748" duration="91000" />
-      <workItem from="1742331984771" duration="7029000" />
+      <updated>1742344116532</updated>
+      <workItem from="1742344120004" duration="807000" />
     </task>
     <servers />
   </component>
@@ -295,80 +114,10 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="CUSTOM_BOOLEAN_PROPERTIES">
-                <map>
-                  <entry key="Show.Git.Branches" value="false" />
-                </map>
-              </option>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint type="java-exception">
-          <properties class="java.lang.Throwable" package="java.lang">
-            <option name="NOTIFY_CAUGHT" value="false" />
-          </properties>
-          <option name="timeStamp" value="58" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="59" />
-        </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/test/java/dataaccess/MySqlAuthDataAccessorTest.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlAuthDataAccessor.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="102" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/test/java/passoff/server/StandardAPITests.java</url>
-          <line>365</line>
-          <option name="timeStamp" value="109" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/Server.java</url>
-          <line>125</line>
-          <option name="timeStamp" value="114" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/Server.java</url>
-          <line>143</line>
-          <option name="timeStamp" value="115" />
-        </line-breakpoint>
-      </breakpoints>
-      <default-breakpoints>
-        <breakpoint enabled="true" type="java-exception" />
-      </default-breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="JUnit">
-        <watch expression="((MemoryAuthDataAccessor) authAccessor).authMap" language="JAVA" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>
