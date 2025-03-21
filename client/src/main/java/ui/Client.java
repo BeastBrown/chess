@@ -3,6 +3,7 @@ package ui;
 import chess.request.RegisterRequest;
 import chess.result.RegisterResult;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Client {
@@ -48,9 +49,13 @@ public class Client {
             throw new IllegalArgumentException("usage: login <username> <password>");
         }
         RegisterRequest req = new RegisterRequest(args[1], args[2], args[3]);
-        RegisterResult res = facade.registerUser(req);
-        this.authToken = res.authToken();
-        postLoginRepl();
+        try {
+            RegisterResult res = facade.registerUser(req);
+            this.authToken = res.authToken();
+            postLoginRepl();
+        } catch (IOException e) {
+            System.out.println("could not process due to " + e.getMessage());
+        }
     }
 
     private void postLoginRepl() {

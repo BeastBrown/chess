@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fda490-3702-46a0-8e91-8a4e24c56a9b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mindrot_jbcrypt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/slf4j_simple.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/sparkjava_spark_core.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ClientCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ClientCommunicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/test/java/client/ServerFacadeTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,22 +19,22 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "BeastBrown"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;BeastBrown&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/BeastBrown/chess.git",
-    "accountId": "b45a06dc-0cb9-4c7b-887c-a09c1aeed743"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/BeastBrown/chess.git&quot;,
+    &quot;accountId&quot;: &quot;b45a06dc-0cb9-4c7b-887c-a09c1aeed743&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2uVqVgJmlm8k73ZZDvzPJotreUK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -44,7 +42,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main (1).executor": "Run",
     "Application.Main.executor": "Run",
+    "JUnit.ServerFacadeTests.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
@@ -61,10 +61,32 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ServerFacadeTests">
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="client" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="client" />
+      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -82,6 +104,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ServerFacadeTests" />
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -89,8 +113,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
       </set>
     </attachedChunks>
   </component>
@@ -103,6 +127,9 @@
       <option name="presentableId" value="Default" />
       <updated>1742344116532</updated>
       <workItem from="1742344120004" duration="807000" />
+      <workItem from="1742344948452" duration="115000" />
+      <workItem from="1742345122242" duration="77000" />
+      <workItem from="1742516780325" duration="11122000" />
     </task>
     <servers />
   </component>
@@ -119,5 +146,21 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/Server.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/ui/ClientCommunicator.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
