@@ -27,6 +27,18 @@ public class ClientCommunicator {
 
     public String doRequest(String path, String method, HashMap<String, String> props, String body)
             throws IOException {
+        HttpURLConnection c = configureConnection(path, method, props);
+        try(PrintWriter toWrite =  new PrintWriter(c.getOutputStream())) {
+            toWrite.print(body);
+        }
+        String resBody = new String(c.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
+        if (c.getResponseCode() != 200) {
+            throw new IOException(resBody);
+        }
+        return resBody;
+    }
+
+    private HttpURLConnection configureConnection(String path, String method, HashMap<String, String> props) throws IOException {
         HttpURLConnection c = getHttpConn(path);
         c.setConnectTimeout(5000);
         c.setReadTimeout(5000);
@@ -36,13 +48,6 @@ public class ClientCommunicator {
         for (String k : props.keySet()) {
             c.setRequestProperty(k, props.get(k));
         }
-        PrintWriter toWrite =  new PrintWriter(c.getOutputStream());
-        toWrite.print(body);
-        c.connect();
-        String resBody = new String(c.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
-        if (c.getResponseCode() != 200) {
-            throw new IOException(resBody);
-        }
-        return resBody;
+        return c;
     }
 }
