@@ -103,7 +103,7 @@ public class ServerFacadeTests {
         Assertions.assertEquals(expected, observed);
     }
 
-    private static CreateGameResult createOpGame(String auth) {
+    private static CreateGameResult createOpGame(String auth) throws IOException {
         CreateGameRequest gameReq = new CreateGameRequest(auth, "OP GAME");
         return facade.createGame(gameReq);
     }
@@ -139,7 +139,7 @@ public class ServerFacadeTests {
         JoinGameResult expected = new JoinGameResult();
         Assertions.assertEquals(expected, observed);
         ArrayList<GameData> games = (ArrayList<GameData>) facade.listGames(new ListGameRequest(auth)).games();
-        GameData newGameObserved = games.get(1);
+        GameData newGameObserved = games.get(0);
         GameData newGameExpected = new GameData(1, "steve",null,"OP GAME",null);
         Assertions.assertEquals(newGameExpected, newGameObserved);
     }

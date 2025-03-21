@@ -28,14 +28,20 @@ public class ClientCommunicator {
     public String doRequest(String path, String method, HashMap<String, String> props, String body)
             throws IOException {
         HttpURLConnection c = configureConnection(path, method, props);
-        try(PrintWriter toWrite =  new PrintWriter(c.getOutputStream())) {
-            toWrite.print(body);
+        if (!method.equals("GET")) {
+            writeBody(body, c);
         }
         String resBody = new String(c.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         if (c.getResponseCode() != 200) {
             throw new IOException(resBody);
         }
         return resBody;
+    }
+
+    private static void writeBody(String body, HttpURLConnection c) throws IOException {
+        try(PrintWriter toWrite =  new PrintWriter(c.getOutputStream())) {
+            toWrite.print(body);
+        }
     }
 
     private HttpURLConnection configureConnection(String path, String method, HashMap<String, String> props) throws IOException {
