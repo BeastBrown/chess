@@ -56,7 +56,7 @@ public class ServerFacadeTests {
 
     @Test
     @DisplayName("Register Taken")
-    public void RegisterUserTaken() throws IOException {
+    public void registerUserTaken() throws IOException {
         registerRandomUser();
         Assertions.assertThrows(IOException.class, ServerFacadeTests::registerRandomUser);
     }

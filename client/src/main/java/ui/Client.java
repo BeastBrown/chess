@@ -7,12 +7,9 @@ import chess.request.*;
 import chess.result.ListGameResult;
 import chess.result.LoginResult;
 import chess.result.RegisterResult;
-import com.google.gson.JsonArray;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static chess.ChessGame.TeamColor.BLACK;
@@ -23,13 +20,13 @@ public class Client {
     private Scanner scanner;
     private String authToken;
     private ServerFacade facade;
-    private HashSet<Integer> IDSet;
+    private HashSet<Integer> idSet;
 
     public Client(String url) {
         scanner = new Scanner(System.in);
         authToken = null;
         facade = new ServerFacade(url);
-        IDSet = new HashSet<Integer>();
+        idSet = new HashSet<Integer>();
     }
 
     public void run() {
@@ -141,7 +138,7 @@ public class Client {
             throw new InvalidUserInputException("usage: observe <Game ID #>");
         }
         Integer gameID = Integer.parseInt(args[1]);
-        if (!IDSet.contains(gameID)) {
+        if (!idSet.contains(gameID)) {
             throw new InvalidUserInputException("The game ID does not correspond to a game. " +
                     "You must list the games");
         }
@@ -183,7 +180,7 @@ public class Client {
         } catch (NumberFormatException e) {
             throw new InvalidUserInputException(message);
         }
-        if (!IDSet.contains(gameID)) {
+        if (!idSet.contains(gameID)) {
             throw new InvalidUserInputException("The ID " + String.valueOf(gameID) + " is " +
                     "not a valid gameID, list the games to get them assigned");
         }
@@ -213,7 +210,7 @@ public class Client {
         ListGameResult res = facade.listGames(req);
         for (GameData game : res.games()) {
             displayGame(game);
-            this.IDSet.add(game.gameID());
+            this.idSet.add(game.gameID());
         }
     }
 
