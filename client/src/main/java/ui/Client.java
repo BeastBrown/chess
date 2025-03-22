@@ -71,7 +71,7 @@ public class Client {
     }
 
     private void loginUser(String input) throws InvalidUserInputException {
-        String[] args = input.split(" ");
+        String[] args = input.split("\\s+");
         if (args.length < 3) {
             throw new InvalidUserInputException("usage: login <username> <password>");
         }
@@ -87,7 +87,7 @@ public class Client {
     }
 
     private void registerUser(String input) throws InvalidUserInputException {
-        String[] args = input.split(" ");
+        String[] args = input.split("\\s+");
         if (args.length < 4) {
             throw new InvalidUserInputException("usage: register <username> <password> <email>");
         }
@@ -104,15 +104,18 @@ public class Client {
     private void postLoginRepl() {
         System.out.println("Congratulations on logging in! Type help for options");
         String input = "";
-        while (!input.equals("logout")) {
+        String first = input;
+        while (!first.equals("logout")) {
             printFancyConsole();
             input = scanner.nextLine();
+            String[] args = input.split("\\s+");
+            first = args[0];
             postLoginArguments(input);
         }
     }
 
     private void postLoginArguments(String input) {
-        String[] args = input.split(" ");
+        String[] args = input.split("\\s+");
         String first = args[0];
         switch (first) {
             case "logout" -> facilitateLogout(input);
@@ -133,7 +136,7 @@ public class Client {
     }
 
     private void observeGame(String input) throws InvalidUserInputException {
-        String[] args = input.split(" ");
+        String[] args = input.split("\\s+");
         if (args.length < 2) {
             throw new InvalidUserInputException("usage: observe <Game ID #>");
         }
@@ -154,20 +157,43 @@ public class Client {
     }
 
     private void playGame(String input) throws InvalidUserInputException, IOException {
-        String[] args = input.split(" ");
-        if (args.length < 3) {
-            throw new InvalidUserInputException("usage: play <game ID #> <desired color>");
-        }
-        String desiredColor = args[2];
+        String[] args = input.split("\\s+");
+        sanitizePlayArgs(args);
+        String desiredColor = args[2].toUpperCase();
         int gameID = Integer.parseInt(args[1]);
         JoinGameRequest req = new JoinGameRequest(this.authToken, desiredColor, gameID);
         facade.joinGame(req);
         inGameRepl(desiredColor);
     }
 
+    private void sanitizePlayArgs(String[] args) throws InvalidUserInputException {
+        String message = "usage: play <game ID #> <desired color>";
+        boolean notEnoughArgs = args.length < 3;
+        if (notEnoughArgs) {
+            throw new InvalidUserInputException(message);
+        }
+        String desiredColor = args[2].toUpperCase();
+        boolean colorInvalid = !(desiredColor.equals("WHITE") || desiredColor.equals("BLACK"));
+        if (colorInvalid) {
+            throw new InvalidUserInputException(message);
+        }
+        Integer gameID = null;
+        try {
+            gameID = Integer.parseInt((args[1]));
+        } catch (NumberFormatException e) {
+            throw new InvalidUserInputException(message);
+        }
+        if (!IDSet.contains(gameID)) {
+            throw new InvalidUserInputException("The ID " + String.valueOf(gameID) + " is " +
+                    "not a valid gameID, list the games to get them assigned");
+        }
+    }
+
     private void inGameRepl(String color) {
         ChessGame.TeamColor allegiance = color.equals("WHITE") ? WHITE : BLACK;
-        new BoardDisplay(new ChessBoard(), allegiance).showBoard();
+        ChessBoard board = new ChessBoard();
+        board.resetBoard();
+        new BoardDisplay(board, allegiance).showBoard();
         String message = """
                 Congratulations on making it to the Game!
                 You will be redirected to the post login UI""";
@@ -193,7 +219,7 @@ public class Client {
 
     private void displayGame(GameData game) {
         String whitePlayer = game.whiteUsername() == null ? "FREE" : game.whiteUsername();
-        String blackPlayer = game.whiteUsername() == null ? "FREE" : game.blackUsername();
+        String blackPlayer = game.blackUsername() == null ? "FREE" : game.blackUsername();
         String message = "Game ID = " + String.valueOf(game.gameID()) + " | " +
                 "Game Name = " + game.gameName() + " | " +
                 "White Player = " + whitePlayer + " | " +
@@ -212,7 +238,7 @@ public class Client {
     }
 
     private void createGame(String input) throws InvalidUserInputException, IOException {
-        String[] args = input.split(" ");
+        String[] args = input.split("\\s+");
         if (args.length < 2) {
             throw new InvalidUserInputException("usage: create <game name>");
         }
