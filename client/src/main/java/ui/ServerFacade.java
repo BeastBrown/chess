@@ -3,7 +3,6 @@ package ui;
 import chess.request.*;
 import chess.result.*;
 import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 
 import java.io.IOException;
 import java.util.HashMap;

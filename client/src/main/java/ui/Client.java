@@ -214,7 +214,7 @@ public class Client {
     private void createGame(String input) throws InvalidUserInputException, IOException {
         String[] args = input.split(" ");
         if (args.length < 2) {
-            throw new InvalidUserInputException("usage: register <username> <password> <email>");
+            throw new InvalidUserInputException("usage: create <game name>");
         }
         CreateGameRequest req = new CreateGameRequest(this.authToken, args[1]);
         facade.createGame(req);
