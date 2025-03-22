@@ -1,9 +1,12 @@
 package ui;
 
+import chess.request.LoginRequest;
 import chess.request.RegisterRequest;
+import chess.result.LoginResult;
 import chess.result.RegisterResult;
 
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Client {
@@ -32,21 +35,50 @@ public class Client {
         if (input.equals("help")) {
             printPreLoginHelp();
         } else if (input.startsWith("register")) {
-            registerUser(input);
+            processRegistration(input);
         } else if (input.startsWith("login")) {
-            loginUser(input);
+            processLogin(input);
         } else if (!input.equals("quit")) {
             printPreLoginHelp();
         }
     }
 
-    private void loginUser(String input) {
+    private void processLogin(String input) {
+        try {
+            loginUser(input);
+        } catch (InvalidUserInputException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    private void registerUser(String input) {
+    private void processRegistration(String input) {
+        try {
+            registerUser(input);
+        } catch (InvalidUserInputException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void loginUser(String input) throws InvalidUserInputException {
+        String[] args = input.split(" ");
+        if (args.length < 3) {
+            throw new InvalidUserInputException("usage: login <username> <password>");
+        }
+        LoginRequest req = new LoginRequest(args[1], args[2]);
+
+        try {
+            LoginResult res = facade.loginUser(req);
+            this.authToken = res.authToken();
+            postLoginRepl();
+        } catch (IOException e) {
+            throw new InvalidUserInputException("could not process due to " + e.getMessage());
+        }
+    }
+
+    private void registerUser(String input) throws InvalidUserInputException {
         String[] args = input.split(" ");
         if (args.length < 4) {
-            throw new IllegalArgumentException("usage: login <username> <password>");
+            throw new InvalidUserInputException("usage: register <username> <password> <email>");
         }
         RegisterRequest req = new RegisterRequest(args[1], args[2], args[3]);
         try {
@@ -54,7 +86,7 @@ public class Client {
             this.authToken = res.authToken();
             postLoginRepl();
         } catch (IOException e) {
-            System.out.println("could not process due to " + e.getMessage());
+            throw new InvalidUserInputException("could not process due to " + e.getMessage());
         }
     }
 
