@@ -31,10 +31,10 @@ public class ClientCommunicator {
         if (!method.equals("GET")) {
             writeBody(body, c);
         }
-        String resBody = new String(c.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         if (c.getResponseCode() != 200) {
-            throw new IOException(resBody);
+            throw new IOException(String.valueOf(c.getResponseCode()));
         }
+        String resBody = new String(c.getInputStream().readAllBytes(), StandardCharsets.UTF_8);
         return resBody;
     }
 

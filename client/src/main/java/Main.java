@@ -8,8 +8,5 @@ public class Main {
         System.out.println("♕ 240 Chess Client: " + piece);
 
         new Client("http://localhost:8080").run();
-//        ChessBoard toShow = new ChessBoard();
-//        toShow.resetBoard();
-//        new BoardDisplay(toShow, ChessGame.TeamColor.BLACK).showBoard();
     }
 }

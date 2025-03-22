@@ -34,6 +34,7 @@ public class BoardDisplay {
         drawBorder();
         drawBody();
         drawBorder();
+        output.print(SET_TEXT_COLOR_WHITE);
     }
 
     private void drawBody() {

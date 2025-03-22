@@ -29,6 +29,7 @@ public class Client {
         scanner = new Scanner(System.in);
         authToken = null;
         facade = new ServerFacade(url);
+        IDSet = new HashSet<Integer>();
     }
 
     public void run() {
@@ -81,7 +82,7 @@ public class Client {
             this.authToken = res.authToken();
             postLoginRepl();
         } catch (IOException e) {
-            throw new InvalidUserInputException("could not process due to " + e.getMessage());
+            throw new InvalidUserInputException(e.getMessage());
         }
     }
 
@@ -96,7 +97,7 @@ public class Client {
             this.authToken = res.authToken();
             postLoginRepl();
         } catch (IOException e) {
-            throw new InvalidUserInputException("could not process due to " + e.getMessage());
+            throw new InvalidUserInputException(e.getMessage());
         }
     }
 
@@ -111,19 +112,15 @@ public class Client {
     }
 
     private void postLoginArguments(String input) {
-        switch (input) {
-            case "help" :
-                printPostLoginHelp();
-            case "logout":
-                facilitateLogout(input);
-            case "create":
-                facilitateCreate(input);
-            case "list":
-                facilitateList();
-            case "play":
-                facilitatePlay(input);
-            case "observe":
-                facilitateObserve(input);
+        String[] args = input.split(" ");
+        String first = args[0];
+        switch (first) {
+            case "logout" -> facilitateLogout(input);
+            case "create" -> facilitateCreate(input);
+            case "list" -> facilitateList();
+            case "play" -> facilitatePlay(input);
+            case "observe" -> facilitateObserve(input);
+            default -> printPostLoginHelp();
         }
     }
 
@@ -197,9 +194,9 @@ public class Client {
     private void displayGame(GameData game) {
         String whitePlayer = game.whiteUsername() == null ? "FREE" : game.whiteUsername();
         String blackPlayer = game.whiteUsername() == null ? "FREE" : game.blackUsername();
-        String message = "Game ID = " + String.valueOf(game.gameID()) +
-                "Game Name = " + game.gameName() +
-                "White Player = " + whitePlayer +
+        String message = "Game ID = " + String.valueOf(game.gameID()) + " | " +
+                "Game Name = " + game.gameName() + " | " +
+                "White Player = " + whitePlayer + " | " +
                 "Black Player = " + blackPlayer;
         System.out.println(message);
     }
@@ -234,6 +231,7 @@ public class Client {
     private void logoutUser(String input) throws IOException {
         LogoutRequest req = new LogoutRequest(this.authToken);
         facade.logoutUser(req);
+        System.out.println("Successfully logged out");
     }
 
     private void printPostLoginHelp() {
@@ -243,8 +241,8 @@ public class Client {
                 create <game name> - to create a game
                 list - to list current games
                 play <game ID #> <desired color> - to play the corresponding game
-                observe <game ID #> to observe the corresponding game
-                """;
+                observe <game ID #> to observe the corresponding game""";
+        System.out.println(message);
     }
 
     private void printPreLoginHelp() {
