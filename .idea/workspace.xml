@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2fda490-3702-46a0-8e91-8a4e24c56a9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +52,9 @@
     "Application.Main Client.executor": "Run",
     "Application.Main Server.executor": "Run",
     "Application.Main.executor": "Run",
+    "JUnit.All in client.executor": "Run",
+    "JUnit.All in server.executor": "Run",
+    "JUnit.All in shared.executor": "Run",
     "JUnit.ServerFacadeTests.executor": "Run",
     "JUnit.ServerFacadeTests.listGamesGood.executor": "Run",
     "JUnit.ServerFacadeTests.sampleTest.executor": "Run",
@@ -72,7 +74,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main Client">
+  <component name="RunManager" selected="JUnit.All in server">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="chess" />
       <method v="2">
@@ -112,17 +114,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServerFacadeTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in client" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="shared" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -153,38 +164,6 @@
       <option name="PACKAGE_NAME" value="client" />
       <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
       <option name="METHOD_NAME" value="listGamesGood" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.listGamesGood" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="listGamesGood" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServerFacadeTests.sampleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="client" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="client" />
-      <option name="MAIN_CLASS_NAME" value="client.ServerFacadeTests" />
-      <option name="METHOD_NAME" value="sampleTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -220,17 +199,17 @@
     <list>
       <item itemvalue="Application.Main Server" />
       <item itemvalue="Application.Main Client" />
-      <item itemvalue="JUnit.ServerFacadeTests.listGamesGood" />
-      <item itemvalue="JUnit.ServerFacadeTests.sampleTest" />
-      <item itemvalue="JUnit.ServerFacadeTests" />
+      <item itemvalue="JUnit.All in client" />
+      <item itemvalue="JUnit.All in server" />
+      <item itemvalue="JUnit.All in shared" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in server" />
+        <item itemvalue="JUnit.All in shared" />
+        <item itemvalue="JUnit.All in client" />
         <item itemvalue="Application.Main Client" />
         <item itemvalue="Application.Main Server" />
-        <item itemvalue="JUnit.ServerFacadeTests.sampleTest" />
-        <item itemvalue="JUnit.ServerFacadeTests" />
-        <item itemvalue="JUnit.ServerFacadeTests.listGamesGood" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +234,7 @@
       <workItem from="1742345122242" duration="77000" />
       <workItem from="1742516780325" duration="11122000" />
       <workItem from="1742587180028" duration="32176000" />
-      <workItem from="1742661817945" duration="4133000" />
+      <workItem from="1742661817945" duration="4772000" />
     </task>
     <servers />
   </component>
