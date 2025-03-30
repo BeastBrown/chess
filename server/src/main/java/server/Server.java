@@ -16,6 +16,7 @@ public class Server {
     private GameService gameService;
     private ClearService clearService;
     private UserService userService;
+    private GamePlayService gamePlayService;
     private Gson gson;
 
     public Server() {
@@ -31,6 +32,7 @@ public class Server {
         userService = new UserService(userAccessor, authAccessor);
         gameService = new GameService(userService, gameAccessor, authAccessor);
         clearService = new ClearService(userAccessor, authAccessor, gameAccessor);
+        gamePlayService = new GamePlayService(userService, userAccessor, gameAccessor);
 
         gson = new Gson();
     }
@@ -40,6 +42,8 @@ public class Server {
         
         Spark.staticFiles.location("web");
 
+        WebSocketServer wsHandler = new WebSocketServer(gamePlayService);
+        Spark.webSocket("/ws", wsHandler);
         // Register your endpoints and handle exceptions here.
         Spark.post("/user", this::registerHandler);
         Spark.post("/session", this::loginHandler);

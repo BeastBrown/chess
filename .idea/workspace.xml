@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fda490-3702-46a0-8e91-8a4e24c56a9b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/commands/MoveCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/ErrorMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/LoadGameMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/messages/NotificationMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +218,7 @@
       <workItem from="1743196346405" duration="208000" />
       <workItem from="1743196570365" duration="309000" />
       <workItem from="1743292681093" duration="1725000" />
-      <workItem from="1743294432228" duration="642000" />
+      <workItem from="1743294432228" duration="7170000" />
     </task>
     <servers />
   </component>
