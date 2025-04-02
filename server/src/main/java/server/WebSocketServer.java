@@ -13,26 +13,27 @@ import java.lang.reflect.Type;
 public class WebSocketServer {
 
     private GamePlayService playService;
+    private Gson gson;
 
     public WebSocketServer(GamePlayService gamePlayService) {
         this.playService = gamePlayService;
+        this.gson = new GsonBuilder()
+                .registerTypeAdapter(UserGameCommand.class, new CommandDeserializer())
+                .create();
     }
 
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
         UserGameCommand command = getCommand(message);
-        ServerMessage outMessage = switch (command.getCommandType()) {
+        switch (command.getCommandType()) {
             case CONNECT -> playService.connect(command, session);
             case MAKE_MOVE -> throw new RuntimeException("NOT IMPLEMENTED");
             case LEAVE -> throw new RuntimeException("NOT IMPLEMENTED");
             case RESIGN -> throw new RuntimeException("NOT IMPLEMENTED");
-        };
+        }
     }
 
     private UserGameCommand getCommand(String jsonString) {
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(UserGameCommand.class, new CommandDeserializer())
-                .create();
         return gson.fromJson(jsonString, UserGameCommand.class);
     }
 

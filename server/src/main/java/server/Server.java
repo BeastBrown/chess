@@ -32,7 +32,7 @@ public class Server {
         userService = new UserService(userAccessor, authAccessor);
         gameService = new GameService(userService, gameAccessor, authAccessor);
         clearService = new ClearService(userAccessor, authAccessor, gameAccessor);
-        gamePlayService = new GamePlayService(userService, userAccessor, gameAccessor);
+        gamePlayService = new GamePlayService(userService, userAccessor, gameAccessor, authAccessor);
 
         gson = new Gson();
     }
