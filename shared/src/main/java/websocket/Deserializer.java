@@ -29,7 +29,7 @@ public class Deserializer {
             String cType = jsonObj.get("commandType").getAsString();
             return cType.equals("MAKE_MOVE") ?
                     jsonDeserializationContext.deserialize(jsonElement, MoveCommand.class) :
-                    jsonDeserializationContext.deserialize(jsonElement, UserGameCommand.class);
+                    new Gson().fromJson(jsonElement, UserGameCommand.class);
         }
     }
 

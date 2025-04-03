@@ -16,6 +16,8 @@ import websocket.messages.ServerMessage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 import static websocket.messages.ServerMessage.ServerMessageType.*;
 

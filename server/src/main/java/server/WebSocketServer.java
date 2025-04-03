@@ -9,6 +9,8 @@ import websocket.commands.*;
 import websocket.messages.ServerMessage;
 
 import java.lang.reflect.Type;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @WebSocket
 public class WebSocketServer {
@@ -23,6 +25,7 @@ public class WebSocketServer {
 
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
+        Logger.getGlobal().log(Level.FINE, "Entering the on message thing");
         UserGameCommand command = gson.fromJson(message, UserGameCommand.class);
         switch (command.getCommandType()) {
             case CONNECT -> playService.connect(command, session);
