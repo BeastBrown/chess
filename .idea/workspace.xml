@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fda490-3702-46a0-8e91-8a4e24c56a9b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/Deserializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +82,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Main Client">
+  <component name="RunManager" selected="Application.Main Server">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="chess" />
       <method v="2">
@@ -176,8 +176,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main Client" />
         <item itemvalue="Application.Main Server" />
+        <item itemvalue="Application.Main Client" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ServerFacadeTests" />
         <item itemvalue="JUnit.All in server" />
@@ -222,7 +222,7 @@
       <workItem from="1743567946401" duration="2367000" />
       <workItem from="1743646144699" duration="10000" />
       <workItem from="1743696902511" duration="9000" />
-      <workItem from="1743704739814" duration="810000" />
+      <workItem from="1743704739814" duration="5206000" />
     </task>
     <servers />
   </component>
