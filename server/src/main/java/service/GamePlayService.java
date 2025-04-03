@@ -6,6 +6,7 @@ import dataaccess.AuthDataAccessor;
 import dataaccess.GameDataAccessor;
 import dataaccess.UserDataAccessor;
 import org.eclipse.jetty.websocket.api.Session;
+import websocket.Deserializer;
 import websocket.commands.UserGameCommand;
 import websocket.messages.ErrorMessage;
 import websocket.messages.LoadGameMessage;
@@ -34,7 +35,7 @@ public class GamePlayService {
         this.gameAccessor = gameAccessor;
         this.authAccessor = authAccessor;
         this.gameMap = new HashMap<Integer, ArrayList<Session>>();
-        this.gson = new Gson();
+        this.gson = Deserializer.getGson();
     }
 
     public void connect(UserGameCommand command, Session session) {
