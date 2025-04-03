@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d2fda490-3702-46a0-8e91-8a4e24c56a9b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +219,10 @@
       <workItem from="1743294432228" duration="7225000" />
       <workItem from="1743564211794" duration="2713000" />
       <workItem from="1743567412943" duration="515000" />
-      <workItem from="1743567946401" duration="2301000" />
+      <workItem from="1743567946401" duration="2367000" />
+      <workItem from="1743646144699" duration="10000" />
+      <workItem from="1743696902511" duration="9000" />
+      <workItem from="1743704739814" duration="810000" />
     </task>
     <servers />
   </component>

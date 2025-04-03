@@ -1,6 +1,5 @@
 package service;
 
-import chess.ChessGame;
 import chess.data.GameData;
 import com.google.gson.Gson;
 import dataaccess.AuthDataAccessor;
@@ -12,8 +11,6 @@ import websocket.messages.ErrorMessage;
 import websocket.messages.LoadGameMessage;
 import websocket.messages.NotificationMessage;
 import websocket.messages.ServerMessage;
-
-import javax.management.Notification;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,46 +38,72 @@ public class GamePlayService {
     }
 
     public void connect(UserGameCommand command, Session session) {
-        boolean isLoggedIn = userService.isAuthenticated(command.getAuthToken());
-        if (!isLoggedIn) {
-             return new ErrorMessage(ERROR, "User not authenticated");
+        Integer id = command.getGameID();
+        GameData gameData = gameAccessor.getGame(id);
+        ServerMessage cMessage = getConnectorMessage(command, gameData);
+        ServerMessage allMessage = getConnectAllMessage(cMessage, command, gameData);
+        ArrayList<Session> sList = gameMap.get(id);
+        if (sList == null) {
+            initGameEntry(session, id);
         }
-        Integer ID = command.getGameID();
-        GameData game = gameAccessor.getGame(ID);
-        if (game == null) {
-            return new ErrorMessage(ERROR, "Game not found");
+        sendMessage(session, cMessage);
+        sendAllMessage(id, allMessage, session);
+    }
+
+    private void sendAllMessage(Integer id, ServerMessage allMessage, Session not) {
+        for (Session s : gameMap.get(id)) {
+            if (!s.equals(not)) {
+                sendMessage(s, allMessage);
+            }
         }
+    }
+
+    private void initGameEntry(Session session, Integer ID) {
+        ArrayList<Session> firstSesList = new ArrayList<Session>();
+        firstSesList.add(session);
+        gameMap.put(ID, firstSesList);
+    }
+
+    private ServerMessage getConnectAllMessage(ServerMessage cMessage,
+                                               UserGameCommand command, GameData gameData) {
         String username = authAccessor.getAuth(command.getAuthToken()).username();
+        if (cMessage.getServerMessageType().equals(ERROR)) {
+            return new NotificationMessage(NOTIFICATION ,
+                    username + "tried to connect but failed");
+        }
+        String allegiance = getAllegiance(gameData, username);
+        return new NotificationMessage(NOTIFICATION, username + " has joined as " + allegiance);
+    }
+
+    private static String getAllegiance(GameData gameData, String username) {
         String allegiance;
-        if (username.equals(game.whiteUsername())) {
+        if (username.equals(gameData.whiteUsername())) {
             allegiance = "White";
-        } else if (username.equals(game.blackUsername())) {
+        } else if (username.equals(gameData.blackUsername())) {
             allegiance = "Black";
         } else {
             allegiance = "Observer";
         }
-        String notification = username + " connected as " + allegiance;
-        NotificationMessage nMsg = new NotificationMessage(NOTIFICATION, notification);
-        ArrayList<Session> sList = gameMap.get(ID);
-        if (sList == null) {
-            ArrayList<Session> firstSesList = new ArrayList<Session>();
-            firstSesList.add(session);
-            gameMap.put(ID, firstSesList);
+        return allegiance;
+    }
+
+    private ServerMessage getConnectorMessage(UserGameCommand command, GameData gameData) {
+        boolean isLoggedIn = userService.isAuthenticated(command.getAuthToken());
+        if (!isLoggedIn) {
+            return new ErrorMessage(ERROR, "User not authenticated");
         }
-        for (Session s : gameMap.get(ID)) {
-            if (!s.equals(session)) {
-                try {
-                    s.getRemote().sendString(gson.toJson(nMsg));
-                } catch (IOException e) {
-                    System.out.println("we couldn't send this message | " + gson.toJson(nMsg));
-                }
-            }
+        if (gameData == null) {
+            return new ErrorMessage(ERROR, "Game not found");
         }
-        LoadGameMessage lMsg = new LoadGameMessage(LOAD_GAME, game.game());
+        return new LoadGameMessage(LOAD_GAME, gameData.game());
+    }
+
+    private void sendMessage(Session s, ServerMessage message) {
+        String sMessage = gson.toJson(message);
         try {
-            session.getRemote().sendString(gson.toJson(lMsg));
+            s.getRemote().sendString(sMessage);
         } catch (IOException e) {
-            System.out.println("we couldn't send this message | " + gson.toJson(lMsg));
+            System.out.println("we couldn't send this message | " + sMessage);
         }
     }
 }
