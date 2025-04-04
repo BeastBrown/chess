@@ -105,7 +105,9 @@ public class GamePlayService {
             initGameEntry(session, id);
         }
         sendMessage(session, cMessage);
-        sendAllMessage(id, allMessage, session);
+        if (allMessage.getServerMessageType().equals(ERROR)) {
+            sendAllMessage(id, allMessage, session);
+        }
     }
 
     private void sendAllMessage(Integer id, ServerMessage allMessage, Session not) {
@@ -136,7 +138,7 @@ public class GamePlayService {
         String username = getUsername(command);
         if (cMessage.getServerMessageType().equals(ERROR)) {
             return new NotificationMessage(NOTIFICATION ,
-                    username + "tried to connect but failed");
+                    username + " tried to connect but failed");
         }
         String allegiance = getAllegiance(gameData, username);
         return new NotificationMessage(NOTIFICATION, username + " has joined as " + allegiance);
