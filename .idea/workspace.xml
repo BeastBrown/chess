@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2fda490-3702-46a0-8e91-8a4e24c56a9b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/shared/src/test/java/DeserializerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/websocket/Deserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/websocket/Deserializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +53,7 @@
   "keyToString": {
     "Application.Main (1).executor": "Run",
     "Application.Main Client.executor": "Run",
-    "Application.Main Server.executor": "Debug",
+    "Application.Main Server.executor": "Run",
     "Application.Main.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in client.executor": "Run",
@@ -67,7 +64,7 @@
     "JUnit.ServerFacadeTests.executor": "Run",
     "JUnit.ServerFacadeTests.listGamesGood.executor": "Run",
     "JUnit.ServerFacadeTests.sampleTest.executor": "Run",
-    "JUnit.WebSocketTests.connectSingleUser.executor": "Debug",
+    "JUnit.WebSocketTests.connectSingleUser.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -89,7 +86,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.WebSocketTests.connectSingleUser">
+  <component name="RunManager" selected="Application.Main Server">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="chess" />
       <method v="2">
@@ -171,10 +168,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main Server" />
         <item itemvalue="JUnit.WebSocketTests.connectSingleUser" />
         <item itemvalue="JUnit.DeserializerTest.connectGood" />
         <item itemvalue="JUnit.DeserializerTest.moveTest" />
-        <item itemvalue="Application.Main Server" />
         <item itemvalue="Application.Main Client" />
       </list>
     </recent_temporary>
@@ -217,7 +214,7 @@
       <workItem from="1743567946401" duration="2367000" />
       <workItem from="1743646144699" duration="10000" />
       <workItem from="1743696902511" duration="9000" />
-      <workItem from="1743704739814" duration="12302000" />
+      <workItem from="1743704739814" duration="16593000" />
     </task>
     <servers />
   </component>
@@ -245,16 +242,6 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="14" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shared/src/main/java/websocket/Deserializer.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
