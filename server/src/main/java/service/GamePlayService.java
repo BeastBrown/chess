@@ -55,8 +55,7 @@ public class GamePlayService {
 
     private ServerMessage getResignAllMessage(String username, ServerMessage resignerMessage) {
         return resignerMessage.getServerMessageType().equals(ERROR) ? null :
-                new NotificationMessage(NOTIFICATION, username +
-                        " Has Resigned the match like a QUITTER");
+                new NotificationMessage(username + " Has Resigned the match like a QUITTER!");
     }
 
     private ServerMessage getResignerMessage(UserGameCommand command, GameData gameData, Session session) {
@@ -64,10 +63,10 @@ public class GamePlayService {
             validateBasicFields(command, gameData);
             validateIsPlayer(command, gameData);
         } catch (InvalidParametersException e) {
-            return new ErrorMessage(ERROR, e.getMessage());
+            return new ErrorMessage(e.getMessage());
         }
         setGameOver(gameData);
-        return new NotificationMessage(NOTIFICATION, "You have successfully resigned, QUITTER!");
+        return new NotificationMessage("You have successfully resigned, QUITTER!");
     }
 
     private void validateIsPlayer(UserGameCommand command, GameData gameData) throws InvalidParametersException {
@@ -96,10 +95,10 @@ public class GamePlayService {
                                              GameData gameData, UserGameCommand command) {
         String username = getUsername(command);
         if (leaverMessage.getServerMessageType().equals(ERROR)) {
-            return new NotificationMessage(NOTIFICATION, username +
+            return new NotificationMessage(username +
                     " Tried to leave but we wouldn't let him");
         }
-        return new NotificationMessage(NOTIFICATION, username + " has left the game");
+        return new NotificationMessage(username + " has left the game");
     }
 
     private ServerMessage getLeaverMessage(UserGameCommand command, GameData gameData,
@@ -107,7 +106,7 @@ public class GamePlayService {
         try {
             validateBasicFields(command, gameData);
         } catch (InvalidParametersException e) {
-            return new ErrorMessage(ERROR, e.getMessage());
+            return new ErrorMessage(e.getMessage());
         }
         gameMap.get(gameData.gameID()).remove(session);
         String username = getUsername(command);
@@ -115,7 +114,7 @@ public class GamePlayService {
         if (!allegiance.equals("Observer")) {
             removePlayer(gameData, allegiance);
         }
-        return new NotificationMessage(NOTIFICATION, "You have left the game");
+        return new NotificationMessage("You have left the game");
     }
 
     private void removePlayer(GameData gameData, String allegiance) {
@@ -179,11 +178,11 @@ public class GamePlayService {
                                                UserGameCommand command, GameData gameData) {
         String username = getUsername(command);
         if (cMessage.getServerMessageType().equals(ERROR)) {
-            return new NotificationMessage(NOTIFICATION ,
+            return new NotificationMessage(
                     username + " tried to connect but failed");
         }
         String allegiance = getAllegiance(gameData, username);
-        return new NotificationMessage(NOTIFICATION, username + " has joined as " + allegiance);
+        return new NotificationMessage(username + " has joined as " + allegiance);
     }
 
     private String getUsername(UserGameCommand command) {
@@ -206,9 +205,9 @@ public class GamePlayService {
         try {
             validateBasicFields(command, gameData);
         } catch (InvalidParametersException e) {
-            return new ErrorMessage(ERROR, e.getMessage());
+            return new ErrorMessage(e.getMessage());
         }
-        return new LoadGameMessage(LOAD_GAME, gameData.game());
+        return new LoadGameMessage(gameData.game());
     }
 
     private void sendMessage(Session s, ServerMessage message) {
