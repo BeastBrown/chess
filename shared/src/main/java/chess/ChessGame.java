@@ -13,12 +13,14 @@ public class ChessGame {
 
     private ChessGame.TeamColor teamTurn;
     private ChessBoard board;
+    public boolean isActive;
 
 
     public ChessGame() {
         this.teamTurn = TeamColor.WHITE;
         this.board = new ChessBoard();
         this.board.resetBoard();
+        this.isActive = true;
     }
 
     /**

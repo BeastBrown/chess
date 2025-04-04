@@ -31,7 +31,7 @@ public class WebSocketServer {
             case CONNECT -> playService.connect(command, session);
             case MAKE_MOVE -> throw new RuntimeException("NOT IMPLEMENTED");
             case LEAVE -> playService.leave(command, session);
-            case RESIGN -> throw new RuntimeException("NOT IMPLEMENTED");
+            case RESIGN -> playService.resign(command, session);
         }
     }
 }

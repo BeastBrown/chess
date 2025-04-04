@@ -41,6 +41,48 @@ public class GamePlayService {
         this.gson = Deserializer.getGson();
     }
 
+    public void resign(UserGameCommand command, Session session) {
+        Integer id = command.getGameID();
+        GameData gameData = gameAccessor.getGame(id);
+        String username = getUsername(command);
+        ServerMessage resignerMessage = getResignerMessage(command, gameData, session);
+        ServerMessage resignAllMessage = getResignAllMessage(username, resignerMessage);
+        sendMessage(session, resignerMessage);
+        if (resignAllMessage != null) {
+            sendAllMessage(id, resignAllMessage, session);
+        }
+    }
+
+    private ServerMessage getResignAllMessage(String username, ServerMessage resignerMessage) {
+        return resignerMessage.getServerMessageType().equals(ERROR) ? null :
+                new NotificationMessage(NOTIFICATION, username +
+                        " Has Resigned the match like a QUITTER");
+    }
+
+    private ServerMessage getResignerMessage(UserGameCommand command, GameData gameData, Session session) {
+        try {
+            validateBasicFields(command, gameData);
+            validateIsPlayer(command, gameData);
+        } catch (InvalidParametersException e) {
+            return new ErrorMessage(ERROR, e.getMessage());
+        }
+        setGameOver(gameData);
+        return new NotificationMessage(NOTIFICATION, "You have successfully resigned, QUITTER!");
+    }
+
+    private void validateIsPlayer(UserGameCommand command, GameData gameData) throws InvalidParametersException {
+        String username = getUsername(command);
+        String allegiance = getAllegiance(gameData, username);
+        if (allegiance.equals("Observer")) {
+            throw new InvalidParametersException("You have to play a player to resign");
+        }
+    }
+
+    private void setGameOver(GameData gameData) {
+        gameData.game().isActive = false;
+        gameAccessor.updateGameData(gameData);
+    }
+
     public void leave(UserGameCommand command, Session session) {
         Integer id = command.getGameID();
         GameData gameData = gameAccessor.getGame(id);
