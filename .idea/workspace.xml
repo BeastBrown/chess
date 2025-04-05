@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f17ea107-8188-4258-844e-637268d5fa8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +42,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Main Server.executor": "Run",
+    "Application.Main Server.executor": "Debug",
     "Application.Main.executor": "Run",
     "JUnit.WebSocketTests.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -62,7 +61,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main Server">
+  <component name="RunManager" selected="JUnit.WebSocketTests.connectBadAuthToken">
     <configuration name="Main Server" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="server" />
@@ -85,12 +84,30 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WebSocketTests.connectBadAuthToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
+      <option name="METHOD_NAME" value="connectBadAuthToken" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main Server" />
+      <item itemvalue="JUnit.WebSocketTests.connectBadAuthToken" />
       <item itemvalue="JUnit.WebSocketTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WebSocketTests.connectBadAuthToken" />
         <item itemvalue="Application.Main Server" />
         <item itemvalue="JUnit.WebSocketTests" />
       </list>
@@ -110,11 +127,28 @@
       <workItem from="1743799223115" duration="139000" />
       <workItem from="1743799375412" duration="467000" />
       <workItem from="1743799860130" duration="91000" />
-      <workItem from="1743804364090" duration="12685000" />
+      <workItem from="1743804364090" duration="12964000" />
+      <workItem from="1743891513628" duration="1317000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java</url>
+          <line>245</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

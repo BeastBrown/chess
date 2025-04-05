@@ -279,11 +279,10 @@ public class GamePlayService {
 
     private ServerMessage getConnectAllMessage(ServerMessage cMessage,
                                                UserGameCommand command, GameData gameData) {
-        String username = getUsername(command);
         if (cMessage.getServerMessageType().equals(ERROR)) {
-            return new NotificationMessage(
-                    username + " tried to connect but failed");
+            return new NotificationMessage("Somebody tried to connect but failed");
         }
+        String username = getUsername(command);
         String allegiance = getAllegiance(gameData, username);
         return new NotificationMessage(username + " has joined as " + allegiance);
     }
