@@ -1,5 +1,9 @@
 package service;
 
+import chess.ChessGame;
+import chess.ChessMove;
+import chess.ChessPosition;
+import chess.InvalidMoveException;
 import chess.data.GameData;
 import com.google.gson.Gson;
 import dataaccess.AuthDataAccessor;
@@ -8,6 +12,7 @@ import dataaccess.InvalidParametersException;
 import dataaccess.UserDataAccessor;
 import org.eclipse.jetty.websocket.api.Session;
 import websocket.Deserializer;
+import websocket.commands.MoveCommand;
 import websocket.commands.UserGameCommand;
 import websocket.messages.ErrorMessage;
 import websocket.messages.LoadGameMessage;
@@ -39,6 +44,104 @@ public class GamePlayService {
         this.authAccessor = authAccessor;
         this.gameMap = new HashMap<Integer, ArrayList<Session>>();
         this.gson = Deserializer.getGson();
+    }
+
+    public void makeMove(MoveCommand command, Session session) {
+        Integer id = command.getGameID();
+        GameData gameData = gameAccessor.getGame(id);
+        ChessMove move = command.getMove();
+        String username = getUsername(command);
+        ServerMessage moveMessage = getMoveMessage(command, gameData, move);
+        sendMoveMessages(moveMessage, move, session, gameData, username);
+    }
+
+    private void sendMoveMessages(ServerMessage moveMessage, ChessMove move,
+                                  Session session, GameData gameData, String username) {
+        if (moveMessage.getServerMessageType().equals(ERROR)) {
+            sendMessage(session, moveMessage);
+            return;
+        }
+        sendAllMessage(gameData.gameID(), moveMessage,null);
+        NotificationMessage moveNotification = getMoveNotification(move, username, gameData);
+        sendMessage(session, moveNotification);
+        sendUpdatedState(gameData, username);
+    }
+
+    private void sendUpdatedState(GameData gameData, String username) {
+        GameData newData = gameAccessor.getGame(gameData.gameID());
+        ChessGame newGame = newData.game();
+        ChessGame.TeamColor opposingAllegiance = getOpposingAllegiance(gameData, username);
+        String message = getMessageString(newGame, newData, opposingAllegiance);
+        NotificationMessage stateNotification = new NotificationMessage(message);
+        if (message != null) {
+            sendAllMessage(newData.gameID(), stateNotification, null);
+        }
+    }
+
+    private static ChessGame.TeamColor getOpposingAllegiance(GameData gameData, String username) {
+        return getAllegiance(gameData, username).equals("White") ?
+                ChessGame.TeamColor.BLACK : ChessGame.TeamColor.WHITE;
+    }
+
+    private String getMessageString(ChessGame game, GameData newData,
+                                    ChessGame.TeamColor opposingAllegiance) {
+        boolean inCheck = game.isInCheck(opposingAllegiance);
+        boolean inCheckmate = game.isInCheckmate(opposingAllegiance);
+        boolean inStalemate = game.isInStalemate(opposingAllegiance);
+        String message = null;
+        if (inCheckmate) {
+            message = opposingAllegiance.toString() + " is in Checkmate";
+            setGameOver(newData);
+        } else if (inCheck) {
+            message = opposingAllegiance.toString() + " is in Check";
+        } else if (inStalemate) {
+            message = "The game has ended in a stalemate. GOOD JOB";
+            setGameOver(newData);
+        }
+        return message;
+    }
+
+    private NotificationMessage getMoveNotification(ChessMove move,  String username,
+                                                    GameData gameData) {
+        String allegiance = getAllegiance(gameData, username);
+        String message = username + " as " + allegiance + " has moved from " +
+                getFormattedMove(move);
+        return new NotificationMessage(message);
+    }
+
+    private String getFormattedMove(ChessMove move) {
+        ChessPosition firstPos = move.getStartPosition();
+        ChessPosition secondPos = move.getEndPosition();
+        String firstPosStr = getColLetter(firstPos.getColumn()) +
+                String.valueOf(firstPos.getRow());
+        String secondPosStr = getColLetter(secondPos.getColumn()) +
+                String.valueOf(secondPos.getRow());
+        return firstPosStr + " to " + secondPosStr;
+    }
+
+    private String getColLetter(int column) {
+        String[] columns = {"A", "B", "C", "D", "E", "F", "G", "H"};
+        return columns[column - 1];
+    }
+
+    private ServerMessage getMoveMessage(MoveCommand command,
+                                         GameData gameData, ChessMove move) {
+        try {
+            validateBasicFields(command, gameData);
+            validateIsPlayer(command, gameData);
+            validateIsActive(gameData);
+            gameData.game().makeMove(move);
+        } catch (InvalidParametersException | InvalidMoveException e) {
+            return new ErrorMessage(e.getMessage());
+        }
+        gameAccessor.updateGameData(gameData);
+        return new LoadGameMessage(gameData.game());
+    }
+
+    private void validateIsActive(GameData gameData) throws InvalidParametersException {
+        if (!gameData.game().isActive) {
+            throw new InvalidParametersException("The Game Is already over");
+        }
     }
 
     public void resign(UserGameCommand command, Session session) {

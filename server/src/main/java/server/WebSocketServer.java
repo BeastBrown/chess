@@ -29,7 +29,7 @@ public class WebSocketServer {
         UserGameCommand command = gson.fromJson(message, UserGameCommand.class);
         switch (command.getCommandType()) {
             case CONNECT -> playService.connect(command, session);
-            case MAKE_MOVE -> throw new RuntimeException("NOT IMPLEMENTED");
+            case MAKE_MOVE -> playService.makeMove((MoveCommand) command, session);
             case LEAVE -> playService.leave(command, session);
             case RESIGN -> playService.resign(command, session);
         }
