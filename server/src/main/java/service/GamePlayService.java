@@ -52,8 +52,8 @@ public class GamePlayService {
         GameData gameData = gameAccessor.getGame(id);
         ChessMove move = command.getMove();
         String username = getUsername(command);
-        ServerMessage moveMessage = getMoveMessage(command, gameData, move);
-        sendMoveMessages(moveMessage, move, session, gameData, username);
+        ServerMessage moverMessage = getMoverMessage(command, gameData, move);
+        sendMoveMessages(moverMessage, move, session, gameData, username);
     }
 
     private void sendMoveMessages(ServerMessage moveMessage, ChessMove move,
@@ -64,7 +64,7 @@ public class GamePlayService {
         }
         sendAllMessage(gameData.gameID(), moveMessage,null);
         NotificationMessage moveNotification = getMoveNotification(move, username, gameData);
-        sendMessage(session, moveNotification);
+        sendAllMessage(gameData.gameID(), moveNotification, session);
         sendUpdatedState(gameData, username);
     }
 
@@ -125,13 +125,15 @@ public class GamePlayService {
         return columns[column - 1];
     }
 
-    private ServerMessage getMoveMessage(MoveCommand command,
-                                         GameData gameData, ChessMove move) {
+    private ServerMessage getMoverMessage(MoveCommand command,
+                                          GameData gameData, ChessMove move) {
         try {
             validateBasicFields(command, gameData);
             validateIsPlayer(command, gameData);
             validateIsActive(gameData);
+            System.out.println("The turn before is " + gameData.game().getTeamTurn().toString());
             gameData.game().makeMove(move);
+            System.out.println("The turn after is " + gameData.game().getTeamTurn().toString());
         } catch (InvalidParametersException | InvalidMoveException e) {
             return new ErrorMessage(e.getMessage());
         }
