@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f17ea107-8188-4258-844e-637268d5fa8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDataAccessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.All in server">
+  <component name="RunManager" selected="JUnit.WebSocketTests">
     <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <option name="PACKAGE_NAME" value="" />
@@ -149,8 +150,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in server" />
         <item itemvalue="JUnit.WebSocketTests" />
+        <item itemvalue="JUnit.All in server" />
         <item itemvalue="JUnit.WebSocketTests.invalidMoveGameOver" />
         <item itemvalue="JUnit.WebSocketTests.validMove" />
         <item itemvalue="JUnit.WebSocketTests.connectSingleUser" />
@@ -172,7 +173,7 @@
       <workItem from="1743799375412" duration="467000" />
       <workItem from="1743799860130" duration="91000" />
       <workItem from="1743804364090" duration="12964000" />
-      <workItem from="1743891513628" duration="14884000" />
+      <workItem from="1743891513628" duration="15329000" />
     </task>
     <servers />
   </component>
@@ -180,15 +181,6 @@
     <option name="version" value="3" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java</url>
-          <line>134</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="gameData.game().getTeamTurn()" language="JAVA" />

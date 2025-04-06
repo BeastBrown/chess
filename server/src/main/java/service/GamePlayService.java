@@ -36,6 +36,7 @@ public class GamePlayService {
     private AuthDataAccessor authAccessor;
     private HashMap<Integer, ArrayList<Session>> gameMap;
     private Gson gson;
+    private static Logger logger = Logger.getGlobal();
 
     public GamePlayService(UserService userService, UserDataAccessor userAccessor,
                            GameDataAccessor gameAccessor, AuthDataAccessor authAccessor) {
@@ -131,9 +132,7 @@ public class GamePlayService {
             validateBasicFields(command, gameData);
             validateIsPlayer(command, gameData);
             validateIsActive(gameData);
-            System.out.println("The turn before is " + gameData.game().getTeamTurn().toString());
             gameData.game().makeMove(move);
-            System.out.println("The turn after is " + gameData.game().getTeamTurn().toString());
         } catch (InvalidParametersException | InvalidMoveException e) {
             return new ErrorMessage(e.getMessage());
         }
@@ -262,7 +261,7 @@ public class GamePlayService {
     private void sendAllMessage(Integer id, ServerMessage allMessage, Session not) {
         ArrayList<Session> sList = getSessions(id);
         if (sList == null) {
-            Logger.getGlobal().log(Level.FINE, "session list was null");
+            logger.log(Level.FINE, "session list was null");
             return;
         }
         for (Session s : sList) {
@@ -322,9 +321,9 @@ public class GamePlayService {
         try {
             s.getRemote().sendString(sMessage);
         } catch (IOException e) {
-            Logger.getGlobal().log(Level.SEVERE, "we couldn't send this message | " + sMessage);
+            logger.log(Level.SEVERE, "we couldn't send this message | " + sMessage);
         } catch (WebSocketException e) {
-            Logger.getGlobal().log(Level.SEVERE ,"We had an unchecked exception internal error here");
+            logger.log(Level.SEVERE ,"We had an unchecked exception internal error here");
         }
     }
 }

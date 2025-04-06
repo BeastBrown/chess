@@ -17,6 +17,7 @@ public class WebSocketServer {
 
     private GamePlayService playService;
     private Gson gson;
+    private static final Logger logger = Logger.getGlobal();
 
     public WebSocketServer(GamePlayService gamePlayService) {
         this.playService = gamePlayService;
@@ -25,7 +26,7 @@ public class WebSocketServer {
 
     @OnWebSocketMessage
     public void onMessage(Session session, String message) {
-        Logger.getGlobal().log(Level.FINE, "Entering the on message thing");
+        logger.log(Level.FINE, "Entering the on message thing");
         UserGameCommand command = gson.fromJson(message, UserGameCommand.class);
         switch (command.getCommandType()) {
             case CONNECT -> playService.connect(command, session);
