@@ -11,6 +11,7 @@ import dataaccess.GameDataAccessor;
 import dataaccess.InvalidParametersException;
 import dataaccess.UserDataAccessor;
 import org.eclipse.jetty.websocket.api.Session;
+import org.eclipse.jetty.websocket.api.WebSocketException;
 import websocket.Deserializer;
 import websocket.commands.MoveCommand;
 import websocket.commands.UserGameCommand;
@@ -247,9 +248,11 @@ public class GamePlayService {
         ArrayList<Session> sList = gameMap.get(id);
         if (sList == null) {
             initGameEntry(session, id);
+        } else {
+            gameMap.get(id).add(session);
         }
         sendMessage(session, cMessage);
-        if (allMessage.getServerMessageType().equals(ERROR)) {
+        if (!allMessage.getServerMessageType().equals(ERROR)) {
             sendAllMessage(id, allMessage, session);
         }
     }
@@ -280,7 +283,7 @@ public class GamePlayService {
     private ServerMessage getConnectAllMessage(ServerMessage cMessage,
                                                UserGameCommand command, GameData gameData) {
         if (cMessage.getServerMessageType().equals(ERROR)) {
-            return new NotificationMessage("Somebody tried to connect but failed");
+            return new ErrorMessage("Somebody tried to connect but failed");
         }
         String username = getUsername(command);
         String allegiance = getAllegiance(gameData, username);
@@ -317,7 +320,9 @@ public class GamePlayService {
         try {
             s.getRemote().sendString(sMessage);
         } catch (IOException e) {
-            System.out.println("we couldn't send this message | " + sMessage);
+            Logger.getGlobal().log(Level.SEVERE, "we couldn't send this message | " + sMessage);
+        } catch (WebSocketException e) {
+            Logger.getGlobal().log(Level.SEVERE ,"We had an unchecked exception internal error here");
         }
     }
 }
