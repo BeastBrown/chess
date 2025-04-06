@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f17ea107-8188-4258-844e-637268d5fa8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDataAccessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/dataaccess/MySqlGameDataAccessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +44,13 @@
   "keyToString": {
     "Application.Main Server.executor": "Debug",
     "Application.Main.executor": "Run",
+    "JUnit.All in server.executor": "Run",
     "JUnit.WebSocketTests.connectBadAuthToken.executor": "Debug",
     "JUnit.WebSocketTests.connectBadGameID.executor": "Run",
     "JUnit.WebSocketTests.connectGood.executor": "Run",
     "JUnit.WebSocketTests.connectSingleUser.executor": "Run",
     "JUnit.WebSocketTests.executor": "Run",
-    "JUnit.WebSocketTests.invalidMoveGameOver.executor": "Debug",
+    "JUnit.WebSocketTests.invalidMoveGameOver.executor": "Run",
     "JUnit.WebSocketTests.validMove.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -67,7 +68,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.WebSocketTests.invalidMoveGameOver">
+  <component name="RunManager" selected="JUnit.All in server">
+    <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WebSocketTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -79,22 +88,6 @@
       <option name="PACKAGE_NAME" value="passoff.server" />
       <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WebSocketTests.connectBadGameID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
-      <option name="METHOD_NAME" value="connectBadGameID" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -148,7 +141,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.WebSocketTests.connectBadGameID" />
+      <item itemvalue="JUnit.All in server" />
       <item itemvalue="JUnit.WebSocketTests.connectSingleUser" />
       <item itemvalue="JUnit.WebSocketTests.invalidMoveGameOver" />
       <item itemvalue="JUnit.WebSocketTests.validMove" />
@@ -156,11 +149,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WebSocketTests.invalidMoveGameOver" />
+        <item itemvalue="JUnit.All in server" />
         <item itemvalue="JUnit.WebSocketTests" />
+        <item itemvalue="JUnit.WebSocketTests.invalidMoveGameOver" />
         <item itemvalue="JUnit.WebSocketTests.validMove" />
         <item itemvalue="JUnit.WebSocketTests.connectSingleUser" />
-        <item itemvalue="JUnit.WebSocketTests.connectBadGameID" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +172,7 @@
       <workItem from="1743799375412" duration="467000" />
       <workItem from="1743799860130" duration="91000" />
       <workItem from="1743804364090" duration="12964000" />
-      <workItem from="1743891513628" duration="14115000" />
+      <workItem from="1743891513628" duration="14884000" />
     </task>
     <servers />
   </component>
@@ -196,5 +189,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="gameData.game().getTeamTurn()" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

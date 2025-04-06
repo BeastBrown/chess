@@ -92,13 +92,14 @@ public class MySqlGameDataAccessor extends MySqlDataAccessor implements GameData
     @Override
     public void updateGameData(GameData gameData) {
         String changeGame = """
-                UPDATE games SET whiteUsername = ?, blackUsername = ?, gameName = ? WHERE id = ?;
+                UPDATE games SET whiteUsername = ?, blackUsername = ?, gameName = ?, game = ? WHERE id = ?;
                 """;
-        Object[] arguments = new Object[4];
+        Object[] arguments = new Object[5];
         arguments[0] = gameData.whiteUsername();
         arguments[1] = gameData.blackUsername();
         arguments[2] = gameData.gameName();
-        arguments[3] = gameData.gameID();
+        arguments[3] = gson.toJson(gameData.game());
+        arguments[4] = gameData.gameID();
         try {
             executeParameterizedUpdate(changeGame, arguments);
         } catch (DataAccessException e) {
