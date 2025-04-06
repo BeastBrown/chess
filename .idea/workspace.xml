@@ -56,8 +56,10 @@
     "JUnit.WebSocketTests.executor": "Run",
     "JUnit.WebSocketTests.invalidMoveGameOver.executor": "Run",
     "JUnit.WebSocketTests.invalidMoveOpponent.executor": "Run",
+    "JUnit.WebSocketTests.invalidResignGameOver.executor": "Run",
+    "JUnit.WebSocketTests.leaveGame.executor": "Run",
     "JUnit.WebSocketTests.makeMoveBadAuthtoken.executor": "Run",
-    "JUnit.WebSocketTests.moveAfterResign.executor": "Debug",
+    "JUnit.WebSocketTests.moveAfterResign.executor": "Run",
     "JUnit.WebSocketTests.validMove.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -76,14 +78,6 @@
   }
 }]]></component>
   <component name="RunManager" selected="JUnit.WebSocketTests">
-    <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="WebSocketTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -99,7 +93,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebSocketTests.invalidMoveOpponent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WebSocketTests.invalidResignGameOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -109,7 +103,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="passoff.server" />
       <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
-      <option name="METHOD_NAME" value="invalidMoveOpponent" />
+      <option name="METHOD_NAME" value="invalidResignGameOver" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WebSocketTests.leaveGame" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="passoff.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="passoff.server" />
+      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
+      <option name="METHOD_NAME" value="leaveGame" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -148,8 +158,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.All in server" />
-      <item itemvalue="JUnit.WebSocketTests.invalidMoveOpponent" />
+      <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
+      <item itemvalue="JUnit.WebSocketTests.leaveGame" />
       <item itemvalue="JUnit.WebSocketTests.makeMoveBadAuthtoken" />
       <item itemvalue="JUnit.WebSocketTests.moveAfterResign" />
       <item itemvalue="JUnit.WebSocketTests" />
@@ -157,10 +167,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.WebSocketTests" />
+        <item itemvalue="JUnit.WebSocketTests.leaveGame" />
+        <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
         <item itemvalue="JUnit.WebSocketTests.moveAfterResign" />
         <item itemvalue="JUnit.WebSocketTests.makeMoveBadAuthtoken" />
-        <item itemvalue="JUnit.WebSocketTests.invalidMoveOpponent" />
-        <item itemvalue="JUnit.All in server" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +189,7 @@
       <workItem from="1743799375412" duration="467000" />
       <workItem from="1743799860130" duration="91000" />
       <workItem from="1743804364090" duration="12964000" />
-      <workItem from="1743891513628" duration="17677000" />
+      <workItem from="1743891513628" duration="18454000" />
     </task>
     <servers />
   </component>

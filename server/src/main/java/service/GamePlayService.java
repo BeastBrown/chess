@@ -182,6 +182,7 @@ public class GamePlayService {
         try {
             validateBasicFields(command, gameData);
             validateIsPlayer(command, gameData);
+            validateIsActive(gameData);
         } catch (InvalidParametersException e) {
             return new ErrorMessage(e.getMessage());
         }
@@ -207,7 +208,6 @@ public class GamePlayService {
         GameData gameData = gameAccessor.getGame(id);
         ServerMessage leaverMessage = getLeaverMessage(command, gameData, session);
         ServerMessage allMessage = getLeaveAllMessage(leaverMessage, gameData, command);
-        sendMessage(session, leaverMessage);
         sendAllMessage(id, allMessage, session);
     }
 
