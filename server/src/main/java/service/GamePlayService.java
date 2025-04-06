@@ -4,6 +4,7 @@ import chess.ChessGame;
 import chess.ChessMove;
 import chess.ChessPosition;
 import chess.InvalidMoveException;
+import chess.data.AuthData;
 import chess.data.GameData;
 import com.google.gson.Gson;
 import dataaccess.AuthDataAccessor;
@@ -26,6 +27,8 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static chess.ChessGame.TeamColor.BLACK;
+import static chess.ChessGame.TeamColor.WHITE;
 import static websocket.messages.ServerMessage.ServerMessageType.*;
 
 public class GamePlayService {
@@ -82,7 +85,7 @@ public class GamePlayService {
 
     private static ChessGame.TeamColor getOpposingAllegiance(GameData gameData, String username) {
         return getAllegiance(gameData, username).equals("White") ?
-                ChessGame.TeamColor.BLACK : ChessGame.TeamColor.WHITE;
+                BLACK : WHITE;
     }
 
     private String getMessageString(ChessGame game, GameData newData,
@@ -131,6 +134,7 @@ public class GamePlayService {
         try {
             validateBasicFields(command, gameData);
             validateIsPlayer(command, gameData);
+            validateIsPlayerTurn(command, gameData);
             validateIsActive(gameData);
             gameData.game().makeMove(move);
         } catch (InvalidParametersException | InvalidMoveException e) {
@@ -138,6 +142,17 @@ public class GamePlayService {
         }
         gameAccessor.updateGameData(gameData);
         return new LoadGameMessage(gameData.game());
+    }
+
+    private void validateIsPlayerTurn(MoveCommand command, GameData gameData)
+            throws InvalidParametersException {
+        String username = getUsername(command);
+        String allegiance = getAllegiance(gameData, username);
+        ChessGame.TeamColor turn =  gameData.game().getTeamTurn();
+        ChessGame.TeamColor playerAllegiance = allegiance.equals("White") ? WHITE : BLACK;
+        if (!turn.equals(playerAllegiance)) {
+            throw new InvalidParametersException("Its not your turn yet");
+        }
     }
 
     private void validateIsActive(GameData gameData) throws InvalidParametersException {
@@ -178,7 +193,7 @@ public class GamePlayService {
         String username = getUsername(command);
         String allegiance = getAllegiance(gameData, username);
         if (allegiance.equals("Observer")) {
-            throw new InvalidParametersException("You have to play a player to resign");
+            throw new InvalidParametersException("You have to play a player to do this");
         }
     }
 
@@ -292,7 +307,9 @@ public class GamePlayService {
     }
 
     private String getUsername(UserGameCommand command) {
-        return authAccessor.getAuth(command.getAuthToken()).username();
+        AuthData auth = authAccessor.getAuth(command.getAuthToken());
+        return auth != null ? auth.username() : null;
+
     }
 
     private static String getAllegiance(GameData gameData, String username) {
