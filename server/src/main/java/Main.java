@@ -11,11 +11,11 @@ public class Main {
         System.out.println("♕ 240 Chess Server: " + piece);
 
         Logger logger = Logger.getGlobal();
-        logger.setLevel(Level.FINE);
+        logger.setLevel(Level.ALL);
         ConsoleHandler cHandler = new ConsoleHandler();
-        cHandler.setLevel(Level.FINE);
+        cHandler.setLevel(Level.ALL);
         logger.addHandler(cHandler);
-        logger.log(Level.FINE, "this thing");
+        logger.log(Level.FINE, "Logging start");
 
         Server server = new Server();
         server.run(8080);

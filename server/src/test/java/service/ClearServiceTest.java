@@ -19,6 +19,7 @@ public class ClearServiceTest {
 
     private UserService userService;
     private GameService gameService;
+    private GamePlayService playService;
     private ClearService clearService;
     private UserDataAccessor userAccessor;
     private AuthDataAccessor authAccessor;
@@ -30,8 +31,9 @@ public class ClearServiceTest {
         this.userAccessor = new MySqlUserDataAccessor();
         this.authAccessor = new MySqlAuthDataAccessor();
         this.gameAccessor = new MySqlGameDataAccessor();
-        this.clearService = new ClearService(userAccessor, authAccessor, gameAccessor);
         this.userService = new UserService(userAccessor, authAccessor);
+        this.playService = new GamePlayService(userService, userAccessor, gameAccessor, authAccessor);
+        this.clearService = new ClearService(userAccessor, authAccessor, gameAccessor, playService);
         this.gameService = new GameService(userService, gameAccessor, authAccessor);
 
         userAccessor.clear();

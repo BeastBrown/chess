@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f17ea107-8188-4258-844e-637268d5fa8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/ClearService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/service/ClearServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,10 +32,10 @@
     &quot;accountId&quot;: &quot;b45a06dc-0cb9-4c7b-887c-a09c1aeed743&quot;
   }
 }</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -51,7 +55,7 @@
     "JUnit.All in server.executor": "Run",
     "JUnit.WebSocketTests.connectBadAuthToken.executor": "Debug",
     "JUnit.WebSocketTests.connectBadGameID.executor": "Run",
-    "JUnit.WebSocketTests.connectGood.executor": "Run",
+    "JUnit.WebSocketTests.connectGood.executor": "Debug",
     "JUnit.WebSocketTests.connectSingleUser.executor": "Run",
     "JUnit.WebSocketTests.executor": "Run",
     "JUnit.WebSocketTests.invalidMoveGameOver.executor": "Run",
@@ -77,7 +81,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.WebSocketTests">
+  <component name="RunManager" selected="JUnit.All in server">
+    <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WebSocketTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
@@ -93,7 +105,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebSocketTests.invalidResignGameOver" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WebSocketTests.connectGood" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -103,7 +115,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="passoff.server" />
       <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
-      <option name="METHOD_NAME" value="invalidResignGameOver" />
+      <option name="METHOD_NAME" value="connectGood" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,7 +137,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebSocketTests.makeMoveBadAuthtoken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WebSocketTests.validMove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <extension name="coverage">
         <pattern>
@@ -135,42 +147,26 @@
       </extension>
       <option name="PACKAGE_NAME" value="passoff.server" />
       <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
-      <option name="METHOD_NAME" value="makeMoveBadAuthtoken" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WebSocketTests.moveAfterResign" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="server" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="passoff.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="passoff.server" />
-      <option name="MAIN_CLASS_NAME" value="passoff.server.WebSocketTests" />
-      <option name="METHOD_NAME" value="moveAfterResign" />
+      <option name="METHOD_NAME" value="validMove" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
+      <item itemvalue="JUnit.All in server" />
+      <item itemvalue="JUnit.WebSocketTests.connectGood" />
       <item itemvalue="JUnit.WebSocketTests.leaveGame" />
-      <item itemvalue="JUnit.WebSocketTests.makeMoveBadAuthtoken" />
-      <item itemvalue="JUnit.WebSocketTests.moveAfterResign" />
+      <item itemvalue="JUnit.WebSocketTests.validMove" />
       <item itemvalue="JUnit.WebSocketTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in server" />
         <item itemvalue="JUnit.WebSocketTests" />
+        <item itemvalue="JUnit.WebSocketTests.validMove" />
+        <item itemvalue="JUnit.WebSocketTests.connectGood" />
         <item itemvalue="JUnit.WebSocketTests.leaveGame" />
-        <item itemvalue="JUnit.WebSocketTests.invalidResignGameOver" />
-        <item itemvalue="JUnit.WebSocketTests.moveAfterResign" />
-        <item itemvalue="JUnit.WebSocketTests.makeMoveBadAuthtoken" />
       </list>
     </recent_temporary>
   </component>
@@ -189,7 +185,8 @@
       <workItem from="1743799375412" duration="467000" />
       <workItem from="1743799860130" duration="91000" />
       <workItem from="1743804364090" duration="12964000" />
-      <workItem from="1743891513628" duration="18454000" />
+      <workItem from="1743891513628" duration="19754000" />
+      <workItem from="1743963473815" duration="2535000" />
     </task>
     <servers />
   </component>

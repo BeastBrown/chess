@@ -335,12 +335,20 @@ public class GamePlayService {
 
     private void sendMessage(Session s, ServerMessage message) {
         String sMessage = gson.toJson(message);
+        boolean isSessionOpen = s.isOpen();
+        if (!isSessionOpen) {
+            logger.log(Level.INFO, "The Session was not open");
+            return;
+        }
         try {
             s.getRemote().sendString(sMessage);
-        } catch (IOException e) {
+            logger.log(Level.INFO, "The message was successfully sent");
+        } catch (IOException | WebSocketException e) {
             logger.log(Level.SEVERE, "we couldn't send this message | " + sMessage);
-        } catch (WebSocketException e) {
-            logger.log(Level.SEVERE ,"We had an unchecked exception internal error here");
         }
+    }
+
+    public void clear() {
+        this.gameMap.clear();
     }
 }
