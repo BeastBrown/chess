@@ -7,6 +7,7 @@ import chess.request.*;
 import chess.result.ListGameResult;
 import chess.result.LoginResult;
 import chess.result.RegisterResult;
+import websocket.messages.ServerMessage;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -15,18 +16,20 @@ import java.util.Scanner;
 import static chess.ChessGame.TeamColor.BLACK;
 import static chess.ChessGame.TeamColor.WHITE;
 
-public class Client {
+public class Client implements ServerMessageObserver {
 
     private Scanner scanner;
     private String authToken;
     private ServerFacade facade;
     private HashSet<Integer> idSet;
+    private ChessGame.TeamColor allegiance;
 
     public Client(String url) {
         scanner = new Scanner(System.in);
         authToken = null;
-        facade = new ServerFacade(url);
+        facade = new ServerFacade(url, this);
         idSet = new HashSet<Integer>();
+        allegiance = null;
     }
 
     public void run() {
@@ -280,5 +283,10 @@ public class Client {
 
     private void printFancyConsole() {
         System.out.print(">>> ");
+    }
+
+    @Override
+    public void notify(ServerMessage message) {
+        throw new RuntimeException("NOT IMPLEMENTED");
     }
 }

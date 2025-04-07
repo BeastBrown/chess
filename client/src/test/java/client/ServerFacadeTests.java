@@ -5,6 +5,7 @@ import chess.request.*;
 import chess.result.*;
 import org.junit.jupiter.api.*;
 import server.Server;
+import ui.Client;
 import ui.ServerFacade;
 
 import java.io.IOException;
@@ -19,10 +20,11 @@ public class ServerFacadeTests {
 
     @BeforeAll
     public static void init() {
+        Client client = new Client("http://localhost:1100");
         server = new Server();
         var port = server.run(1100);
         System.out.println("Started test HTTP server on " + port);
-        facade = new ServerFacade("http://localhost:1100");
+        facade = new ServerFacade("http://localhost:1100", client);
     }
 
     @AfterAll

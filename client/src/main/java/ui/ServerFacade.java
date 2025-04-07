@@ -1,30 +1,38 @@
 package ui;
 
+import chess.ChessMove;
 import chess.request.*;
 import chess.result.*;
 import com.google.gson.Gson;
+import websocket.Deserializer;
+import websocket.commands.*;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
+
+import static websocket.commands.UserGameCommand.CommandType.*;
 
 public class ServerFacade {
 
-    HttpCommunicator comm;
+    HttpCommunicator httpComm;
+    WebsocketCommunicator wsComm;
     Gson gson;
 
-    public ServerFacade(String url) {
-        comm = new HttpCommunicator(url);
-        gson = new Gson();
+    public ServerFacade(String url, ServerMessageObserver observer) {
+        httpComm = new HttpCommunicator(url);
+        wsComm = new WebsocketCommunicator(url, observer);
+        gson = Deserializer.getGson();
     }
 
     public void clearDatabase() throws IOException {
-        comm.doRequest("/db", "DELETE", new HashMap<>(), "");
+        httpComm.doRequest("/db", "DELETE", new HashMap<>(), "");
     }
 
     public RegisterResult registerUser(RegisterRequest req) throws IOException {
         HashMap<String, String> props = new HashMap<String, String>();
         try {
-            String resBody = comm.doRequest("/user", "POST", props, gson.toJson(req));
+            String resBody = httpComm.doRequest("/user", "POST", props, gson.toJson(req));
             return gson.fromJson(resBody, RegisterResult.class);
         } catch (IOException e) {
             String code = e.getMessage();
@@ -37,7 +45,7 @@ public class ServerFacade {
     public LoginResult loginUser(LoginRequest req) throws IOException {
         HashMap<String, String> props = new HashMap<String, String>();
         try {
-            String resBody = comm.doRequest("/session", "POST", props, gson.toJson(req));
+            String resBody = httpComm.doRequest("/session", "POST", props, gson.toJson(req));
             return gson.fromJson(resBody, LoginResult.class);
         } catch (IOException e) {
             String code = e.getMessage();
@@ -51,7 +59,7 @@ public class ServerFacade {
         HashMap<String, String> props = new HashMap<String, String>();
         props.put("authorization", req.authToken());
         try {
-            String resBody = comm.doRequest("/session", "DELETE", props, "");
+            String resBody = httpComm.doRequest("/session", "DELETE", props, "");
             return gson.fromJson(resBody, LogoutResult.class);
         } catch (IOException e) {
             String code = e.getMessage();
@@ -65,7 +73,7 @@ public class ServerFacade {
         HashMap<String, String> props = new HashMap<String, String>();
         props.put("authorization", req.authToken());
         try {
-            String resBody = comm.doRequest("/game", "GET", props, "");
+            String resBody = httpComm.doRequest("/game", "GET", props, "");
             return gson.fromJson(resBody, ListGameResult.class);
         } catch (IOException e) {
             String code = e.getMessage();
@@ -80,7 +88,7 @@ public class ServerFacade {
         props.put("authorization", req.authToken());
         DesiredGame reqBodyObj = new DesiredGame(req.playerColor(), req.gameID());
         try {
-            String resBody = comm.doRequest("/game", "PUT", props, gson.toJson(reqBodyObj));
+            String resBody = httpComm.doRequest("/game", "PUT", props, gson.toJson(reqBodyObj));
             return gson.fromJson(resBody, JoinGameResult.class);
         } catch (IOException e) {
             String code = e.getMessage();
@@ -98,7 +106,7 @@ public class ServerFacade {
         props.put("authorization", req.authToken());
         GameName reqBodyObj = new GameName(req.gameName());
         try {
-            String resBody = comm.doRequest("/game", "POST", props, gson.toJson(reqBodyObj));
+            String resBody = httpComm.doRequest("/game", "POST", props, gson.toJson(reqBodyObj));
             return gson.fromJson(resBody, CreateGameResult.class);
         } catch (IOException e) {
             String code = e.getMessage();
@@ -106,5 +114,27 @@ public class ServerFacade {
                     "You shouldn't be seeing this, its a code " + code;
             throw new IOException(newMessage);
         }
+    }
+
+    public void connectToWebsocket(String authToken, Integer gameID) {
+        UserGameCommand command = new UserGameCommand(CONNECT, authToken, gameID);
+        wsComm.establishConnection();
+        wsComm.sendMessage(gson.toJson(command));
+    }
+
+    public void makeMove(String authToken, Integer gameID, ChessMove move) {
+        MoveCommand command = new MoveCommand(authToken, gameID, move);
+        wsComm.sendMessage(gson.toJson(command));
+    }
+
+    public void resign(String authToken, Integer gameID) {
+        UserGameCommand command = new UserGameCommand(RESIGN, authToken, gameID);
+        wsComm.sendMessage(gson.toJson(command));
+    }
+
+    public void leave(String authToken, Integer gameID) {
+        UserGameCommand command = new UserGameCommand(LEAVE, authToken, gameID);
+        wsComm.sendMessage(gson.toJson(command));
+        wsComm.disconnect();
     }
 }
