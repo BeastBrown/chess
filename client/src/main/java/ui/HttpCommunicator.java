@@ -1,19 +1,16 @@
 package ui;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.io.Reader;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
-import java.util.Scanner;
 
-public class ClientCommunicator {
+public class HttpCommunicator {
 
     private String url;
 
-    public ClientCommunicator(String urlString) {
+    public HttpCommunicator(String urlString) {
         this.url = urlString;
     }
 

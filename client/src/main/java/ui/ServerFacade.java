@@ -9,11 +9,11 @@ import java.util.HashMap;
 
 public class ServerFacade {
 
-    ClientCommunicator comm;
+    HttpCommunicator comm;
     Gson gson;
 
     public ServerFacade(String url) {
-        comm = new ClientCommunicator(url);
+        comm = new HttpCommunicator(url);
         gson = new Gson();
     }
 
