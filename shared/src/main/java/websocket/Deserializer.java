@@ -38,7 +38,7 @@ public class Deserializer {
         @Override
         public ServerMessage deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
             JsonObject jsonObj =  jsonElement.getAsJsonObject();
-            String mType = jsonObj.get("commandType").getAsString();
+            String mType = jsonObj.get("serverMessageType").getAsString();
             return switch(mType) {
                 case "ERROR" -> jsonDeserializationContext.deserialize(jsonElement, ErrorMessage.class);
                 case "LOAD_GAME" -> jsonDeserializationContext.deserialize(jsonElement, LoadGameMessage.class);

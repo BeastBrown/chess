@@ -1,6 +1,7 @@
 package ui;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 import websocket.Deserializer;
 import websocket.messages.ServerMessage;
 
@@ -76,8 +77,12 @@ public class WebsocketCommunicator extends Endpoint {
         @Override
         public void onMessage(String jsonString) {
             logger.log(Level.INFO, "received this server message " + jsonString);
-            ServerMessage message = gson.fromJson(jsonString, ServerMessage.class);
-            observer.notify(message);
+            try {
+                ServerMessage message = gson.fromJson(jsonString, ServerMessage.class);
+                observer.notify(message);
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, "An Exception occured " + e.getMessage());
+            }
         }
     }
 }

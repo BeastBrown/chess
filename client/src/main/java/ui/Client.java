@@ -293,6 +293,7 @@ public class Client implements ServerMessageObserver {
 
     @Override
     public void notify(ServerMessage message) {
+        logger.log(Level.INFO, "Entering the notify method");
         switch (message.getServerMessageType()) {
             case ERROR -> showError((ErrorMessage) message);
             case LOAD_GAME -> loadGame((LoadGameMessage) message);
