@@ -8,6 +8,7 @@ import javax.websocket.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.ByteBuffer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -56,7 +57,8 @@ public class WebsocketCommunicator extends Endpoint {
 
     @Override
     public void onOpen(Session session, EndpointConfig endpointConfig) {
-        session.addMessageHandler(new WsHandler());
+        session.addMessageHandler(new WsStringHandler());
+        session.addMessageHandler(new WsByteHandler());
         this.session = session;
         logger.log(Level.INFO, "WS connection established, message handler registered with session ID " + session.getId());
     }
@@ -71,12 +73,19 @@ public class WebsocketCommunicator extends Endpoint {
         this.session = null;
     }
 
-    public class WsHandler implements MessageHandler.Whole<String> {
+    public class WsStringHandler implements MessageHandler.Whole<String> {
         @Override
         public void onMessage(String jsonString) {
             logger.log(Level.INFO, "received this server message " + jsonString);
             ServerMessage message = gson.fromJson(jsonString, ServerMessage.class);
             observer.notify(message);
+        }
+    }
+
+    public class WsByteHandler implements MessageHandler.Whole<ByteBuffer> {
+        @Override
+        public void onMessage(ByteBuffer byteBuffer) {
+            logger.log(Level.SEVERE, "Received a binary message");
         }
     }
 
