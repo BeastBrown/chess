@@ -58,7 +58,6 @@ public class WebsocketCommunicator extends Endpoint {
     @Override
     public void onOpen(Session session, EndpointConfig endpointConfig) {
         session.addMessageHandler(new WsStringHandler());
-        session.addMessageHandler(new WsByteHandler());
         this.session = session;
         logger.log(Level.INFO, "WS connection established, message handler registered with session ID " + session.getId());
     }
@@ -81,12 +80,4 @@ public class WebsocketCommunicator extends Endpoint {
             observer.notify(message);
         }
     }
-
-    public class WsByteHandler implements MessageHandler.Whole<ByteBuffer> {
-        @Override
-        public void onMessage(ByteBuffer byteBuffer) {
-            logger.log(Level.SEVERE, "Received a binary message");
-        }
-    }
-
 }
