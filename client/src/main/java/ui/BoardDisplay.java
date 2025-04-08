@@ -90,18 +90,29 @@ public class BoardDisplay {
 
     private void drawRow(int row) {
         String currBg = Math.floorMod(row, 2) == 1 ? darkColor : lightColor;
-        for (int j=1; j < 9 ; j++) {
-            ChessPosition pos = new ChessPosition(row, j);
-            String temp = currBg;
-            if (isHighlighted(pos)) {
-                currBg = currBg.equals(lightColor) ? highlightedLightColor : highlightedDarkColor;
+        if (allegiance.equals(WHITE)) {
+            for (int j=1; j < 9 ; j++) {
+                currBg = drawRowSection(currBg, row, j);
             }
-            output.print(currBg);
-            currBg = temp;
-            String squareString = getSquareString(new ChessPosition(row, j));
-            output.print(squareString);
-            currBg = currBg.equals(lightColor) ? darkColor : lightColor;
+        } else {
+            for (int j=8; j > 0 ; j--) {
+                currBg = drawRowSection(currBg, row, j);
+            }
         }
+    }
+
+    private String drawRowSection(String currBg, int row, int j) {
+        ChessPosition pos = new ChessPosition(row, j);
+        String temp = currBg;
+        if (isHighlighted(pos)) {
+            currBg = currBg.equals(lightColor) ? highlightedLightColor : highlightedDarkColor;
+        }
+        output.print(currBg);
+        currBg = temp;
+        String squareString = getSquareString(new ChessPosition(row, j));
+        output.print(squareString);
+        currBg = currBg.equals(lightColor) ? darkColor : lightColor;
+        return currBg;
     }
 
     private String getSquareString(ChessPosition pos) {

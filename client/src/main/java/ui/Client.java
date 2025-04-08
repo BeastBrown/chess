@@ -341,7 +341,7 @@ public class Client implements ServerMessageObserver {
         printInObservationHelp();
         String[] args = {"good stuff"};
         while (!args[0].equals("LEAVE")) {
-            sleepTime(200);
+            sleepTime(1000);
             printFancyConsole();
             String input = scanner.nextLine().toUpperCase();
             args = input.split("\\s+");
@@ -381,7 +381,7 @@ public class Client implements ServerMessageObserver {
         printInPlayHelp();
         String[] args = {"good stuff"};
         while (!args[0].equals("LEAVE")) {
-            sleepTime(200);
+            sleepTime(1000);
             printFancyConsole();
             String input = scanner.nextLine().toUpperCase();
             args = input.split("\\s+");
