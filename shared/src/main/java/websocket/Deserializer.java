@@ -24,7 +24,9 @@ public class Deserializer {
     private static class UserCommandDeserializer implements JsonDeserializer<UserGameCommand> {
 
         @Override
-        public UserGameCommand deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+        public UserGameCommand deserialize(JsonElement jsonElement, Type type,
+                                           JsonDeserializationContext jsonDeserializationContext)
+                throws JsonParseException {
             JsonObject jsonObj =  jsonElement.getAsJsonObject();
             String cType = jsonObj.get("commandType").getAsString();
             return cType.equals("MAKE_MOVE") ?
@@ -36,7 +38,9 @@ public class Deserializer {
     private static class ServerMessageDeserializer implements JsonDeserializer<ServerMessage> {
 
         @Override
-        public ServerMessage deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
+        public ServerMessage deserialize(JsonElement jsonElement, Type type,
+                                         JsonDeserializationContext jsonDeserializationContext)
+                throws JsonParseException {
             JsonObject jsonObj =  jsonElement.getAsJsonObject();
             String mType = jsonObj.get("serverMessageType").getAsString();
             return switch(mType) {

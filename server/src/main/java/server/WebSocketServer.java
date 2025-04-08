@@ -17,7 +17,7 @@ public class WebSocketServer {
 
     private GamePlayService playService;
     private Gson gson;
-    private static final Logger logger = Logger.getGlobal();
+    private static Logger logger = Logger.getGlobal();
 
     public WebSocketServer(GamePlayService gamePlayService) {
         this.playService = gamePlayService;

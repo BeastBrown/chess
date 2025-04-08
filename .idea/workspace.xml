@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f17ea107-8188-4258-844e-637268d5fa8b" name="Changes" comment="" />
+    <list default="true" id="f17ea107-8188-4258-844e-637268d5fa8b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,6 +62,7 @@
     "JUnit.All in client.executor": "Run",
     "JUnit.All in server (1).executor": "Run",
     "JUnit.All in server.executor": "Run",
+    "JUnit.All in shared (1).executor": "Run",
     "JUnit.All in shared.executor": "Run",
     "JUnit.WebSocketTests.connectBadAuthToken.executor": "Debug",
     "JUnit.WebSocketTests.connectBadGameID.executor": "Run",
@@ -87,7 +92,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.All in shared (1)">
+  <component name="RunManager" selected="Application.Main Client">
     <configuration name="Main Client" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -163,7 +168,7 @@
       <workItem from="1744053141106" duration="23337000" />
       <workItem from="1744082173503" duration="4952000" />
       <workItem from="1744130273902" duration="6272000" />
-      <workItem from="1744141626513" duration="9140000" />
+      <workItem from="1744141626513" duration="9522000" />
     </task>
     <servers />
   </component>

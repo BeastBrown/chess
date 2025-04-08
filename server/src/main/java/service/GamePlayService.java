@@ -304,10 +304,10 @@ public class GamePlayService {
         return gameMap.get(id);
     }
 
-    private void initGameEntry(Session session, Integer ID) {
+    private void initGameEntry(Session session, Integer id) {
         ArrayList<Session> firstSesList = new ArrayList<Session>();
         firstSesList.add(session);
-        gameMap.put(ID, firstSesList);
+        gameMap.put(id, firstSesList);
     }
 
     private ServerMessage getConnectAllMessage(ServerMessage cMessage,
