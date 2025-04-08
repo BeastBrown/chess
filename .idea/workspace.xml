@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f17ea107-8188-4258-844e-637268d5fa8b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/main/java/ui/ClientInGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/server/WebSocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +93,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.Main Client">
+  <component name="RunManager" selected="JUnit.All in shared">
     <configuration name="Main Client" type="Application" factoryName="Application" singleton="false" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="client" />
@@ -107,7 +108,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in client" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in client (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="client" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -115,7 +116,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in server" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in server (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="server" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -123,7 +124,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in shared (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in shared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="shared" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -134,15 +135,15 @@
     <list>
       <item itemvalue="Application.Main Server" />
       <item itemvalue="Application.Main Client" />
-      <item itemvalue="JUnit.All in shared (1)" />
-      <item itemvalue="JUnit.All in client" />
-      <item itemvalue="JUnit.All in server" />
+      <item itemvalue="JUnit.All in client (1)" />
+      <item itemvalue="JUnit.All in server (1)" />
+      <item itemvalue="JUnit.All in shared" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in shared (1)" />
-        <item itemvalue="JUnit.All in server" />
-        <item itemvalue="JUnit.All in client" />
+        <item itemvalue="JUnit.All in shared" />
+        <item itemvalue="JUnit.All in server (1)" />
+        <item itemvalue="JUnit.All in client (1)" />
         <item itemvalue="Application.Main Client" />
         <item itemvalue="Application.Main Server" />
       </list>
@@ -168,7 +169,7 @@
       <workItem from="1744053141106" duration="23337000" />
       <workItem from="1744082173503" duration="4952000" />
       <workItem from="1744130273902" duration="6272000" />
-      <workItem from="1744141626513" duration="9522000" />
+      <workItem from="1744141626513" duration="12313000" />
     </task>
     <servers />
   </component>

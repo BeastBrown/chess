@@ -19,14 +19,5 @@ public class Main {
     private static void configureLogging() {
         Logger logger = Logger.getGlobal();
         logger.setLevel(Level.OFF);
-
-        for (var handler : logger.getHandlers()) {
-            logger.removeHandler(handler);
-        }
-
-        ConsoleHandler cHandler = new ConsoleHandler();
-        cHandler.setLevel(Level.ALL);
-        logger.addHandler(cHandler);
-        logger.log(Level.FINE, "Logging start");
     }
 }
