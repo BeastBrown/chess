@@ -20,7 +20,6 @@ public class Main {
         logger.addHandler(cHandler);
         logger.log(Level.FINE, "Logging start");
 
-//        new Client("http://localhost:8080").run();
-        new BoardDisplay(new ChessBoard(), WHITE).showBoard();
+        new Client("http://localhost:8080").run();
     }
 }

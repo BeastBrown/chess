@@ -2,6 +2,7 @@ package ui;
 
 import chess.ChessBoard;
 import chess.ChessGame.TeamColor;
+import chess.ChessMove;
 import chess.ChessPiece;
 import chess.ChessPosition;
 
@@ -10,6 +11,8 @@ import static ui.EscapeSequences.*;
 
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 
 public class BoardDisplay {
@@ -17,6 +20,7 @@ public class BoardDisplay {
     private ChessBoard board;
     private TeamColor allegiance;
     private PrintStream output;
+    private HashSet<ChessPosition> highlights;
     private static String borderColor = SET_BG_COLOR_YELLOW;
     private static String borderTextColor = SET_TEXT_COLOR_RED;
     private static String darkColor = SET_BG_COLOR_DARK_GREY;
@@ -26,10 +30,30 @@ public class BoardDisplay {
     private static String whiteColor = SET_TEXT_COLOR_WHITE;
     private static String blackColor = SET_TEXT_COLOR_BLACK;
 
+    public BoardDisplay(ChessBoard board, TeamColor allegiance, Collection<ChessMove> moveHighlights) {
+        this.board = board;
+        this.allegiance = allegiance;
+        highlights = getPositions(moveHighlights);
+        output = new PrintStream(System.out, true, StandardCharsets.UTF_8);
+    }
+
     public BoardDisplay(ChessBoard board, TeamColor allegiance) {
         this.board = board;
         this.allegiance = allegiance;
+        highlights = new HashSet<ChessPosition>();
         output = new PrintStream(System.out, true, StandardCharsets.UTF_8);
+    }
+
+    private HashSet<ChessPosition> getPositions(Collection<ChessMove> moveHighlights) {
+        HashSet<ChessPosition> highlights = new HashSet<ChessPosition>();
+        for (ChessMove move : moveHighlights) {
+            highlights.add(move.getEndPosition());
+        }
+        return highlights;
+    }
+
+    private boolean isHighlighted(ChessPosition pos) {
+        return highlights.contains(pos);
     }
 
     public void showBoard() {
@@ -67,7 +91,13 @@ public class BoardDisplay {
     private void drawRow(int row) {
         String currBg = Math.floorMod(row, 2) == 1 ? darkColor : lightColor;
         for (int j=1; j < 9 ; j++) {
+            ChessPosition pos = new ChessPosition(row, j);
+            String temp = currBg;
+            if (isHighlighted(pos)) {
+                currBg = currBg.equals(lightColor) ? highlightedLightColor : highlightedDarkColor;
+            }
             output.print(currBg);
+            currBg = temp;
             String squareString = getSquareString(new ChessPosition(row, j));
             output.print(squareString);
             currBg = currBg.equals(lightColor) ? darkColor : lightColor;

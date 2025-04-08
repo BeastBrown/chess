@@ -336,7 +336,8 @@ public class Client implements ServerMessageObserver {
             validatePosBounds(pos);
             Collection<ChessMove> moves = game.validMoves(pos);
             ChessGame.TeamColor perspective = getPerspective();
-            BoardDisplay display = new BoardDisplay(game.getBoard(), perspective);
+            BoardDisplay display = new BoardDisplay(game.getBoard(), perspective, moves);
+            display.showBoard();
             throw new RuntimeException("NOT IMPLEMENTED");
         } catch (InvalidUserInputException e) {
             System.out.println(e.getMessage());
