@@ -339,12 +339,21 @@ public class Client implements ServerMessageObserver {
 
     private void observationRepl() {
         printInObservationHelp();
-        printInPlayHelp();
         String[] args = {"good stuff"};
         while (!args[0].equals("LEAVE")) {
+            sleepTime(200);
+            printFancyConsole();
             String input = scanner.nextLine().toUpperCase();
             args = input.split("\\s+");
             inObservationArguments(args);
+        }
+    }
+
+    private void sleepTime(int mills) {
+        try {
+            Thread.sleep(mills);
+        } catch (InterruptedException e) {
+            logger.log(Level.SEVERE, "It wouldn't let the Thread sleep");
         }
     }
 
@@ -372,6 +381,8 @@ public class Client implements ServerMessageObserver {
         printInPlayHelp();
         String[] args = {"good stuff"};
         while (!args[0].equals("LEAVE")) {
+            sleepTime(200);
+            printFancyConsole();
             String input = scanner.nextLine().toUpperCase();
             args = input.split("\\s+");
             inPlayArguments(args);
@@ -395,6 +406,7 @@ public class Client implements ServerMessageObserver {
             ChessPosition pos = getPos(args[1]);
             validateIsInGame();
             validatePosBounds(pos);
+            validateIsPiece(pos);
             Collection<ChessMove> moves = game.validMoves(pos);
             ChessGame.TeamColor perspective = getPerspective();
             BoardDisplay display = new BoardDisplay(game.getBoard(), perspective, moves);
@@ -403,6 +415,13 @@ public class Client implements ServerMessageObserver {
             System.out.println(e.getMessage());
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Must supply a position of form [column letter][row number]");
+        }
+    }
+
+    private void validateIsPiece(ChessPosition pos) throws InvalidUserInputException {
+        ChessPiece piece = this.game.getBoard().getPiece(pos);
+        if (piece == null) {
+            throw new InvalidUserInputException("The position does not correspond to a piece");
         }
     }
 
@@ -415,7 +434,7 @@ public class Client implements ServerMessageObserver {
     private void leave() {
         try {
             validateIsInGame();
-            facade.resign(authToken, gameID);
+            facade.leave(authToken, gameID);
         } catch (InvalidUserInputException e) {
             System.out.println(e.getMessage());
         }
@@ -441,10 +460,10 @@ public class Client implements ServerMessageObserver {
         try {
             validateIsActive();
             move = getMove(args);
+            facade.makeMove(authToken, gameID, move);
         } catch (InvalidUserInputException e) {
             System.out.println(e.getMessage());
         }
-        facade.makeMove(authToken, gameID, move);
     }
 
     private void validateIsActive() throws InvalidUserInputException {
@@ -455,8 +474,14 @@ public class Client implements ServerMessageObserver {
     }
 
     private ChessMove getMove(String[] args) throws InvalidUserInputException {
-        ChessPosition from = getPos(args[1]);
-        ChessPosition to = getPos(args[2]);
+        ChessPosition from = null;
+        ChessPosition to = null;
+        try {
+            from = getPos(args[1]);
+            to = getPos(args[2]);
+        } catch (IndexOutOfBoundsException e) {
+            throw new InvalidUserInputException("You must provide from and to positions");
+        }
         PieceType promotion = null;
         try {
             promotion = args.length >= 4 ? PieceType.valueOf(args[3]) : null;
@@ -464,6 +489,8 @@ public class Client implements ServerMessageObserver {
             throw new InvalidUserInputException("Your promotion piece is not an actual chess piece");
         }
         ChessMove move = new ChessMove(from, to, promotion);
+        validatePosBounds(from);
+        validateIsPiece(from);
         Collection<ChessMove> legitMoves = game.validMoves(from);
         if (!legitMoves.contains(move)) {
             throw new InvalidUserInputException("Your move is invalid, highlight to show valid moves");

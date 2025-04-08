@@ -1,9 +1,6 @@
 package service;
 
-import chess.ChessGame;
-import chess.ChessMove;
-import chess.ChessPosition;
-import chess.InvalidMoveException;
+import chess.*;
 import chess.data.AuthData;
 import chess.data.GameData;
 import com.google.gson.Gson;
@@ -134,14 +131,31 @@ public class GamePlayService {
         try {
             validateBasicFields(command, gameData);
             validateIsPlayer(command, gameData);
+            validateIsPlayerPiece(command, move, gameData);
             validateIsPlayerTurn(command, gameData);
             validateIsActive(gameData);
             gameData.game().makeMove(move);
         } catch (InvalidParametersException | InvalidMoveException e) {
             return new ErrorMessage(e.getMessage());
+        } catch (Exception e) {
+            return new ErrorMessage("Move could not be executed due to " + e.getMessage());
         }
         gameAccessor.updateGameData(gameData);
         return new LoadGameMessage(gameData.game());
+    }
+
+    private void validateIsPlayerPiece(MoveCommand command, ChessMove move, GameData gameData) throws InvalidParametersException {
+        ChessPosition from = move.getStartPosition();
+        String username = getUsername(command);
+        String allegiance = getAllegiance(gameData, username);
+        ChessGame.TeamColor side = allegiance.equals("White") ? WHITE : BLACK;
+        ChessPiece piece = gameData.game().getBoard().getPiece(from);
+        if (piece == null) {
+            throw new InvalidParametersException("There is no piece on that square");
+        }
+        if (!piece.getTeamColor().equals(side)) {
+            throw new InvalidParametersException("You cant move somebody else's piece");
+        }
     }
 
     private void validateIsPlayerTurn(MoveCommand command, GameData gameData)
