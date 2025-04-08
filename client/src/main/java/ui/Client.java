@@ -303,6 +303,10 @@ public class Client implements ServerMessageObserver {
         }
     }
 
+    private void observationRepl() {
+        throw new RuntimeException("NOT IMPLEMENTED");
+    }
+
     private void gamePlayRepl() {
         printInPlayHelp();
         String[] args = {"good stuff"};
@@ -322,6 +326,52 @@ public class Client implements ServerMessageObserver {
             case "LEAVE" -> leave();
             case "HIGHLIGHT" -> highlight(args);
             default -> printInPlayHelp();
+        }
+    }
+
+    private void highlight(String[] args) {
+        try {
+            ChessPosition pos = getPos(args[1]);
+            validateIsInGame();
+            validatePosBounds(pos);
+            Collection<ChessMove> moves = game.validMoves(pos);
+            ChessGame.TeamColor perspective = getPerspective();
+            BoardDisplay display = new BoardDisplay(game.getBoard(), perspective);
+            throw new RuntimeException("NOT IMPLEMENTED");
+        } catch (InvalidUserInputException e) {
+            System.out.println(e.getMessage());
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Must supply a position of form [column letter][row number]");
+        }
+    }
+
+    private void validatePosBounds(ChessPosition pos) throws InvalidUserInputException {
+        if (!pos.inBounds()) {
+            throw new InvalidUserInputException("position out of bounds");
+        }
+    }
+
+    private void leave() {
+        try {
+            validateIsInGame();
+            facade.resign(authToken, gameID);
+        } catch (InvalidUserInputException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void resign() {
+        try {
+            validateIsInGame();
+            facade.resign(authToken, gameID);
+        } catch (InvalidUserInputException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    private void validateIsInGame() throws InvalidUserInputException {
+        if (gameID == null) {
+            throw new InvalidUserInputException("You need to be in a game first");
         }
     }
 
@@ -347,7 +397,7 @@ public class Client implements ServerMessageObserver {
         ChessMove move = new ChessMove(from, to, promotion);
         Collection<ChessMove> legitMoves = game.validMoves(from);
         if (!legitMoves.contains(move)) {
-            throw new InvalidUserInputException("Your move is invalid, highlight to show valid moves")
+            throw new InvalidUserInputException("Your move is invalid, highlight to show valid moves");
         }
         return move;
     }
@@ -359,7 +409,7 @@ public class Client implements ServerMessageObserver {
             Integer rowNumber = (Integer) Integer.parseInt(arg.substring(1,2));
             return new ChessPosition(rowNumber, colNumber);
         } catch (IndexOutOfBoundsException | NumberFormatException e) {
-            throw new InvalidUserInputException("Positions must be in the format [column letter][row number]")
+            throw new InvalidUserInputException("Positions must be in the format [column letter][row number]");
         }
     }
 
@@ -379,13 +429,17 @@ public class Client implements ServerMessageObserver {
     }
 
     private void draw() {
-        ChessGame.TeamColor perspective = allegiance == null ? WHITE : allegiance;
+        ChessGame.TeamColor perspective = getPerspective();
         if (game != null) {
              ChessBoard board = game.getBoard();
              new BoardDisplay(board ,perspective).showBoard();
         } else {
             System.out.println("There isn't a game to show yet!");
         }
+    }
+
+    private ChessGame.TeamColor getPerspective() {
+        return allegiance == null ? WHITE : allegiance;
     }
 
     private void printInPlayHelp() {

@@ -21,6 +21,8 @@ public class BoardDisplay {
     private static String borderTextColor = SET_TEXT_COLOR_RED;
     private static String darkColor = SET_BG_COLOR_DARK_GREY;
     private static String lightColor = SET_BG_COLOR_LIGHT_GREY;
+    private static String highlightedDarkColor = SET_BG_COLOR_DARK_GREEN;
+    private static String highlightedLightColor = SET_BG_COLOR_GREEN;
     private static String whiteColor = SET_TEXT_COLOR_WHITE;
     private static String blackColor = SET_TEXT_COLOR_BLACK;
 

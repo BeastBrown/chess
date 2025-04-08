@@ -6,9 +6,11 @@ import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static chess.ChessGame.TeamColor.WHITE;
+
 public class Main {
     public static void main(String[] args) {
-        var piece = new ChessPiece(ChessGame.TeamColor.WHITE, ChessPiece.PieceType.PAWN);
+        var piece = new ChessPiece(WHITE, ChessPiece.PieceType.PAWN);
         System.out.println("♕ 240 Chess Client: " + piece);
 
         Logger logger = Logger.getGlobal();
@@ -18,6 +20,7 @@ public class Main {
         logger.addHandler(cHandler);
         logger.log(Level.FINE, "Logging start");
 
-        new Client("http://localhost:8080").run();
+//        new Client("http://localhost:8080").run();
+        new BoardDisplay(new ChessBoard(), WHITE).showBoard();
     }
 }
