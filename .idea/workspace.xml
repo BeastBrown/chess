@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="f17ea107-8188-4258-844e-637268d5fa8b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/ServerFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/ServerFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/ui/WebsocketCommunicator.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/ui/WebsocketCommunicator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/service/GamePlayService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,41 +57,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main Client.executor": "Run",
-    "Application.Main Server.executor": "Run",
-    "Application.Main.executor": "Run",
-    "JUnit.All in client.executor": "Run",
-    "JUnit.All in server.executor": "Run",
-    "JUnit.WebSocketTests.connectBadAuthToken.executor": "Debug",
-    "JUnit.WebSocketTests.connectBadGameID.executor": "Run",
-    "JUnit.WebSocketTests.connectGood.executor": "Debug",
-    "JUnit.WebSocketTests.connectSingleUser.executor": "Run",
-    "JUnit.WebSocketTests.executor": "Run",
-    "JUnit.WebSocketTests.invalidMoveGameOver.executor": "Run",
-    "JUnit.WebSocketTests.invalidMoveOpponent.executor": "Run",
-    "JUnit.WebSocketTests.invalidResignGameOver.executor": "Run",
-    "JUnit.WebSocketTests.leaveGame.executor": "Run",
-    "JUnit.WebSocketTests.makeMoveBadAuthtoken.executor": "Run",
-    "JUnit.WebSocketTests.moveAfterResign.executor": "Run",
-    "JUnit.WebSocketTests.validMove.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/bryan/OneDrive/Desktop/codekrap/coursework/cs240",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main Server.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in client.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in server.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.connectBadAuthToken.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.WebSocketTests.connectBadGameID.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.connectGood.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.WebSocketTests.connectSingleUser.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.invalidMoveGameOver.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.invalidMoveOpponent.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.invalidResignGameOver.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.leaveGame.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.makeMoveBadAuthtoken.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.moveAfterResign.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.WebSocketTests.validMove.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/bryan/OneDrive/Desktop/codekrap/coursework/cs240&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Main Client">
     <configuration name="Main Client" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -167,7 +172,9 @@
       <workItem from="1743804364090" duration="12964000" />
       <workItem from="1743891513628" duration="19754000" />
       <workItem from="1743963473815" duration="3580000" />
-      <workItem from="1744053141106" duration="22199000" />
+      <workItem from="1744053141106" duration="23337000" />
+      <workItem from="1744082173503" duration="4952000" />
+      <workItem from="1744130273902" duration="3883000" />
     </task>
     <servers />
   </component>

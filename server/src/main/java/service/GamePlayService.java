@@ -276,7 +276,7 @@ public class GamePlayService {
     private void sendAllMessage(Integer id, ServerMessage allMessage, Session not) {
         ArrayList<Session> sList = getSessions(id);
         if (sList == null) {
-            logger.log(Level.FINE, "session list was null");
+            logger.log(Level.INFO, "session list was null");
             return;
         }
         for (Session s : sList) {
@@ -334,6 +334,7 @@ public class GamePlayService {
     }
 
     private void sendMessage(Session s, ServerMessage message) {
+        logger.log(Level.INFO, "entering the server message sender");
         String sMessage = gson.toJson(message);
         boolean isSessionOpen = s.isOpen();
         if (!isSessionOpen) {
@@ -342,7 +343,7 @@ public class GamePlayService {
         }
         try {
             s.getRemote().sendString(sMessage);
-            logger.log(Level.INFO, "The message was successfully sent");
+            logger.log(Level.INFO, "The message was successfully sent to id " + sMessage);
         } catch (IOException | WebSocketException e) {
             logger.log(Level.SEVERE, "we couldn't send this message | " + sMessage);
         }

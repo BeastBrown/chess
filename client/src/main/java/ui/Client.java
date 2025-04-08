@@ -17,6 +17,8 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static chess.ChessGame.TeamColor.BLACK;
 import static chess.ChessGame.TeamColor.WHITE;
@@ -30,6 +32,7 @@ public class Client implements ServerMessageObserver {
     private ChessGame.TeamColor allegiance;
     private Integer gameID;
     private ChessGame game;
+    private static Logger logger = Logger.getGlobal();
 
     public Client(String url) {
         scanner = new Scanner(System.in);
@@ -123,6 +126,7 @@ public class Client implements ServerMessageObserver {
     }
 
     private void postLoginArguments(String input) {
+        logger.log(Level.INFO, "Entering the post login arguments");
         String[] args = input.split("\\s+");
         String first = args[0];
         switch (first) {
@@ -154,11 +158,12 @@ public class Client implements ServerMessageObserver {
                     "You must list the games");
         }
         this.gameID = gameID;
-        facade.connectToWebsocket(authToken, this.gameID);
+        logger.log(Level.INFO, "Successfully transitioning to observe");
         inGameTransition("OBSERVE");
     }
 
     private void facilitatePlay(String input) {
+        logger.log(Level.INFO, "Entering play facilitation");
         try {
             playGame(input);
         } catch (InvalidUserInputException | IOException e) {
@@ -174,6 +179,7 @@ public class Client implements ServerMessageObserver {
         JoinGameRequest req = new JoinGameRequest(this.authToken, desiredColor, gameID);
         JoinGameResult res = facade.joinGame(req);
         this.gameID = gameID;
+        logger.log(Level.INFO, "Transitioning to play game");
         inGameTransition(desiredColor);
     }
 
@@ -320,6 +326,7 @@ public class Client implements ServerMessageObserver {
     }
 
     private void inGameTransition(String gameAllegiance) {
+        logger.log(Level.INFO, "Entering the in game transition");
         storeAllegiance(gameAllegiance);
         facade.connectToWebsocket(authToken, gameID);
         if (allegiance == null) {

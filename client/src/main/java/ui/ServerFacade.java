@@ -10,6 +10,8 @@ import websocket.commands.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static websocket.commands.UserGameCommand.CommandType.*;
 
@@ -18,10 +20,14 @@ public class ServerFacade {
     private HttpCommunicator httpComm;
     private WebsocketCommunicator wsComm;
     private Gson gson;
+    private static Logger logger = Logger.getGlobal();
 
     public ServerFacade(String url, ServerMessageObserver observer) {
         httpComm = new HttpCommunicator(url);
-        wsComm = new WebsocketCommunicator(url, observer);
+        String wsUri = url
+                .replaceAll("http", "ws")
+                .concat("/ws");
+        wsComm = new WebsocketCommunicator(wsUri, observer);
         gson = Deserializer.getGson();
     }
 
@@ -117,6 +123,7 @@ public class ServerFacade {
     }
 
     public void connectToWebsocket(String authToken, Integer gameID) {
+        logger.log(Level.INFO, "Attempting to connect to websocket");
         UserGameCommand command = new UserGameCommand(CONNECT, authToken, gameID);
         wsComm.establishConnection();
         wsComm.sendMessage(gson.toJson(command));

@@ -11,6 +11,7 @@ import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@ClientEndpoint
 public class WebsocketCommunicator extends Endpoint {
 
     private URI uri;
@@ -32,8 +33,7 @@ public class WebsocketCommunicator extends Endpoint {
     public void establishConnection() {
         WebSocketContainer container = ContainerProvider.getWebSocketContainer();
         try {
-            this.session = container.connectToServer(WebsocketCommunicator.class, this.uri);
-            this.session.addMessageHandler(new WsHandler());
+            container.connectToServer(this, this.uri);
         } catch (DeploymentException | IOException e) {
             logger.log(Level.SEVERE, "We could not establish the connection for some reason");
             throw new RuntimeException(e);
@@ -41,19 +41,25 @@ public class WebsocketCommunicator extends Endpoint {
     }
 
     public void sendMessage(String message) {
+        logger.log(Level.INFO, "Entering the message sender");
         if (!session.isOpen()) {
             logger.log(Level.SEVERE, "The Session is not open");
             return;
         }
         try {
             session.getBasicRemote().sendText(message);
+            logger.log(Level.INFO, "message sent | " + message);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "We got an exception while sending the message");
         }
     }
 
     @Override
-    public void onOpen(Session session, EndpointConfig endpointConfig) {}
+    public void onOpen(Session session, EndpointConfig endpointConfig) {
+        session.addMessageHandler(new WsHandler());
+        this.session = session;
+        logger.log(Level.INFO, "WS connection established, message handler registered with session ID " + session.getId());
+    }
 
     public void disconnect() {
         try {
@@ -68,6 +74,7 @@ public class WebsocketCommunicator extends Endpoint {
     public class WsHandler implements MessageHandler.Whole<String> {
         @Override
         public void onMessage(String jsonString) {
+            logger.log(Level.INFO, "received this server message " + jsonString);
             ServerMessage message = gson.fromJson(jsonString, ServerMessage.class);
             observer.notify(message);
         }
