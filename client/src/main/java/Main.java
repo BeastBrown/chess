@@ -12,13 +12,13 @@ public class Main {
     public static void main(String[] args) {
         var piece = new ChessPiece(WHITE, ChessPiece.PieceType.PAWN);
         System.out.println("♕ 240 Chess Client: " + piece);
-
+        configureLogging();
         new Client("http://localhost:8080").run();
     }
 
     private static void configureLogging() {
         Logger logger = Logger.getGlobal();
-        logger.setLevel(Level.ALL);
+        logger.setLevel(Level.OFF);
 
         for (var handler : logger.getHandlers()) {
             logger.removeHandler(handler);

@@ -57,6 +57,7 @@ public class BoardDisplay {
     }
 
     public void showBoard() {
+        System.out.println();
         drawBorder();
         drawBody();
         drawBorder();

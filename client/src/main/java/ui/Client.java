@@ -307,6 +307,7 @@ public class Client implements ServerMessageObserver {
             game.isActive = false;
         }
         System.out.println(message.getMessage());
+        printFancyConsole();
     }
 
     private void loadGame(LoadGameMessage message) {
@@ -316,6 +317,7 @@ public class Client implements ServerMessageObserver {
 
     private void showError(ErrorMessage message) {
         System.out.println(message.getErrorMessage());
+        printFancyConsole();
     }
 
     private void storeAllegiance(String gameAllegiance) {
@@ -341,7 +343,7 @@ public class Client implements ServerMessageObserver {
         printInObservationHelp();
         String[] args = {"good stuff"};
         while (!args[0].equals("LEAVE")) {
-            sleepTime(1000);
+            sleepTime(500);
             printFancyConsole();
             String input = scanner.nextLine().toUpperCase();
             args = input.split("\\s+");
@@ -381,7 +383,7 @@ public class Client implements ServerMessageObserver {
         printInPlayHelp();
         String[] args = {"good stuff"};
         while (!args[0].equals("LEAVE")) {
-            sleepTime(1000);
+            sleepTime(500);
             printFancyConsole();
             String input = scanner.nextLine().toUpperCase();
             args = input.split("\\s+");
