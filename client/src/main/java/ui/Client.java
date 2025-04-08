@@ -8,6 +8,9 @@ import chess.result.ListGameResult;
 import chess.result.LoginResult;
 import chess.result.RegisterResult;
 import chess.ChessPiece.PieceType;
+import websocket.messages.ErrorMessage;
+import websocket.messages.LoadGameMessage;
+import websocket.messages.NotificationMessage;
 import websocket.messages.ServerMessage;
 
 import java.io.IOException;
@@ -150,6 +153,8 @@ public class Client implements ServerMessageObserver {
             throw new InvalidUserInputException("The game ID does not correspond to a game. " +
                     "You must list the games");
         }
+        this.gameID = gameID;
+        facade.connectToWebsocket(authToken, this.gameID);
         inGameTransition("OBSERVE");
     }
 
@@ -282,7 +287,28 @@ public class Client implements ServerMessageObserver {
 
     @Override
     public void notify(ServerMessage message) {
-        throw new RuntimeException("NOT IMPLEMENTED");
+        switch (message.getServerMessageType()) {
+            case ERROR -> showError((ErrorMessage) message);
+            case LOAD_GAME -> loadGame((LoadGameMessage) message);
+            case NOTIFICATION -> showNotification((NotificationMessage) message);
+        }
+    }
+
+    private void showNotification(NotificationMessage message) {
+        boolean isResignMessage = message.getMessage().contains("resign");
+        if (isResignMessage) {
+            game.isActive = false;
+        }
+        System.out.println(message.getMessage());
+    }
+
+    private void loadGame(LoadGameMessage message) {
+        game = message.getGame();
+        draw();
+    }
+
+    private void showError(ErrorMessage message) {
+        System.out.println(message.getErrorMessage());
     }
 
     private void storeAllegiance(String gameAllegiance) {
@@ -304,7 +330,34 @@ public class Client implements ServerMessageObserver {
     }
 
     private void observationRepl() {
-        throw new RuntimeException("NOT IMPLEMENTED");
+        printInObservationHelp();
+        printInPlayHelp();
+        String[] args = {"good stuff"};
+        while (!args[0].equals("LEAVE")) {
+            String input = scanner.nextLine().toUpperCase();
+            args = input.split("\\s+");
+            inObservationArguments(args);
+        }
+    }
+
+    private void inObservationArguments(String[] args) {
+        String first = args[0];
+        switch (first) {
+            case "DRAW" -> draw();
+            case "LEAVE" -> leave();
+            case "HIGHLIGHT" -> highlight(args);
+            default -> printInObservationHelp();
+        }
+    }
+
+    private void printInObservationHelp() {
+        String message = """
+                help - to display this menu
+                draw - redraw the chessboard
+                leave - to leave the game
+                highlight <piece pos> - to highlight which squares are legal moves
+                """;
+        System.out.println(message);
     }
 
     private void gamePlayRepl() {
@@ -338,7 +391,6 @@ public class Client implements ServerMessageObserver {
             ChessGame.TeamColor perspective = getPerspective();
             BoardDisplay display = new BoardDisplay(game.getBoard(), perspective, moves);
             display.showBoard();
-            throw new RuntimeException("NOT IMPLEMENTED");
         } catch (InvalidUserInputException e) {
             System.out.println(e.getMessage());
         } catch (IndexOutOfBoundsException e) {
@@ -379,11 +431,19 @@ public class Client implements ServerMessageObserver {
     private void movePiece(String[] args) {
         ChessMove move = null;
         try {
+            validateIsActive();
             move = getMove(args);
         } catch (InvalidUserInputException e) {
             System.out.println(e.getMessage());
         }
         facade.makeMove(authToken, gameID, move);
+    }
+
+    private void validateIsActive() throws InvalidUserInputException {
+        validateIsInGame();
+        if (!game.isActive) {
+            throw new InvalidUserInputException("The Game is No longer Active");
+        }
     }
 
     private ChessMove getMove(String[] args) throws InvalidUserInputException {
