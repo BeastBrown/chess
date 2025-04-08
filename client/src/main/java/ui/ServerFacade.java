@@ -15,9 +15,9 @@ import static websocket.commands.UserGameCommand.CommandType.*;
 
 public class ServerFacade {
 
-    HttpCommunicator httpComm;
-    WebsocketCommunicator wsComm;
-    Gson gson;
+    private HttpCommunicator httpComm;
+    private WebsocketCommunicator wsComm;
+    private Gson gson;
 
     public ServerFacade(String url, ServerMessageObserver observer) {
         httpComm = new HttpCommunicator(url);

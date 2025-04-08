@@ -1,15 +1,17 @@
 package ui;
 
-import chess.ChessBoard;
-import chess.ChessGame;
+import chess.*;
 import chess.data.GameData;
 import chess.request.*;
+import chess.result.JoinGameResult;
 import chess.result.ListGameResult;
 import chess.result.LoginResult;
 import chess.result.RegisterResult;
+import chess.ChessPiece.PieceType;
 import websocket.messages.ServerMessage;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Scanner;
 
@@ -23,6 +25,8 @@ public class Client implements ServerMessageObserver {
     private ServerFacade facade;
     private HashSet<Integer> idSet;
     private ChessGame.TeamColor allegiance;
+    private Integer gameID;
+    private ChessGame game;
 
     public Client(String url) {
         scanner = new Scanner(System.in);
@@ -30,6 +34,7 @@ public class Client implements ServerMessageObserver {
         facade = new ServerFacade(url, this);
         idSet = new HashSet<Integer>();
         allegiance = null;
+        gameID = null;
     }
 
     public void run() {
@@ -145,7 +150,7 @@ public class Client implements ServerMessageObserver {
             throw new InvalidUserInputException("The game ID does not correspond to a game. " +
                     "You must list the games");
         }
-        inGameRepl("WHITE");
+        inGameTransition("OBSERVE");
     }
 
     private void facilitatePlay(String input) {
@@ -162,8 +167,9 @@ public class Client implements ServerMessageObserver {
         String desiredColor = args[2].toUpperCase();
         int gameID = Integer.parseInt(args[1]);
         JoinGameRequest req = new JoinGameRequest(this.authToken, desiredColor, gameID);
-        facade.joinGame(req);
-        inGameRepl(desiredColor);
+        JoinGameResult res = facade.joinGame(req);
+        this.gameID = gameID;
+        inGameTransition(desiredColor);
     }
 
     private void sanitizePlayArgs(String[] args) throws InvalidUserInputException {
@@ -187,17 +193,6 @@ public class Client implements ServerMessageObserver {
             throw new InvalidUserInputException("The ID " + String.valueOf(gameID) + " is " +
                     "not a valid gameID, list the games to get them assigned");
         }
-    }
-
-    private void inGameRepl(String color) {
-        ChessGame.TeamColor allegiance = color.equals("WHITE") ? WHITE : BLACK;
-        ChessBoard board = new ChessBoard();
-        board.resetBoard();
-        new BoardDisplay(board, allegiance).showBoard();
-        String message = """
-                Congratulations on making it to the Game!
-                You will be redirected to the post login UI""";
-        System.out.println(message);
     }
 
     private void facilitateList() {
@@ -288,5 +283,120 @@ public class Client implements ServerMessageObserver {
     @Override
     public void notify(ServerMessage message) {
         throw new RuntimeException("NOT IMPLEMENTED");
+    }
+
+    private void storeAllegiance(String gameAllegiance) {
+        this.allegiance = switch (gameAllegiance) {
+            case "WHITE" -> WHITE;
+            case "BLACK" -> BLACK;
+            default -> null;
+        };
+    }
+
+    private void inGameTransition(String gameAllegiance) {
+        storeAllegiance(gameAllegiance);
+        facade.connectToWebsocket(authToken, gameID);
+        if (allegiance == null) {
+            observationRepl();
+        } else {
+            gamePlayRepl();
+        }
+    }
+
+    private void gamePlayRepl() {
+        printInPlayHelp();
+        String[] args = {"good stuff"};
+        while (!args[0].equals("LEAVE")) {
+            String input = scanner.nextLine().toUpperCase();
+            args = input.split("\\s+");
+            inPlayArguments(args);
+        }
+    }
+
+    private void inPlayArguments(String[] args) {
+        String first = args[0];
+        switch (first) {
+            case "DRAW" -> draw();
+            case "MOVE" -> movePiece(args);
+            case "RESIGN" -> resign();
+            case "LEAVE" -> leave();
+            case "HIGHLIGHT" -> highlight(args);
+            default -> printInPlayHelp();
+        }
+    }
+
+    private void movePiece(String[] args) {
+        ChessMove move = null;
+        try {
+            move = getMove(args);
+        } catch (InvalidUserInputException e) {
+            System.out.println(e.getMessage());
+        }
+        facade.makeMove(authToken, gameID, move);
+    }
+
+    private ChessMove getMove(String[] args) throws InvalidUserInputException {
+        ChessPosition from = getPos(args[1]);
+        ChessPosition to = getPos(args[2]);
+        PieceType promotion = null;
+        try {
+            promotion = args.length >= 4 ? PieceType.valueOf(args[3]) : null;
+        } catch (IllegalArgumentException e) {
+            throw new InvalidUserInputException("Your promotion piece is not an actual chess piece");
+        }
+        ChessMove move = new ChessMove(from, to, promotion);
+        Collection<ChessMove> legitMoves = game.validMoves(from);
+        if (!legitMoves.contains(move)) {
+            throw new InvalidUserInputException("Your move is invalid, highlight to show valid moves")
+        }
+        return move;
+    }
+
+    private ChessPosition getPos(String arg) throws InvalidUserInputException {
+        try {
+            String colLetter = arg.substring(0,1);
+            Integer colNumber = getColNumber(colLetter);
+            Integer rowNumber = (Integer) Integer.parseInt(arg.substring(1,2));
+            return new ChessPosition(rowNumber, colNumber);
+        } catch (IndexOutOfBoundsException | NumberFormatException e) {
+            throw new InvalidUserInputException("Positions must be in the format [column letter][row number]")
+        }
+    }
+
+    private Integer getColNumber(String colLetter) throws InvalidUserInputException {
+        return switch (colLetter) {
+            case "A" -> 1;
+            case "B" -> 2;
+            case "C" -> 3;
+            case "D" -> 4;
+            case "E" -> 5;
+            case "F" -> 6;
+            case "G" -> 7;
+            case "H" -> 8;
+            default -> throw new InvalidUserInputException(
+                    "The first part of the position needs the column letter");
+        };
+    }
+
+    private void draw() {
+        ChessGame.TeamColor perspective = allegiance == null ? WHITE : allegiance;
+        if (game != null) {
+             ChessBoard board = game.getBoard();
+             new BoardDisplay(board ,perspective).showBoard();
+        } else {
+            System.out.println("There isn't a game to show yet!");
+        }
+    }
+
+    private void printInPlayHelp() {
+        String message = """
+                help - to display this menu
+                draw - redraw the chessboard
+                move <from pos> <to pos> <promotion piece if applicable> - to move a piece
+                resign - to forfeit to match
+                leave - to leave the game
+                highlight <piece pos> - to highlight which squares are legal moves
+                """;
+        System.out.println(message);
     }
 }
