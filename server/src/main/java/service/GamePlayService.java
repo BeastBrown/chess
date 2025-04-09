@@ -90,17 +90,22 @@ public class GamePlayService {
         boolean inCheck = game.isInCheck(opposingAllegiance);
         boolean inCheckmate = game.isInCheckmate(opposingAllegiance);
         boolean inStalemate = game.isInStalemate(opposingAllegiance);
+        String opposingUsername = getUsernameColor(opposingAllegiance, newData);
         String message = null;
         if (inCheckmate) {
-            message = opposingAllegiance.toString() + " is in Checkmate";
+            message = opposingUsername + " as " + opposingAllegiance.toString() + " is in Checkmate";
             setGameOver(newData);
         } else if (inCheck) {
-            message = opposingAllegiance.toString() + " is in Check";
+            message = opposingUsername + " as " + opposingAllegiance.toString() + " is in Check";
         } else if (inStalemate) {
             message = "The game has ended in a stalemate. GOOD JOB";
             setGameOver(newData);
         }
         return message;
+    }
+
+    private String getUsernameColor(ChessGame.TeamColor opposingAllegiance, GameData newData) {
+        return opposingAllegiance == WHITE ? newData.whiteUsername() : newData.blackUsername();
     }
 
     private NotificationMessage getMoveNotification(ChessMove move,  String username,

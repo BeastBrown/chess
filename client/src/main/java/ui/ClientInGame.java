@@ -175,12 +175,22 @@ public class ClientInGame {
     }
 
     private void resign() {
+        if (!confirmResign()) {
+            return;
+        }
         try {
             validateIsInGame();
             facade.resign(authToken, gameID);
         } catch (InvalidUserInputException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private boolean confirmResign() {
+        System.out.println("Are You sure you want to resign? (Y/N)");
+        printFancyConsole();
+        String response = scanner.nextLine().toUpperCase();
+        return response.equals("Y");
     }
 
     private void validateIsInGame() throws InvalidUserInputException {
